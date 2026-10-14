@@ -89,27 +89,47 @@
    "s_per_frame": 2.5615180724181283,
    "first_absent_frame": null,
    "seconds": 366.4
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 49,
+   "seq": "MOT20-05",
+   "id": 245,
+   "gap_start": 308,
+   "gap_end": 341,
+   "g": 34,
+   "bin": "20-40",
+   "t_start": 278,
+   "t_end": 401,
+   "s_per_frame": 1.8190017694596463,
+   "first_absent_frame": null,
+   "seconds": 271.7
   }
  ],
  "summary": {
   "20-40": {
-   "n": 4,
-   "recovered": 4,
+   "n": 5,
+   "recovered": 5,
    "switched": 0,
    "lost": 0,
    "switched_gap": 0,
    "switched_post": 0,
-   "median_delay": 11.0
+   "median_delay": 12.0
   },
   "all": {
-   "n": 4,
-   "recovered": 4,
+   "n": 5,
+   "recovered": 5,
    "switched": 0,
    "lost": 0,
    "switched_gap": 0,
    "switched_post": 0,
-   "median_delay": 11.0
+   "median_delay": 12.0
   }
  },
- "seconds": 644.9
+ "seconds": 916.8
 }

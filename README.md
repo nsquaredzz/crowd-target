@@ -4,7 +4,11 @@ One target person through a crowd, on top of a frozen SAM 2.1, with one new piec
 statement that **the tracker has switched person**, with a controlled false-alarm rate, made
 without training and without a noise model.
 
-Status 2026-10-15: scaffold; P0 (data, episodes, SAM 2.1 baseline) in progress. No claim yet.
+Status 2026-10-15, end of day: **closed as a negative result.** The martingale is valid on
+exchangeable streams, but a tracked person's appearance after an occlusion is an outlier to
+their own earlier appearance on about half of real crowd episodes, with either training-free
+embedding tried, so the detector fires on appearance change rather than identity change.
+Numbers in RESULTS.md. No claim is made.
 
 ## The piece
 
@@ -17,10 +21,14 @@ null. The mathematics is Vovk's (conformal test martingales, 2003-2021) and Ramd
 threshold on the model's own score, a cycle-consistency check (SENTRY, 2026) or a learned
 verifier. `python/crowdtarget/martingale.py`.
 
-What is measured, not assumed: scores on consecutive frames are correlated, so the empirical
-false-alarm rate on episodes without a switch is reported beside alpha, always; the headline is
-a ROC against SAM 2's object score and a learned-null CUSUM at matched empirical false-alarm
-rate, by occlusion-gap length.
+What was measured (RESULTS.md Part II): on ground-truth crops of 24 MOT20 episodes, the share
+of the same person's post-gap crops that score outside the whole pre-gap pool is 96 % for the
+Faster R-CNN box-head feature with a 30-frame pool, 61 % with 300 frames of history, 45 % for
+DINOv2 ViT-S/14 with 300 frames; across-gap same-vs-other AUC 0.69-0.75. Per episode it is
+bimodal: on about half, the person's appearance genuinely changed. A conformal p-value against
+the person's own history is then ~1/(n+1) whatever the identity, and the martingale alarms on
+half the episodes in which SAM 2 recovers the right person. That fails the kill criterion
+written before the runs (false alarms above 2 alpha), by the score, not by the test.
 
 ## Protocol
 
@@ -57,8 +65,9 @@ containment; Faster R-CNN box-head features as an appearance descriptor; CUSUM w
 null (certified-skip §6); conformal test martingales and anytime-valid testing themselves.
 
 **New, to my knowledge.** The application of a conformal test martingale to a tracker's own
-appearance stream as an identity-switch detector with a time-uniform false-alarm guarantee,
-the score, the protocol and the measured comparison.
+appearance stream as an identity-switch detector, and the measurement that says why it cannot
+work with an appearance score: the across-gap separability tables, which anyone building
+ReID-based re-association on crowds may want. The census of clean occlusion episodes in MOT20.
 
 **Missing / not claimed.** Any guarantee when the scores are not exchangeable (consecutive
 frames are correlated; the measured false-alarm rate is the honest number); look-alikes whose
