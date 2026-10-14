@@ -36,10 +36,13 @@ def xywh_to_xyxy(r: np.ndarray) -> np.ndarray:
 class IouTracker:
     """Tracks: dict id -> {"frames": [t...], "boxes": [xyxy...], "certain": [bool...]}."""
 
-    def __init__(self, iou_match: float = 0.5, iou_amb: float = 0.2):
-        self.iou_match, self.iou_amb = iou_match, iou_amb
+    def __init__(self, iou_match: float = 0.5, iou_amb: float = 0.2, max_miss: int = 0):
+        """max_miss: frames a track survives without a detection (0 = strict continuity, the certified
+        rule of the census); a frame bridged this way is recorded as uncertain."""
+        self.iou_match, self.iou_amb, self.max_miss = iou_match, iou_amb, max_miss
         self.tracks: dict[int, dict] = {}
         self._active: dict[int, np.ndarray] = {}     # id -> last box
+        self._miss: dict[int, int] = {}
         self._next = 0
         self.last_assignment: dict[int, int] = {}    # detection index -> track id, for the last frame
 
@@ -78,6 +81,18 @@ class IouTracker:
             self.tracks[tid] = {"frames": [t], "boxes": [D[dj]], "certain": [False]}
             new_active[tid] = D[dj]
             self.last_assignment[dj] = tid
+        if self.max_miss:
+            for pi, tid in enumerate(ids):
+                if pi in assigned_p:
+                    self._miss[tid] = 0
+                    continue
+                self._miss[tid] = self._miss.get(tid, 0) + 1
+                if self._miss[tid] <= self.max_miss:
+                    tr = self.tracks[tid]
+                    tr["frames"].append(t)
+                    tr["boxes"].append(self._active[tid])
+                    tr["certain"].append(False)
+                    new_active[tid] = self._active[tid]
         self._active = new_active
 
     def run(self, dets_by_frame: dict[int, np.ndarray], frames) -> dict[int, dict]:

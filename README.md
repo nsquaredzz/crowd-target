@@ -77,11 +77,15 @@ everything that would follow the alarm (re-detection, identity sets) is planned,
 
 ## Part IV (2026-10-14, evening): the sound tracker, census first
 
-Status: **census done, tracker not built.** The ground-truth census (RESULTS.md Part IV) killed
-the plan on its tube criterion and left resolution at 21 % against a 60 % pass line: on MOT20,
-neighbour bookkeeping excludes 61 % of impostors, the colour budget 36 %, height 11 %, the tube
-10 %; certified anchors confirm with 13 right / 1 wrong but the surrounding crowd is too small to
-bound their false rate. After Piece 1 closed, two published fixes were re-implemented on top of
+Status: **census done; a first-cut tracker built and run on the 16 dev episodes (RESULTS.md Part V):
+SAM 2.1 alone 13 recovered / 2 switched / 1 lost; the sound tracker with YOLO11x detections
+13 / 0 / 2 + 1 ambiguous with the right person in its set throughout.** Silent switches to zero on
+the episodes the rules were designed from, one new loss (a night-time false detection); the
+held-out 96 are not run. The ground-truth census (Part IV) killed the full plan on its tube
+criterion and left resolution at 21 % against a 60 % pass line: on MOT20, neighbour bookkeeping
+excludes 61 % of impostors, the colour budget 36 %, height 11 %, the tube 10 %; certified anchors
+confirm with 13 right / 1 wrong but the surrounding crowd is too small to bound their false rate.
+After Piece 1 closed, two published fixes were re-implemented on top of
 frozen SAM 2.1 for comparison (`python/crowdtarget/fixes.py`: SAMURAI's motion-aware memory, and
 a DAM4SAM-style distractor-anchor rule, deviations listed in the docstring; `run_episodes.py
 --fix`). SAMURAI still switches on MOT20-05 id 611: the impostor walks where the Kalman filter

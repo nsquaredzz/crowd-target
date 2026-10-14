@@ -1,0 +1,22 @@
+episode                   g p0_sam2_bp_dev         fix_samurai_dev        fix_sound_public_dev   fix_sound_yolo_dev    
+MOT20-01_42_256          22 recovered              recovered              recovered              recovered             
+MOT20-02_291_964         59 recovered              -                      -                      recovered             
+MOT20-02_4_1283          51 recovered              -                      -                      recovered             
+MOT20-02_126_2273        28 recovered              -                      recovered              recovered             
+MOT20-02_129_2453        46 recovered              -                      -                      recovered             
+MOT20-03_169_136         43 recovered              -                      -                      lost                  
+MOT20-03_85_171          21 recovered              -                      switched->104(g)       recovered             
+MOT20-03_549_1826        32 recovered              -                      -                      recovered             
+MOT20-03_505_2119        58 lost                   switched->158(g)       switched->158(g)       ambiguous [firm: lost]
+MOT20-05_172_107         70 recovered              -                      -                      recovered             
+MOT20-05_245_308         34 recovered              -                      -                      recovered             
+MOT20-05_58_703          44 recovered              -                      -                      recovered             
+MOT20-05_480_2174        38 switched->482(p)       switched->482(p)       lost                   lost                  
+MOT20-05_611_2418        51 switched->638(g)       switched->638(p)       recovered              recovered             
+MOT20-05_898_2769        37 recovered              -                      -                      recovered             
+MOT20-05_652_3136        37 recovered              -                      -                      recovered             
+
+p0_sam2_bp_dev         n 16  recovered 13  switched  2  lost  1  ambiguous  0
+fix_samurai_dev        n  4  recovered  1  switched  3  lost  0  ambiguous  0
+fix_sound_public_dev   n  6  recovered  3  switched  2  lost  1  ambiguous  0   | firm-only: recovered 3 switched 2 lost 1
+fix_sound_yolo_dev     n 16  recovered 13  switched  0  lost  2  ambiguous  1   | firm-only: recovered 13 switched 0 lost 3

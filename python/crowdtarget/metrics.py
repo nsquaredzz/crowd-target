@@ -100,7 +100,7 @@ def summarise(records: list[dict]) -> dict:
         rs = [r for r in records if b == "all" or r["bin"] == b]
         n = len(rs)
         d = {"n": n}
-        for k in ("recovered", "switched", "lost"):
+        for k in ("recovered", "switched", "lost", "ambiguous"):
             d[k] = sum(r["outcome"] == k for r in rs)
         d["switched_gap"] = sum(r["outcome"] == "switched" and r["switch_phase"] == "gap" for r in rs)
         d["switched_post"] = sum(r["outcome"] == "switched" and r["switch_phase"] == "post" for r in rs)
@@ -111,8 +111,8 @@ def summarise(records: list[dict]) -> dict:
 
 
 def format_summary(s: dict, title: str) -> str:
-    lines = [title, "", f"{'bin':8s} {'n':>4s} {'recov':>6s} {'switch':>7s} {'(gap':>5s} {'post)':>6s} {'lost':>5s} {'delay':>6s}"]
+    lines = [title, "", f"{'bin':8s} {'n':>4s} {'recov':>6s} {'switch':>7s} {'(gap':>5s} {'post)':>6s} {'lost':>5s} {'ambig':>6s} {'delay':>6s}"]
     for b, d in s.items():
         lines.append(f"{b:8s} {d['n']:4d} {d['recovered']:6d} {d['switched']:7d} {d['switched_gap']:5d} {d['switched_post']:6d} "
-                     f"{d['lost']:5d} {d['median_delay']:6.1f}")
+                     f"{d['lost']:5d} {d.get('ambiguous', 0):6d} {d['median_delay']:6.1f}")
     return "\n".join(lines) + "\n"

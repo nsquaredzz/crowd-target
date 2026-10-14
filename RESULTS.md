@@ -156,3 +156,72 @@ MOT20 (bookkeeping 61 %, colour 36 %, height 11 %, reach 10 %); the confirmation
 certified anchors (13/1) and rare colours (4/0); the per-sequence hypothesis checks (tube
 containment, detector recall, continuity-rule violation 3-5 %). What is not built: the tracker
 (P2), by the plan's own rule.
+
+## Part V — steps 1 and 2: a better detector, and SAM 2 vetoed by the certificates (2026-10-15, small hours)
+
+Niyath asked for the two cheapest fixes from Part IV's list: a real detector for the bookkeeping,
+and SAM 2's commits vetoed by the certificates. Both built; the 16 dev episodes with a baseline
+were run. The held-out 96 were not.
+
+**Step 1, detector.** YOLO11x (Ultralytics, COCO weights, 110 MB, SHA-256 in `data/detector/`),
+input size 1920, every frame of the dev episode windows (`scripts/detect.py`, `out/detector_recall.txt`).
+Recall on ground-truth boxes with visibility >= 0.5, IoU >= 0.5:
+
+| sequence | public 2019 detections | YOLO11x conf 0.25 | YOLO11x conf 0.1 |
+|---|---|---|---|
+| MOT20-01 | 0.96 | 0.97 | — |
+| MOT20-02 | 0.95 | 0.98 | — |
+| MOT20-03 (night) | 0.67 | 0.84 | 0.90 |
+| MOT20-05 (outdoor, small people) | 0.77 | 0.68 | 0.81 |
+
+A COCO detector at native resolution beats the public detections on three sequences and ties on
+the fourth only at a low threshold; a crowd-trained detector would do better on MOT20-05 and was
+not fetched.
+
+**Step 2, the tracker** (`python/crowdtarget/controller.py`, `run_episodes.py --fix sound --det yolo`).
+SAM 2.1's mask is accepted into memory and output only if it passes its own gates (score > 0, area
+>= half the running median), the colour budget (certified excess <= 0.2, conservation <= 1.1), the
+known-neighbour veto (its box does not coincide at IoU >= 0.5 with a detection track that stood
+beside the person while tracked), and, while absent, the tube's reach. A refused frame is dropped
+from memory and the last accepted frames re-aliased (SAMURAI's trick, used for a different reason).
+While absent, one admissible detection re-prompts SAM 2 provisionally; firm after 5 accepted frames,
+revoked before that. Re-acquisition needs score > 2 and conservation >= 0.4. Two rules were changed
+after seeing dev failures and are named as such in the module docstring (the containment veto
+refused id 85 seen through an occluder; the re-acquisition gate after id 505 accepted a fragment).
+
+**Result on the 16 dev episodes** (`out/compare_sam2_fix_samurai_fix_sound_public_fix_sound_yolo.txt`):
+
+| | recovered | switched | lost | ambiguous (true person in the set) |
+|---|---|---|---|---|
+| SAM 2.1 alone | 13 | 2 | 1 | — |
+| + SAMURAI (4 episodes run) | 1 | 3 | 0 | — |
+| sound tracker, public detections, 6 episodes, before the two rule changes | 3 | 2 | 1 | 0 |
+| **sound tracker, YOLO11x, 16 episodes** | **13** | **0** | 2 | 1 (100 % of post frames) |
+
+Per episode, what changed:
+- **MOT20-05 id 611** (SAM 2 and SAMURAI switch): recovered, 100 % of post frames on the person.
+  Two frames refused (2442 by area, 2443 by the neighbour veto in the public run); the baseline
+  kept those two frames in memory and slid onto 631, then 638. Video `out/compare_MOT20-05_611_three.mp4`.
+- **MOT20-03 id 505** (SAM 2 lost, SAMURAI switched): ambiguous. The tracker never committed; its
+  candidate set contained the right person on every post-gap frame. Video
+  `out/compare_MOT20-03_505_three.mp4`. The firm-only view scores it lost: no claim was made.
+- **MOT20-05 id 480** (SAM 2 switched to 482): lost, 18 % of post frames correct. Forty provisional
+  commits, none held: SAM 2's mask alternated between the person and a merged blob that
+  conservation refused. Not switched any more, not recovered either.
+- **MOT20-03 id 169** (SAM 2 recovered): lost. A regression. At night a false detection inside the
+  reach passed the budget (everything dark lands in the dark bin), was re-prompted 54 times, and
+  the real person, who re-emerged beside the tube and walked out of its reach while the tracker
+  was busy, was never a candidate (true person in the set on 0 % of frames).
+- The other 12: unchanged, recovered, 100 % of post frames.
+
+**What the numbers say.** Silent switches 2 → 0 on the episodes the design was built from, with
+one new loss. The certificates do what they were meant to do, refuse the occluder, and the cost is
+exactly the one predicted: abstention (505) and churn where SAM 2's own mask is unstable (480).
+The id 169 loss exposed that the tube's reach must be the gate of *entry* for a hypothesis, not a
+condition it has to keep satisfying: a person who re-emerges and walks away leaves the reach in
+two frames. The second cut (track-carried hypotheses, candidate confidence >= 0.25 and track age >= 3,
+a 10-frame cooldown on a track whose prompt was refused) is running as `fix_sound2_yolo_dev`.
+
+**Honesty.** Sixteen episodes, three of which the rules were designed on. The held-out 96 (about
+11 hours including their SAM 2.1 baseline) are the test of the claim "no silent switch"; nothing in
+this part is that test.

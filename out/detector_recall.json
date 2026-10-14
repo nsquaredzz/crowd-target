@@ -1,0 +1,26 @@
+{
+ "results": {
+  "MOT20-01_1920_episodes": {
+   "gt_boxes": 2494,
+   "detected": 2413,
+   "recall": 0.9675220529270249
+  },
+  "MOT20-02_1920_episodes": {
+   "gt_boxes": 19407,
+   "detected": 18960,
+   "recall": 0.9769670737362808
+  },
+  "MOT20-03_1920_episodes": {
+   "gt_boxes": 68120,
+   "detected": 56857,
+   "recall": 0.8346594245449207
+  },
+  "MOT20-05_1920_episodes": {
+   "gt_boxes": 137481,
+   "detected": 93435,
+   "recall": 0.6796211840181552
+  }
+ },
+ "conf": 0.25,
+ "weights_sha256": "7bc158aa95c0ebfdd87f70f01653c1131b93e92522dbe15c228bcd742e773a24"
+}

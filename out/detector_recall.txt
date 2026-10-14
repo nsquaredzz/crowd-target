@@ -1,0 +1,6 @@
+YOLO11x (COCO) person detections on MOT20, 2026-10-14
+
+MOT20-01 imgsz 1920 episode windows (112 frames): recall 0.968 (2413/2494)  124 s
+MOT20-02 imgsz 1920 episode windows (940 frames): recall 0.977 (18960/19407)  860 s
+MOT20-03 imgsz 1920 episode windows (852 frames): recall 0.835 (56857/68120)  1115 s
+MOT20-05 imgsz 1920 episode windows (1417 frames): recall 0.680 (93435/137481)  2110 s

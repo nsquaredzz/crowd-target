@@ -1,0 +1,392 @@
+{
+ "machine": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "torch": "2.14.1",
+  "mps": true,
+  "sam2_commit": "sam2 HEAD 2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "device": "mps",
+  "model": "b+"
+ },
+ "set": "dev",
+ "fix": "sound",
+ "records": [
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 46,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2444,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 12
+   },
+   "vetoes": 1,
+   "absent_frames": 2,
+   "seq": "MOT20-05",
+   "id": 611,
+   "gap_start": 2418,
+   "gap_end": 2468,
+   "g": 51,
+   "bin": "40-80",
+   "t_start": 2388,
+   "t_end": 2528,
+   "s_per_frame": 2.8033387198863515,
+   "first_absent_frame": null,
+   "seconds": 526.7
+  },
+  {
+   "outcome": "switched",
+   "switch_id": 158,
+   "switch_frame": 2157,
+   "switch_phase": "gap",
+   "delay": null,
+   "post_correct_frac": 0.0,
+   "n_post_visible": 47,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2124,
+     "det"
+    ],
+    [
+     2128,
+     "mask"
+    ],
+    [
+     2136,
+     "mask"
+    ],
+    [
+     2151,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "switched",
+    "switch_id": 158,
+    "switch_frame": 2157,
+    "switch_phase": "gap",
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 2,
+   "absent_frames": 26,
+   "seq": "MOT20-03",
+   "id": 505,
+   "gap_start": 2119,
+   "gap_end": 2176,
+   "g": 58,
+   "bin": "40-80",
+   "t_start": 2089,
+   "t_end": 2236,
+   "s_per_frame": 2.6920064406216184,
+   "first_absent_frame": 2125,
+   "seconds": 483.2
+  },
+  {
+   "outcome": "lost",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": null,
+   "post_correct_frac": 0.0,
+   "n_post_visible": 40,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2171,
+     "det"
+    ],
+    [
+     2172,
+     "det"
+    ],
+    [
+     2180,
+     "det"
+    ],
+    [
+     2181,
+     "det"
+    ],
+    [
+     2182,
+     "det"
+    ],
+    [
+     2185,
+     "mask"
+    ],
+    [
+     2192,
+     "mask"
+    ],
+    [
+     2202,
+     "mask"
+    ],
+    [
+     2208,
+     "mask"
+    ],
+    [
+     2214,
+     "mask"
+    ],
+    [
+     2220,
+     "mask"
+    ],
+    [
+     2226,
+     "mask"
+    ],
+    [
+     2244,
+     "det"
+    ],
+    [
+     2251,
+     "mask"
+    ],
+    [
+     2259,
+     "det"
+    ],
+    [
+     2261,
+     "det"
+    ],
+    [
+     2267,
+     "mask"
+    ],
+    [
+     2271,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "lost",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 9,
+   "absent_frames": 39,
+   "seq": "MOT20-05",
+   "id": 480,
+   "gap_start": 2174,
+   "gap_end": 2211,
+   "g": 38,
+   "bin": "20-40",
+   "t_start": 2144,
+   "t_end": 2271,
+   "s_per_frame": 2.6382971725156494,
+   "first_absent_frame": 2240,
+   "seconds": 430.6
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 7,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 54,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     265,
+     "mask"
+    ],
+    [
+     269,
+     "det"
+    ],
+    [
+     270,
+     "det"
+    ],
+    [
+     271,
+     "det"
+    ],
+    [
+     272,
+     "det"
+    ],
+    [
+     276,
+     "mask"
+    ],
+    [
+     277,
+     "det"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 7
+   },
+   "vetoes": 5,
+   "absent_frames": 9,
+   "seq": "MOT20-01",
+   "id": 42,
+   "gap_start": 256,
+   "gap_end": 277,
+   "g": 22,
+   "bin": "20-40",
+   "t_start": 226,
+   "t_end": 337,
+   "s_per_frame": 3.103204392419489,
+   "first_absent_frame": 274,
+   "seconds": 450.3
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 18,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 43,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2278,
+     "mask"
+    ],
+    [
+     2282,
+     "mask"
+    ],
+    [
+     2285,
+     "det"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 18
+   },
+   "vetoes": 0,
+   "absent_frames": 2,
+   "seq": "MOT20-02",
+   "id": 126,
+   "gap_start": 2273,
+   "gap_end": 2300,
+   "g": 28,
+   "bin": "20-40",
+   "t_start": 2243,
+   "t_end": 2360,
+   "s_per_frame": 4.981016888364092,
+   "first_absent_frame": null,
+   "seconds": 777.9
+  },
+  {
+   "outcome": "switched",
+   "switch_id": 104,
+   "switch_frame": 189,
+   "switch_phase": "gap",
+   "delay": null,
+   "post_correct_frac": 0.0,
+   "n_post_visible": 51,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     187,
+     "det"
+    ],
+    [
+     189,
+     "det"
+    ]
+   ],
+   "firm": {
+    "outcome": "switched",
+    "switch_id": 104,
+    "switch_frame": 193,
+    "switch_phase": "post",
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 12,
+   "absent_frames": 11,
+   "seq": "MOT20-03",
+   "id": 85,
+   "gap_start": 171,
+   "gap_end": 191,
+   "g": 21,
+   "bin": "20-40",
+   "t_start": 141,
+   "t_end": 251,
+   "s_per_frame": 3.1134526148833848,
+   "first_absent_frame": null,
+   "seconds": 433.7
+  }
+ ],
+ "summary": {
+  "20-40": {
+   "n": 4,
+   "recovered": 2,
+   "switched": 1,
+   "lost": 1,
+   "ambiguous": 0,
+   "switched_gap": 1,
+   "switched_post": 0,
+   "median_delay": 12.5
+  },
+  "40-80": {
+   "n": 2,
+   "recovered": 1,
+   "switched": 1,
+   "lost": 0,
+   "ambiguous": 0,
+   "switched_gap": 1,
+   "switched_post": 0,
+   "median_delay": 12.0
+  },
+  "all": {
+   "n": 6,
+   "recovered": 3,
+   "switched": 2,
+   "lost": 1,
+   "ambiguous": 0,
+   "switched_gap": 2,
+   "switched_post": 0,
+   "median_delay": 12.0
+  }
+ },
+ "seconds": 3102.8
+}

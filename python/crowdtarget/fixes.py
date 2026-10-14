@@ -248,11 +248,14 @@ class DamAnchors(Fix):
         return {"distractor": dis, "affinity": aff, "anchored": anchored, "chosen": self.last.get("chosen", -1)}
 
 
-def make_fix(kind: str, pred, W: int, H: int, start_box) -> Fix | None:
+def make_fix(kind: str, pred, W: int, H: int, start_box, **ctx) -> Fix | None:
     if kind in (None, "none", "baseline"):
         return None
     if kind == "samurai":
         return Samurai(pred, W, H, start_box)
     if kind == "dam":
         return DamAnchors(pred, W, H, start_box)
+    if kind == "sound":
+        from .controller import Sound
+        return Sound(pred, W, H, start_box, **ctx)
     raise ValueError(kind)

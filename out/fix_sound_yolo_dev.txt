@@ -1,0 +1,6 @@
+SAM 2.1 b+ + sound on MOT20 episodes (dev), 2026-10-15
+
+bin         n  recov  switch  (gap  post)  lost  ambig  delay
+20-40       8      7       0     0      0     1      0   12.0
+40-80       8      6       0     0      0     1      1    9.5
+all        16     13       0     0      0     2      1   12.0

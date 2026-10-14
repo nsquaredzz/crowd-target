@@ -1,0 +1,1060 @@
+{
+ "machine": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "torch": "2.14.1",
+  "mps": true,
+  "sam2_commit": "sam2 HEAD 2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "device": "mps",
+  "model": "b+"
+ },
+ "set": "dev",
+ "fix": "sound",
+ "records": [
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 46,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2444,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 12
+   },
+   "vetoes": 0,
+   "absent_frames": 2,
+   "seq": "MOT20-05",
+   "id": 611,
+   "gap_start": 2418,
+   "gap_end": 2468,
+   "g": 51,
+   "bin": "40-80",
+   "t_start": 2388,
+   "t_end": 2528,
+   "s_per_frame": 1.6453281338653276,
+   "first_absent_frame": null,
+   "seconds": 299.7
+  },
+  {
+   "outcome": "ambiguous",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": null,
+   "post_correct_frac": 0.0,
+   "n_post_visible": 47,
+   "amb_post_frac": 1.0,
+   "amb_true_frac": 1.0,
+   "commits": [],
+   "firm": {
+    "outcome": "lost",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 7,
+   "absent_frames": 116,
+   "seq": "MOT20-03",
+   "id": 505,
+   "gap_start": 2119,
+   "gap_end": 2176,
+   "g": 58,
+   "bin": "40-80",
+   "t_start": 2089,
+   "t_end": 2236,
+   "s_per_frame": 1.6848546002163218,
+   "first_absent_frame": 2125,
+   "seconds": 277.3
+  },
+  {
+   "outcome": "lost",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 22,
+   "post_correct_frac": 0.175,
+   "n_post_visible": 40,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2179,
+     "det"
+    ],
+    [
+     2220,
+     "mask"
+    ],
+    [
+     2229,
+     "det"
+    ],
+    [
+     2233,
+     "det"
+    ],
+    [
+     2234,
+     "det"
+    ],
+    [
+     2235,
+     "det"
+    ],
+    [
+     2236,
+     "det"
+    ],
+    [
+     2237,
+     "det"
+    ],
+    [
+     2238,
+     "det"
+    ],
+    [
+     2239,
+     "det"
+    ],
+    [
+     2240,
+     "det"
+    ],
+    [
+     2241,
+     "det"
+    ],
+    [
+     2242,
+     "det"
+    ],
+    [
+     2243,
+     "det"
+    ],
+    [
+     2244,
+     "det"
+    ],
+    [
+     2245,
+     "det"
+    ],
+    [
+     2246,
+     "det"
+    ],
+    [
+     2247,
+     "det"
+    ],
+    [
+     2248,
+     "det"
+    ],
+    [
+     2249,
+     "det"
+    ],
+    [
+     2252,
+     "det"
+    ],
+    [
+     2253,
+     "det"
+    ],
+    [
+     2254,
+     "det"
+    ],
+    [
+     2255,
+     "det"
+    ],
+    [
+     2256,
+     "det"
+    ],
+    [
+     2257,
+     "det"
+    ],
+    [
+     2258,
+     "det"
+    ],
+    [
+     2259,
+     "det"
+    ],
+    [
+     2260,
+     "det"
+    ],
+    [
+     2261,
+     "det"
+    ],
+    [
+     2262,
+     "det"
+    ],
+    [
+     2263,
+     "det"
+    ],
+    [
+     2264,
+     "det"
+    ],
+    [
+     2265,
+     "det"
+    ],
+    [
+     2266,
+     "det"
+    ],
+    [
+     2267,
+     "det"
+    ],
+    [
+     2268,
+     "det"
+    ],
+    [
+     2269,
+     "det"
+    ],
+    [
+     2270,
+     "det"
+    ],
+    [
+     2271,
+     "det"
+    ]
+   ],
+   "firm": {
+    "outcome": "lost",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 0,
+   "absent_frames": 25,
+   "seq": "MOT20-05",
+   "id": 480,
+   "gap_start": 2174,
+   "gap_end": 2211,
+   "g": 38,
+   "bin": "20-40",
+   "t_start": 2144,
+   "t_end": 2271,
+   "s_per_frame": 1.6821743915620573,
+   "first_absent_frame": 2256,
+   "seconds": 305.0
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 10,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 51,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     177,
+     "det"
+    ],
+    [
+     178,
+     "det"
+    ],
+    [
+     179,
+     "det"
+    ],
+    [
+     180,
+     "det"
+    ],
+    [
+     197,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 10
+   },
+   "vetoes": 0,
+   "absent_frames": 16,
+   "seq": "MOT20-03",
+   "id": 85,
+   "gap_start": 171,
+   "gap_end": 191,
+   "g": 21,
+   "bin": "20-40",
+   "t_start": 141,
+   "t_end": 251,
+   "s_per_frame": 1.6654169227027802,
+   "first_absent_frame": null,
+   "seconds": 221.8
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 7,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 54,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     278,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 7
+   },
+   "vetoes": 1,
+   "absent_frames": 19,
+   "seq": "MOT20-01",
+   "id": 42,
+   "gap_start": 256,
+   "gap_end": 277,
+   "g": 22,
+   "bin": "20-40",
+   "t_start": 226,
+   "t_end": 337,
+   "s_per_frame": 1.6857992760444955,
+   "first_absent_frame": 271,
+   "seconds": 228.9
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 18,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 43,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2278,
+     "mask"
+    ],
+    [
+     2288,
+     "mask"
+    ],
+    [
+     2295,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 18
+   },
+   "vetoes": 0,
+   "absent_frames": 13,
+   "seq": "MOT20-02",
+   "id": 126,
+   "gap_start": 2273,
+   "gap_end": 2300,
+   "g": 28,
+   "bin": "20-40",
+   "t_start": 2243,
+   "t_end": 2360,
+   "s_per_frame": 1.7383209026016107,
+   "first_absent_frame": null,
+   "seconds": 250.9
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 45,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 12
+   },
+   "vetoes": 0,
+   "absent_frames": 0,
+   "seq": "MOT20-03",
+   "id": 549,
+   "gap_start": 1826,
+   "gap_end": 1857,
+   "g": 32,
+   "bin": "20-40",
+   "t_start": 1796,
+   "t_end": 1917,
+   "s_per_frame": 1.8673296984751255,
+   "first_absent_frame": null,
+   "seconds": 269.9
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 49,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     321,
+     "mask"
+    ],
+    [
+     324,
+     "det"
+    ],
+    [
+     325,
+     "det"
+    ],
+    [
+     330,
+     "mask"
+    ],
+    [
+     332,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 12
+   },
+   "vetoes": 0,
+   "absent_frames": 20,
+   "seq": "MOT20-05",
+   "id": 245,
+   "gap_start": 308,
+   "gap_end": 341,
+   "g": 34,
+   "bin": "20-40",
+   "t_start": 278,
+   "t_end": 401,
+   "s_per_frame": 1.7062316172904237,
+   "first_absent_frame": null,
+   "seconds": 274.0
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 9,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 43,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     3153,
+     "det"
+    ],
+    [
+     3154,
+     "det"
+    ],
+    [
+     3157,
+     "det"
+    ],
+    [
+     3160,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 9
+   },
+   "vetoes": 3,
+   "absent_frames": 12,
+   "seq": "MOT20-05",
+   "id": 652,
+   "gap_start": 3136,
+   "gap_end": 3172,
+   "g": 37,
+   "bin": "20-40",
+   "t_start": 3106,
+   "t_end": 3232,
+   "s_per_frame": 1.7882614983540206,
+   "first_absent_frame": 3151,
+   "seconds": 293.4
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 49,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 12
+   },
+   "vetoes": 0,
+   "absent_frames": 0,
+   "seq": "MOT20-05",
+   "id": 898,
+   "gap_start": 2769,
+   "gap_end": 2805,
+   "g": 37,
+   "bin": "20-40",
+   "t_start": 2739,
+   "t_end": 2865,
+   "s_per_frame": 1.7555227322520768,
+   "first_absent_frame": null,
+   "seconds": 287.9
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 6,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 55,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     1278,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 6
+   },
+   "vetoes": 0,
+   "absent_frames": 4,
+   "seq": "MOT20-02",
+   "id": 4,
+   "gap_start": 1283,
+   "gap_end": 1333,
+   "g": 51,
+   "bin": "40-80",
+   "t_start": 1253,
+   "t_end": 1393,
+   "s_per_frame": 1.6516443099860116,
+   "first_absent_frame": null,
+   "seconds": 286.6
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 5,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 42,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     2461,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 5
+   },
+   "vetoes": 0,
+   "absent_frames": 15,
+   "seq": "MOT20-02",
+   "id": 129,
+   "gap_start": 2453,
+   "gap_end": 2498,
+   "g": 46,
+   "bin": "40-80",
+   "t_start": 2423,
+   "t_end": 2558,
+   "s_per_frame": 1.5595367782205036,
+   "first_absent_frame": null,
+   "seconds": 263.0
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 7,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 54,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     971,
+     "det"
+    ],
+    [
+     982,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 7
+   },
+   "vetoes": 0,
+   "absent_frames": 15,
+   "seq": "MOT20-02",
+   "id": 291,
+   "gap_start": 964,
+   "gap_end": 1022,
+   "g": 59,
+   "bin": "40-80",
+   "t_start": 934,
+   "t_end": 1082,
+   "s_per_frame": 1.4521696585638861,
+   "first_absent_frame": null,
+   "seconds": 267.7
+  },
+  {
+   "outcome": "lost",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": null,
+   "post_correct_frac": 0.0,
+   "n_post_visible": 55,
+   "amb_post_frac": 0.43636363636363634,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     141,
+     "det"
+    ],
+    [
+     152,
+     "det"
+    ],
+    [
+     153,
+     "det"
+    ],
+    [
+     154,
+     "det"
+    ],
+    [
+     155,
+     "det"
+    ],
+    [
+     156,
+     "det"
+    ],
+    [
+     158,
+     "det"
+    ],
+    [
+     161,
+     "det"
+    ],
+    [
+     164,
+     "det"
+    ],
+    [
+     165,
+     "det"
+    ],
+    [
+     166,
+     "det"
+    ],
+    [
+     167,
+     "det"
+    ],
+    [
+     168,
+     "det"
+    ],
+    [
+     169,
+     "det"
+    ],
+    [
+     170,
+     "det"
+    ],
+    [
+     171,
+     "det"
+    ],
+    [
+     173,
+     "det"
+    ],
+    [
+     174,
+     "det"
+    ],
+    [
+     175,
+     "det"
+    ],
+    [
+     176,
+     "det"
+    ],
+    [
+     177,
+     "det"
+    ],
+    [
+     178,
+     "det"
+    ],
+    [
+     179,
+     "det"
+    ],
+    [
+     180,
+     "det"
+    ],
+    [
+     182,
+     "det"
+    ],
+    [
+     193,
+     "det"
+    ],
+    [
+     194,
+     "det"
+    ],
+    [
+     195,
+     "det"
+    ],
+    [
+     196,
+     "det"
+    ],
+    [
+     197,
+     "det"
+    ],
+    [
+     207,
+     "det"
+    ],
+    [
+     209,
+     "det"
+    ],
+    [
+     210,
+     "det"
+    ],
+    [
+     211,
+     "det"
+    ],
+    [
+     212,
+     "det"
+    ],
+    [
+     213,
+     "det"
+    ],
+    [
+     214,
+     "det"
+    ],
+    [
+     215,
+     "det"
+    ],
+    [
+     216,
+     "det"
+    ],
+    [
+     217,
+     "det"
+    ],
+    [
+     218,
+     "det"
+    ],
+    [
+     219,
+     "det"
+    ],
+    [
+     220,
+     "det"
+    ],
+    [
+     221,
+     "det"
+    ],
+    [
+     222,
+     "det"
+    ],
+    [
+     223,
+     "det"
+    ],
+    [
+     224,
+     "det"
+    ],
+    [
+     225,
+     "det"
+    ],
+    [
+     226,
+     "det"
+    ],
+    [
+     227,
+     "det"
+    ],
+    [
+     231,
+     "det"
+    ],
+    [
+     233,
+     "det"
+    ],
+    [
+     235,
+     "det"
+    ],
+    [
+     236,
+     "det"
+    ]
+   ],
+   "firm": {
+    "outcome": "lost",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 0.0,
+    "delay": null
+   },
+   "vetoes": 0,
+   "absent_frames": 44,
+   "seq": "MOT20-03",
+   "id": 169,
+   "gap_start": 136,
+   "gap_end": 178,
+   "g": 43,
+   "bin": "40-80",
+   "t_start": 106,
+   "t_end": 238,
+   "s_per_frame": 1.3988046397890939,
+   "first_absent_frame": 145,
+   "seconds": 259.4
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 49,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [
+    [
+     755,
+     "mask"
+    ]
+   ],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 0.9795918367346939,
+    "delay": 13
+   },
+   "vetoes": 0,
+   "absent_frames": 44,
+   "seq": "MOT20-05",
+   "id": 58,
+   "gap_start": 703,
+   "gap_end": 746,
+   "g": 44,
+   "bin": "40-80",
+   "t_start": 673,
+   "t_end": 806,
+   "s_per_frame": 1.4063825541119541,
+   "first_absent_frame": null,
+   "seconds": 240.8
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 13,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 48,
+   "amb_post_frac": 0.0,
+   "amb_true_frac": 0.0,
+   "commits": [],
+   "firm": {
+    "outcome": "recovered",
+    "switch_id": null,
+    "switch_frame": null,
+    "switch_phase": null,
+    "post_correct_frac": 1.0,
+    "delay": 13
+   },
+   "vetoes": 0,
+   "absent_frames": 0,
+   "seq": "MOT20-05",
+   "id": 172,
+   "gap_start": 107,
+   "gap_end": 176,
+   "g": 70,
+   "bin": "40-80",
+   "t_start": 77,
+   "t_end": 236,
+   "s_per_frame": 1.38450356452513,
+   "first_absent_frame": null,
+   "seconds": 290.2
+  }
+ ],
+ "summary": {
+  "20-40": {
+   "n": 8,
+   "recovered": 7,
+   "switched": 0,
+   "lost": 1,
+   "ambiguous": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 12.0
+  },
+  "40-80": {
+   "n": 8,
+   "recovered": 6,
+   "switched": 0,
+   "lost": 1,
+   "ambiguous": 1,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 9.5
+  },
+  "all": {
+   "n": 16,
+   "recovered": 13,
+   "switched": 0,
+   "lost": 2,
+   "ambiguous": 1,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 12.0
+  }
+ },
+ "seconds": 4317.0
+}

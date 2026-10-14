@@ -62,12 +62,20 @@ def panel(img: Image.Image, gt_rows, id_, run, i, label, s):
         dashed(d, [v * s for v in dg["pred_box"]], AMBER)
     if dg.get("anchored"):
         d.rectangle((0, 0, img.size[0] - 1, img.size[1] - 1), outline=CYAN, width=6)
+    if dg.get("commit") == "det":
+        d.rectangle((0, 0, img.size[0] - 1, img.size[1] - 1), outline=AMBER, width=6)
     f = font(15, bold=True)
     extra = ""
     if "kf_iou" in dg:
         extra = f"  KF IoU {dg['kf_iou']:.2f}  mem {'+' if dg['in_memory'] else '-'}"
     elif "distractor" in dg:
         extra = f"  distractor {dg['distractor']:.2f}"
+    elif "state_after" in dg:
+        st = dg["state_after"] + ("" if dg.get("firm_after") else " (provisional)" if dg["state_after"] == "tracking" else "")
+        extra = f"  {st}" + (f"  E {dg['E']:.2f}" if dg.get("E") == dg.get("E") and dg.get("E") is not None else "") + \
+                (f"  set {dg['n_cands']}" if dg.get("n_cands", 0) >= 2 else "") + ("  VETO" if dg.get("veto") else "")
+        for c in dg.get("cands", []) if dg["state_after"] == "ambiguous" else []:
+            d.rectangle([v * s for v in c], outline=CYAN, width=2)
     text = f"{label}: {o}{extra}"
     d.rectangle((0, 0, 8 + d.textlength(text, font=f), 22), fill=INK)
     d.text((4, 3), text, fill=colour if o != "correct" else GREEN, font=f)
@@ -103,7 +111,7 @@ def main():
         phase = "gap" if rec["gap_start"] <= t <= rec["gap_end"] else ("before" if t < rec["gap_start"] else "after")
         summary = "   ".join(f"{lab}: {run['rec']['outcome']}" for run, lab in data)
         text = f"{a.episode}  frame {t}  {phase}   |   episode: {summary}"
-        frame = np.concatenate([row, caption(row.shape[1], text, ((GREEN, "mask on target"), (RED, "mask on another id"), (AMBER, "absent / Kalman prediction"), (WHITE, "target GT"), (CYAN, "anchor added")))], 0)
+        frame = np.concatenate([row, caption(row.shape[1], text, ((GREEN, "mask on target"), (RED, "mask on another id"), (AMBER, "absent / prediction / re-prompt"), (WHITE, "target GT"), (CYAN, "candidate set / anchor")))], 0)
         if writer is None:
             writer = Writer(a.out, (frame.shape[1], frame.shape[0]), a.fps)
         writer.add(frame)
