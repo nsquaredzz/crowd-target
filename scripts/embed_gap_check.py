@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "python"))
 
 from crowdtarget import episodes as E  # noqa: E402
 from crowdtarget.data.mot import frame_path, read_gt, seq_info, targets  # noqa: E402
-from crowdtarget.embed import BoxHeadEmbedder  # noqa: E402
+from crowdtarget.embed import make_embedder  # noqa: E402
 from crowdtarget.harness import machine_info, write_out  # noqa: E402
 
 
@@ -50,9 +50,10 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--pool-span", type=int, default=0,
                     help="pool from this many frames before the gap instead of the episode's 30-frame pre window (0 = pre window)")
+    ap.add_argument("--embedding", default="frcnn", choices=["frcnn", "dino"])
     a = ap.parse_args()
     eps = E.read(ROOT / "data" / "episodes" / f"mot20_{a.set}.json")[: a.limit]
-    emb = BoxHeadEmbedder()
+    emb = make_embedder(a.embedding)
     t0 = time.time()
     same_all, other_all, per = [], [], []
     cache = {}
@@ -113,7 +114,8 @@ def main():
               f"mean share of same-person post-gap crops scoring above the whole pre-gap pool: {100 * res['same_above_pool_max_mean']:.0f} %",
               "A same-person crop above the whole pool gets conformal p-value ~ 1/(n+1) whatever the identity: that share is the",
               "false-alarm pressure of the embedding itself after the gap, before any martingale."]
-    pj, pt = write_out(f"embed_gap_check_{a.set}" + (f"_span{a.pool_span}" if a.pool_span else ""), res, "\n".join(lines) + "\n")
+    pj, pt = write_out(f"embed_gap_check_{a.set}" + (f"_span{a.pool_span}" if a.pool_span else "") + (f"_{a.embedding}" if a.embedding != "frcnn" else ""),
+                       res, "\n".join(lines) + "\n")
     print("\n".join(lines[-4:]))
     print(f"wrote {pj}")
 

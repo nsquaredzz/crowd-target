@@ -49,27 +49,67 @@
    "s_per_frame": 1.5717856977286937,
    "first_absent_frame": null,
    "seconds": 218.1
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 10,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 51,
+   "seq": "MOT20-03",
+   "id": 85,
+   "gap_start": 171,
+   "gap_end": 191,
+   "g": 21,
+   "bin": "20-40",
+   "t_start": 141,
+   "t_end": 251,
+   "s_per_frame": 2.14953976462159,
+   "first_absent_frame": null,
+   "seconds": 278.3
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 12,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 45,
+   "seq": "MOT20-03",
+   "id": 549,
+   "gap_start": 1826,
+   "gap_end": 1857,
+   "g": 32,
+   "bin": "20-40",
+   "t_start": 1796,
+   "t_end": 1917,
+   "s_per_frame": 2.5615180724181283,
+   "first_absent_frame": null,
+   "seconds": 366.4
   }
  ],
  "summary": {
   "20-40": {
-   "n": 2,
-   "recovered": 2,
+   "n": 4,
+   "recovered": 4,
    "switched": 0,
    "lost": 0,
    "switched_gap": 0,
    "switched_post": 0,
-   "median_delay": 12.5
+   "median_delay": 11.0
   },
   "all": {
-   "n": 2,
-   "recovered": 2,
+   "n": 4,
+   "recovered": 4,
    "switched": 0,
    "lost": 0,
    "switched_gap": 0,
    "switched_post": 0,
-   "median_delay": 12.5
+   "median_delay": 11.0
   }
  },
- "seconds": 445.7
+ "seconds": 644.9
 }
