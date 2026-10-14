@@ -31,16 +31,8 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "python"))
 
+from crowdtarget.harness import write_out  # noqa: E402
 from crowdtarget.martingale import SwitchDetector, cusum_learned_null  # noqa: E402
-
-try:
-    from certtrack.harness import write_out
-except Exception:  # pragma: no cover
-    def write_out(stem, payload, text):
-        (ROOT / "out").mkdir(exist_ok=True)
-        (ROOT / "out" / f"{stem}.json").write_text(json.dumps(payload, indent=1, default=str))
-        (ROOT / "out" / f"{stem}.txt").write_text(text)
-        return ROOT / "out" / f"{stem}.json", ROOT / "out" / f"{stem}.txt"
 
 ALPHAS = (0.2, 0.1, 0.05, 0.02, 0.01)
 WINDOWS = (10, 30, 60)
@@ -64,7 +56,9 @@ def nonconformity(embs, valid, pre_idx, kind):
     return s
 
 
-def episode_alarms(rec, z, kind, k, seed=0):
+def episode_alarms(rec, z, kind, k, seed=0, gate_score=0.0, gate_area=0.0):
+    """gate_score: test only frames whose object score exceeds it; gate_area: only frames whose mask
+    area is at least this fraction of the median pre-gap area (both 0 = no gate)."""
     frames = z["frames"]
     embs = z["embs"].astype(np.float64)
     valid = (z["boxes"][:, 0] == z["boxes"][:, 0]) & (np.linalg.norm(embs, axis=1) > 0.5)
@@ -72,9 +66,12 @@ def episode_alarms(rec, z, kind, k, seed=0):
     pre = np.nonzero((frames < gap_start) & valid)[0]
     if pre.size < 5:
         return None
+    area = np.unpackbits(z["masks_small"], axis=-1)[:, :, : z["mask_shape"][2]].sum((1, 2)).astype(float)
+    pre_area = float(np.median(area[pre]))
+    confident = valid & (z["scores"] > gate_score) & (area >= gate_area * pre_area)
     s = nonconformity(embs, valid, pre, kind)
     pool = s[pre]
-    tested = [i for i in range(len(frames)) if frames[i] >= gap_start and valid[i] and (frames[i] - gap_start) % k == 0]
+    tested = [i for i in range(len(frames)) if frames[i] >= gap_start and confident[i] and (frames[i] - gap_start) % k == 0]
     out = {"frames_tested": [int(frames[i]) for i in tested], "pool_n": int(pre.size)}
     # martingales
     for mk in ("mixture", "jumper"):
@@ -135,6 +132,8 @@ def main():
     ap.add_argument("--k", nargs="*", type=int, default=[1, 4, 8, 12])
     ap.add_argument("--score", nargs="*", default=["centroid", "nn"])
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--gate-score", type=float, default=0.0, help="test only frames with object score above this")
+    ap.add_argument("--gate-area", type=float, default=0.0, help="test only frames with mask area >= this x the pre-gap median")
     a = ap.parse_args()
     payload = json.loads((ROOT / "out" / f"{a.run}.json").read_text())
     records = payload["records"]
@@ -149,8 +148,8 @@ def main():
     t0 = time.time()
     for kind in a.score:
         for k in a.k:
-            alarms = [episode_alarms(r, z, kind, k, a.seed) for r, z in zip(records, zs)]
-            key = f"{kind}_k{k}"
+            alarms = [episode_alarms(r, z, kind, k, a.seed, a.gate_score, a.gate_area) for r, z in zip(records, zs)]
+            key = f"{kind}_k{k}" + (f"_gs{a.gate_score:g}" if a.gate_score else "") + (f"_ga{a.gate_area:g}" if a.gate_area else "")
             results[key] = {"per_episode": alarms}
             lines.append(f"score {kind}, every {k} frame(s)")
             lines.append(f"  {'detector':9s} {'thr':>6s} | {'det/sw':>7s} {'FA/rec':>7s} {'delay':>6s} | {'det10':>5s} {'det60':>5s} {'lost+al':>7s}")
@@ -176,8 +175,9 @@ def main():
                  "with any alarm (plus switched ones alarmed before the switch), over recovered; delay: median frames from switch to alarm; "
                  "thr is alpha for the martingales (alarm at wealth 1/alpha), h for the CUSUM, the object-score level for objscore.")
     text = "\n".join(lines) + "\n"
-    pj, pt = write_out(f"p1_{a.run}", {"run": a.run, "args": vars(a), "results": {k: v["table"] for k, v in results.items()},
-                                        "seconds": time.time() - t0}, text)
+    tag = (f"_gs{a.gate_score:g}" if a.gate_score else "") + (f"_ga{a.gate_area:g}" if a.gate_area else "")
+    pj, pt = write_out(f"p1_{a.run}{tag}", {"run": a.run, "args": vars(a), "results": {k: v["table"] for k, v in results.items()},
+                                             "seconds": time.time() - t0}, text)
     print(text)
     print(f"wrote {pj}")
 

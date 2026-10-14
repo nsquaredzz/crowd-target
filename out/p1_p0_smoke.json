@@ -1,0 +1,1114 @@
+{
+ "run": "p0_smoke",
+ "args": {
+  "run": "p0_smoke",
+  "k": [
+   1,
+   4
+  ],
+  "score": [
+   "centroid",
+   "nn"
+  ],
+  "seed": 0
+ },
+ "results": {
+  "centroid_k1": {
+   "mixture": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "jumper": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "cusum": [
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 12,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 16,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "objscore": [
+    {
+     "thr": -2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ]
+  },
+  "centroid_k4": {
+   "mixture": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "jumper": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "cusum": [
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 12,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 16,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "objscore": [
+    {
+     "thr": -2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ]
+  },
+  "nn_k1": {
+   "mixture": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "jumper": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "cusum": [
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 12,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 16,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "objscore": [
+    {
+     "thr": -2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ]
+  },
+  "nn_k4": {
+   "mixture": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "jumper": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "cusum": [
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 12,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 16,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "objscore": [
+    {
+     "thr": -2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 0,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 1,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 0,
+     "false": 2,
+     "n_recovered": 2,
+     "lost_alarmed": 0,
+     "n_lost": 0,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ]
+  }
+ },
+ "seconds": 0.05276012420654297
+}

@@ -1,0 +1,9 @@
+Embedding separability on MOT20 ground-truth crops (MOT20-02, MOT20-03, 12 frames each), 2026-10-14
+
+embedding frcnn-boxhead: 4732 crops; pairs same 1988, other 65864, half-occluded same 213
+AUC same-vs-other (same person closer): 0.902
+AUC same-vs-half-occluded-same:          0.789
+median 1-cos: same 0.119  other 0.272  half-occluded same 0.208
+
+Reading: an AUC near 0.5 means the feature does not tell people apart; a half-occluded crop of the same person farther
+than another person means occlusion moves the score more than a switch does, and a martingale on it detects occlusion.

@@ -26,23 +26,11 @@ from crowdtarget import sam2io  # noqa: E402
 from crowdtarget.data.frames import FrameSource, LazyFrames  # noqa: E402
 from crowdtarget.data.mot import frame_path, read_gt, seq_info, targets  # noqa: E402
 from crowdtarget.embed import BoxHeadEmbedder, mask_bbox  # noqa: E402
-
-try:
-    from certtrack.harness import write_out
-except Exception:  # pragma: no cover
-    def write_out(stem, payload, text):
-        (ROOT / "out").mkdir(exist_ok=True)
-        (ROOT / "out" / f"{stem}.json").write_text(json.dumps(payload, indent=1, default=str))
-        (ROOT / "out" / f"{stem}.txt").write_text(text)
-        return ROOT / "out" / f"{stem}.json", ROOT / "out" / f"{stem}.txt"
+from crowdtarget.harness import machine_info as _machine_info, write_out  # noqa: E402
 
 
 def machine_info(pred):
-    import platform
-    import torch
-    return {"platform": platform.platform(), "torch": torch.__version__, "device": pred.crowdtarget_device,
-            "sam2_commit": (ROOT / "sam2_commit.txt").read_text().strip() if (ROOT / "sam2_commit.txt").exists() else None,
-            "model": pred.crowdtarget_model}
+    return _machine_info({"device": pred.crowdtarget_device, "model": pred.crowdtarget_model})
 
 
 def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4):

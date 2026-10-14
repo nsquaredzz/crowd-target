@@ -1,0 +1,73 @@
+{
+ "machine": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "torch": "2.14.1",
+  "device": "mps",
+  "sam2_commit": "sam2 HEAD 2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "model": "b+"
+ },
+ "set": "dev",
+ "records": [
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 6,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 55,
+   "seq": "MOT20-01",
+   "id": 43,
+   "gap_start": 200,
+   "gap_end": 229,
+   "g": 30,
+   "bin": "20-40",
+   "t_start": 170,
+   "t_end": 289,
+   "s_per_frame": 1.541108185033378,
+   "first_absent_frame": null,
+   "seconds": 216.1
+  },
+  {
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 8,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 53,
+   "seq": "MOT20-02",
+   "id": 226,
+   "gap_start": 242,
+   "gap_end": 272,
+   "g": 31,
+   "bin": "20-40",
+   "t_start": 212,
+   "t_end": 332,
+   "s_per_frame": 1.6858188426611542,
+   "first_absent_frame": null,
+   "seconds": 237.5
+  }
+ ],
+ "summary": {
+  "20-40": {
+   "n": 2,
+   "recovered": 2,
+   "switched": 0,
+   "lost": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 7.0
+  },
+  "all": {
+   "n": 2,
+   "recovered": 2,
+   "switched": 0,
+   "lost": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 7.0
+  }
+ },
+ "seconds": 453.7
+}

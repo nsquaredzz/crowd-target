@@ -1,0 +1,21 @@
+{
+ "embedding": "frcnn-boxhead",
+ "n_crops": 4732,
+ "n_same": 1988,
+ "n_other": 65864,
+ "n_occluded_pairs": 213,
+ "auc_same_vs_other": 0.9015508925654009,
+ "auc_same_vs_occluded": 0.7892165197759327,
+ "median_same": 0.11944398283958435,
+ "median_other": 0.2721588611602783,
+ "median_occluded": 0.2078198790550232,
+ "machine": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "torch": "2.14.1",
+  "mps": true,
+  "sam2_commit": "sam2 HEAD 2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "device": "mps"
+ },
+ "seconds": 40.5
+}

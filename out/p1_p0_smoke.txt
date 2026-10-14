@@ -1,0 +1,105 @@
+P1: conformal switch detection on p0_smoke, 2026-10-14
+
+episodes: 2  switched 0  recovered 2  lost 0
+
+score centroid, every 1 frame(s)
+  detector     thr |  det/sw  FA/rec  delay | det10 det60 lost+al
+  mixture      0.2 |   0/0     2/2      nan |     0     0   0/0  
+  mixture      0.1 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.05 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.02 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.01 |   0/0     1/2      nan |     0     0   0/0  
+  jumper       0.2 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.1 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.05 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.02 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.01 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          2 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          4 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          6 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          8 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         12 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         16 |   0/0     2/2      nan |     0     0   0/0  
+  objscore      -2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       0 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       4 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       6 |   0/0     1/2      nan |     0     0   0/0  
+  objscore       8 |   0/0     2/2      nan |     0     0   0/0  
+
+score centroid, every 4 frame(s)
+  detector     thr |  det/sw  FA/rec  delay | det10 det60 lost+al
+  mixture      0.2 |   0/0     1/2      nan |     0     0   0/0  
+  mixture      0.1 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.05 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.02 |   0/0     1/2      nan |     0     0   0/0  
+  mixture     0.01 |   0/0     1/2      nan |     0     0   0/0  
+  jumper       0.2 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.1 |   0/0     1/2      nan |     0     0   0/0  
+  jumper      0.05 |   0/0     1/2      nan |     0     0   0/0  
+  jumper      0.02 |   0/0     0/2      nan |     0     0   0/0  
+  jumper      0.01 |   0/0     0/2      nan |     0     0   0/0  
+  cusum          2 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          4 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          6 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          8 |   0/0     1/2      nan |     0     0   0/0  
+  cusum         12 |   0/0     1/2      nan |     0     0   0/0  
+  cusum         16 |   0/0     1/2      nan |     0     0   0/0  
+  objscore      -2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       0 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       4 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       6 |   0/0     1/2      nan |     0     0   0/0  
+  objscore       8 |   0/0     2/2      nan |     0     0   0/0  
+
+score nn, every 1 frame(s)
+  detector     thr |  det/sw  FA/rec  delay | det10 det60 lost+al
+  mixture      0.2 |   0/0     2/2      nan |     0     0   0/0  
+  mixture      0.1 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.05 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.02 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.01 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.2 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.1 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.05 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.02 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.01 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          2 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          4 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          6 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          8 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         12 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         16 |   0/0     2/2      nan |     0     0   0/0  
+  objscore      -2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       0 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       4 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       6 |   0/0     1/2      nan |     0     0   0/0  
+  objscore       8 |   0/0     2/2      nan |     0     0   0/0  
+
+score nn, every 4 frame(s)
+  detector     thr |  det/sw  FA/rec  delay | det10 det60 lost+al
+  mixture      0.2 |   0/0     2/2      nan |     0     0   0/0  
+  mixture      0.1 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.05 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.02 |   0/0     2/2      nan |     0     0   0/0  
+  mixture     0.01 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.2 |   0/0     2/2      nan |     0     0   0/0  
+  jumper       0.1 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.05 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.02 |   0/0     2/2      nan |     0     0   0/0  
+  jumper      0.01 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          2 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          4 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          6 |   0/0     2/2      nan |     0     0   0/0  
+  cusum          8 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         12 |   0/0     2/2      nan |     0     0   0/0  
+  cusum         16 |   0/0     2/2      nan |     0     0   0/0  
+  objscore      -2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       0 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       2 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       4 |   0/0     0/2      nan |     0     0   0/0  
+  objscore       6 |   0/0     1/2      nan |     0     0   0/0  
+  objscore       8 |   0/0     2/2      nan |     0     0   0/0  
+
+det/sw: switched episodes with an alarm within 30 frames of the switch, over switched; FA/rec: recovered episodes with any alarm (plus switched ones alarmed before the switch), over recovered; delay: median frames from switch to alarm; thr is alpha for the martingales (alarm at wealth 1/alpha), h for the CUSUM, the object-score level for objscore.
