@@ -54,7 +54,7 @@ def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4)
         secs.append(dt)
         mask, score = out[1]
         scores[i] = score
-        masks_small[i] = mask[::down, ::down]
+        masks_small[i] = mask[::down, ::down][: H // down, : W // down]
         bb = mask_bbox(mask)
         if bb is not None:
             boxes[i] = bb
@@ -92,12 +92,19 @@ def main():
     embedder = BoxHeadEmbedder(pred.crowdtarget_device)
     info_cache, gt_cache = {}, {}
     records = []
+    prev = ROOT / "out" / f"{stem}.json"
+    old = {(r["seq"], r["id"], r["gap_start"]): r for r in json.loads(prev.read_text())["records"]} if prev.exists() else {}
     t_all = time.time()
     for k, ep in enumerate(eps):
         seq_dir = ROOT / "data" / "mot20" / "MOT20" / "train" / ep.seq
         if ep.seq not in gt_cache:
             gt_cache[ep.seq] = read_gt(seq_dir)
             info_cache[ep.seq] = seq_info(seq_dir)
+        key = (ep.seq, ep.id, ep.gap_start)
+        if key in old and (runs / f"{ep.seq}_{ep.id}_{ep.gap_start}.npz").exists():
+            records.append(old[key])      # resume: keep what an earlier run finished
+            print(f"[{k + 1}/{len(eps)}] {ep.seq} id {ep.id}: kept from the earlier run ({old[key]['outcome']})", flush=True)
+            continue
         t0 = time.time()
         res, arrays = run_episode(ep, pred, embedder, gt_cache[ep.seq], info_cache[ep.seq], seq_dir)
         np.savez_compressed(runs / f"{ep.seq}_{ep.id}_{ep.gap_start}.npz", **arrays)

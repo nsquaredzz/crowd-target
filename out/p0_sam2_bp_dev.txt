@@ -1,5 +1,5 @@
 SAM 2.1 b+ alone on MOT20 episodes (dev), 2026-10-14
 
 bin         n  recov  switch  (gap  post)  lost  delay
-20-40       1      1       0     0      0     0    7.0
-all         1      1       0     0      0     0    7.0
+20-40       2      2       0     0      0     0   12.5
+all         2      2       0     0      0     0   12.5
