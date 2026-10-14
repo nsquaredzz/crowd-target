@@ -225,3 +225,30 @@ a 10-frame cooldown on a track whose prompt was refused) is running as `fix_soun
 **Honesty.** Sixteen episodes, three of which the rules were designed on. The held-out 96 (about
 11 hours including their SAM 2.1 baseline) are the test of the claim "no silent switch"; nothing in
 this part is that test.
+
+## Part VI — how hidden is the hidden person? (2026-10-15, ground truth only)
+
+`scripts/census2.py`, `scripts/census3.py`, `out/census2.txt`, `out/census3.txt`, 120 episodes.
+
+| | all | gap 20-40 | gap 40-80 | gap 80+ |
+|---|---|---|---|---|
+| gap frames (visibility < 0.3) with >= 100 px of the person showing outside nearer boxes | 88 % | 93 % | 78 % | 81 % |
+| median showing pixels on a gap frame | 772 | 826 | 454 | 1314 |
+| longest run with < 100 px showing (median / 90th pct) | 0 / 20 frames | 0 / 6 | 1 / 33 | 2 / 59 |
+| episodes whose longest blackout is <= 5 frames | 77 % | 87 % | 59 % | 57 % |
+| gap frames with the head region (top 15 %) less than half covered | 79 % | 84 % | 69 % | 71 % |
+
+"Hidden" in MOT20 means a sixth of the body still shows, most of the time. The re-identification
+problem is mostly a problem of holding on to a sliver, plus bridging blackouts of a few frames.
+
+Two ways to use that, measured:
+- *Unexplained foreground near the last position* (frame minus background minus every other person's
+  box) has a >= 300 px blob on 98 % of gap frames, but its centroid is on the target on 5 %. The
+  residual is dominated by unannotated people, loose boxes and background error. Dead as measured.
+- *Certified sliver steps* (the raw-pixel box test of certified-track, exact brightness offset, 21 px
+  template at the sliver's centroid, S = {0}, searched +-10 px on the next frame): a usable template on
+  33 % of consecutive sliver pairs; when usable it certifies on the target 82 % of the time and on
+  the nearest other person 0.0 % (0 of 1,288). Chains are short (median 2 steps) because one template
+  per frame is sparse, not because it is wrong.
+
+Depth-order exclusion at exit was measured vacuous with the speed-bound margin used (0 % excluded).

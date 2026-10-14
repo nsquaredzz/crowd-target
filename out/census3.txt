@@ -1,0 +1,15 @@
+Census 3: certified sliver steps through the gap, 120 episodes, 2026-10-15
+
+group       n  pairs usable cert tgt cert other chain med chain/gap
+all       120   3923   0.33     0.82       0.00         2      0.07
+20-40      77   1722   0.36     0.79       0.00         2      0.07
+40-80      29   1030   0.30     0.76       0.00         3      0.06
+80+        14   1171   0.31     0.91       0.00        10      0.08
+MOT20-01    3     79   0.11     0.78       0.00         1      0.04
+MOT20-02   22    842   0.38     0.68       0.00         4      0.09
+MOT20-03   25    727   0.35     0.79       0.00         2      0.05
+MOT20-05   70   2275   0.31     0.89       0.00         2      0.07
+
+pairs: consecutive gap frames with >= 300 sliver px on both; usable: a 21 px template with S = {0} and kappa >= 1 at the
+sliver's centroid; cert tgt: the template certifies within +-10 px on the next frame; cert other: it certifies around the
+nearest other person (false certification); chain: longest run of consecutive certified steps, absolute and as a share of the gap.

@@ -1,0 +1,139 @@
+Census 2: how hidden is the hidden person?  120 MOT20 episodes, ground truth only, 2026-10-15
+
+group       n | sliv>=100 sliv>=300  px med blackout med   q90   <=5  <=10 | head free head bo med   <=5 | depth excl true excl | resid big on tgt on tgt|big
+all       120 |      0.88      0.78     772            0    20  0.77  0.82 |      0.79           0  0.66 |       0.00      0.00 |      0.98   0.05       0.05
+20-40      77 |      0.93      0.83     826            0     6  0.87  0.92 |      0.84           0  0.74 |       0.00      0.00 |      0.98   0.06       0.05
+40-80      29 |      0.78      0.68     454            1    33  0.59  0.66 |      0.69           8  0.45 |       0.00      0.00 |      0.98   0.04       0.04
+80+        14 |      0.81      0.75    1314            2    59  0.57  0.64 |      0.71           0  0.64 |       0.00      0.00 |      1.00   0.02       0.02
+MOT20-01    3 |      1.00      1.00    6178            0     0  1.00  1.00 |      0.88           0  0.67 |       0.00      0.00 |      1.00   0.00       0.00
+MOT20-02   22 |      0.91      0.88    2384            0    22  0.86  0.86 |      0.73           0  0.55 |       0.00      0.00 |      1.00   0.07       0.07
+MOT20-03   25 |      0.82      0.68     461            0    18  0.64  0.72 |      0.78           0  0.64 |       0.00      0.00 |      0.96   0.10       0.08
+MOT20-05   70 |      0.89      0.78     518            0    20  0.77  0.84 |      0.81           0  0.70 |       0.00      0.00 |      0.98   0.03       0.03
+
+sliv>=100: share of gap frames (visibility < 0.3) on which >= 100 px of the person still show outside nearer boxes;
+blackout: longest run of gap frames with < 100 px showing (median, 90th percentile, share of episodes with a blackout of
+<= 5 / <= 10 frames); head free: share of gap frames with the head region < 50 % covered; depth excl: share of
+reach-disc impostors at exit standing nearer than the frontmost coverer allows; true excl: true person so excluded;
+resid: the largest blob of unexplained foreground (frame minus background minus every other person's box) within reach
+of the last position: share of gap frames where it has >= 300 px, and share where its centroid falls in the target's box
+
+MOT20-01_42_256    g  22  gap frames  22  slivers>=100 100 %  px med  2006  blackout   0  head free  64 %  head blackout   8  depth excl 0/12 true-excl False
+MOT20-01_43_199    g  33  gap frames  33  slivers>=100 100 %  px med  6178  blackout   0  head free 100 %  head blackout   0  depth excl 0/50 true-excl False
+MOT20-01_45_235    g  24  gap frames  24  slivers>=100 100 %  px med 10476  blackout   0  head free 100 %  head blackout   0  depth excl 0/40 true-excl False
+MOT20-02_4_1283   g  51  gap frames  51  slivers>=100 100 %  px med  4888  blackout   0  head free 100 %  head blackout   0  depth excl 0/85 true-excl False
+MOT20-02_18_1404   g  31  gap frames  31  slivers>=100 100 %  px med  2892  blackout   0  head free  65 %  head blackout  11  depth excl 0/56 true-excl False
+MOT20-02_30_1630   g  21  gap frames  21  slivers>=100 100 %  px med  1875  blackout   0  head free  67 %  head blackout   7  depth excl 0/40 true-excl False
+MOT20-02_32_1402   g  24  gap frames  24  slivers>=100  75 %  px med   912  blackout   5  head free  33 %  head blackout   8  depth excl 0/16 true-excl False
+MOT20-02_46_1809   g  21  gap frames  21  slivers>=100 100 %  px med  9666  blackout   0  head free 100 %  head blackout   0  depth excl 0/36 true-excl False
+MOT20-02_60_1777   g  23  gap frames  23  slivers>=100 100 %  px med   531  blackout   0  head free  13 %  head blackout  20  depth excl 0/28 true-excl False
+MOT20-02_69_2136   g  43  gap frames  43  slivers>=100 100 %  px med  4892  blackout   0  head free 100 %  head blackout   0  depth excl 0/36 true-excl False
+MOT20-02_78_2057   g  62  gap frames  62  slivers>=100 100 %  px med  2892  blackout   0  head free  79 %  head blackout   8  depth excl 0/113 true-excl False
+MOT20-02_82_1026   g  38  gap frames  38  slivers>=100 100 %  px med  5562  blackout   0  head free 100 %  head blackout   0  depth excl 0/33 true-excl False
+MOT20-02_126_2273   g  28  gap frames  28  slivers>=100 100 %  px med  1216  blackout   0  head free 100 %  head blackout   0  depth excl 0/18 true-excl False
+MOT20-02_129_2453   g  46  gap frames  46  slivers>=100 100 %  px med  9113  blackout   0  head free 100 %  head blackout   0  depth excl 0/79 true-excl False
+MOT20-02_134_2620   g  27  gap frames  27  slivers>=100 100 %  px med  8176  blackout   0  head free 100 %  head blackout   0  depth excl 0/28 true-excl False
+MOT20-02_205_32     g  32  gap frames  32  slivers>=100 100 %  px med   866  blackout   0  head free 100 %  head blackout   0  depth excl 0/60 true-excl False
+MOT20-02_208_31     g  22  gap frames  22  slivers>=100 100 %  px med  1089  blackout   0  head free 100 %  head blackout   0  depth excl 0/25 true-excl False
+MOT20-02_226_241    g  33  gap frames  33  slivers>=100 100 %  px med  3952  blackout   0  head free 100 %  head blackout   0  depth excl 0/42 true-excl False
+MOT20-02_235_426    g 102  gap frames 102  slivers>=100 100 %  px med  3658  blackout   0  head free  56 %  head blackout  45  depth excl 0/84 true-excl False
+MOT20-02_246_245    g  65  gap frames  65  slivers>=100  63 %  px med   406  blackout  24  head free   0 %  head blackout  65  depth excl 0/74 true-excl False
+MOT20-02_247_440    g 163  gap frames 163  slivers>=100  10 %  px med     0  blackout 142  head free   2 %  head blackout 150  depth excl 0/98 true-excl False
+MOT20-02_257_835    g 144  gap frames 144  slivers>=100  49 %  px med    70  blackout  39  head free  10 %  head blackout 129  depth excl 0/101 true-excl False
+MOT20-02_258_698    g  25  gap frames  25  slivers>=100 100 %  px med  1296  blackout   0  head free 100 %  head blackout   0  depth excl 0/56 true-excl False
+MOT20-02_265_556    g  70  gap frames  70  slivers>=100 100 %  px med  4226  blackout   0  head free 100 %  head blackout   0  depth excl 0/58 true-excl False
+MOT20-02_291_964    g  59  gap frames  59  slivers>=100 100 %  px med   622  blackout   0  head free  73 %  head blackout  16  depth excl 0/55 true-excl False
+MOT20-03_6_764    g  81  gap frames  81  slivers>=100  85 %  px med   810  blackout  12  head free 100 %  head blackout   0  depth excl 0/158 true-excl False
+MOT20-03_28_704    g  44  gap frames  44  slivers>=100  16 %  px med    15  blackout  36  head free  11 %  head blackout  39  depth excl 0/25 true-excl False
+MOT20-03_46_712    g  22  gap frames  22  slivers>=100 100 %  px med   898  blackout   0  head free 100 %  head blackout   0  depth excl 0/5 true-excl False
+MOT20-03_49_374    g  28  gap frames  28  slivers>=100 100 %  px med  1916  blackout   0  head free 100 %  head blackout   0  depth excl 0/41 true-excl False
+MOT20-03_58_700    g  28  gap frames  28  slivers>=100 100 %  px med   142  blackout   0  head free 100 %  head blackout   0  depth excl 0/30 true-excl False
+MOT20-03_85_171    g  21  gap frames  21  slivers>=100  24 %  px med    61  blackout  16  head free 100 %  head blackout   0  depth excl 0/45 true-excl False
+MOT20-03_97_250    g  56  gap frames  56  slivers>=100  98 %  px med   454  blackout   1  head free  18 %  head blackout  46  depth excl 0/184 true-excl False
+MOT20-03_169_136    g  43  gap frames  43  slivers>=100  72 %  px med   336  blackout  12  head free 100 %  head blackout   0  depth excl 0/28 true-excl False
+MOT20-03_237_1363   g  48  gap frames  48  slivers>=100 100 %  px med  2900  blackout   0  head free 100 %  head blackout   0  depth excl 0/31 true-excl False
+MOT20-03_268_1231   g  26  gap frames  26  slivers>=100 100 %  px med  1350  blackout   0  head free 100 %  head blackout   0  depth excl 0/49 true-excl False
+MOT20-03_282_724    g  36  gap frames  36  slivers>=100 100 %  px med  2245  blackout   0  head free 100 %  head blackout   0  depth excl 0/82 true-excl False
+MOT20-03_316_1078   g  30  gap frames  30  slivers>=100  97 %  px med   420  blackout   1  head free  67 %  head blackout   9  depth excl 0/24 true-excl False
+MOT20-03_326_946    g 175  gap frames 175  slivers>=100  97 %  px med  2741  blackout   6  head free 100 %  head blackout   0  depth excl 0/290 true-excl False
+MOT20-03_348_1556   g  57  gap frames  57  slivers>=100 100 %  px med   341  blackout   0  head free  84 %  head blackout   9  depth excl 0/134 true-excl False
+MOT20-03_379_1727   g  20  gap frames  20  slivers>=100 100 %  px med   461  blackout   0  head free 100 %  head blackout   0  depth excl 0/52 true-excl False
+MOT20-03_382_1490   g  26  gap frames  26  slivers>=100 100 %  px med   412  blackout   0  head free 100 %  head blackout   0  depth excl 0/37 true-excl False
+MOT20-03_414_1237   g  30  gap frames  30  slivers>=100  70 %  px med   162  blackout   5  head free  20 %  head blackout  24  depth excl 2/17 true-excl False
+MOT20-03_428_440    g  32  gap frames  32  slivers>=100 100 %  px med  2380  blackout   0  head free 100 %  head blackout   0  depth excl 0/59 true-excl False
+MOT20-03_457_1225   g  32  gap frames  32  slivers>=100  56 %  px med   167  blackout  14  head free   6 %  head blackout  30  depth excl 0/73 true-excl False
+MOT20-03_505_2119   g  58  gap frames  58  slivers>=100  10 %  px med     0  blackout  52  head free   0 %  head blackout  58  depth excl 0/55 true-excl False
+MOT20-03_549_1826   g  32  gap frames  32  slivers>=100  75 %  px med  2072  blackout   8  head free  53 %  head blackout  15  depth excl 0/10 true-excl False
+MOT20-03_598_1514   g  36  gap frames  36  slivers>=100 100 %  px med   490  blackout   0  head free 100 %  head blackout   0  depth excl 0/72 true-excl False
+MOT20-03_609_1802   g  38  gap frames  38  slivers>=100 100 %  px med  4640  blackout   0  head free 100 %  head blackout   0  depth excl 0/60 true-excl False
+MOT20-03_610_2082   g  44  gap frames  44  slivers>=100  39 %  px med    90  blackout  20  head free  80 %  head blackout   9  depth excl 0/65 true-excl False
+MOT20-03_614_1894   g  22  gap frames  22  slivers>=100 100 %  px med  1006  blackout   0  head free 100 %  head blackout   0  depth excl 0/23 true-excl False
+MOT20-05_16_1042   g  24  gap frames  24  slivers>=100 100 %  px med   544  blackout   0  head free  88 %  head blackout   3  depth excl 0/20 true-excl False
+MOT20-05_21_848    g  51  gap frames  51  slivers>=100  84 %  px med   322  blackout   8  head free 100 %  head blackout   0  depth excl 0/122 true-excl False
+MOT20-05_23_771    g  38  gap frames  38  slivers>=100 100 %  px med   442  blackout   0  head free 100 %  head blackout   0  depth excl 0/107 true-excl False
+MOT20-05_24_1012   g  28  gap frames  28  slivers>=100 100 %  px med   449  blackout   0  head free 100 %  head blackout   0  depth excl 0/68 true-excl False
+MOT20-05_58_703    g  44  gap frames  44  slivers>=100 100 %  px med  1292  blackout   0  head free 100 %  head blackout   0  depth excl 0/85 true-excl False
+MOT20-05_68_669    g  53  gap frames  53  slivers>=100 100 %  px med   772  blackout   0  head free 100 %  head blackout   0  depth excl 0/98 true-excl False
+MOT20-05_140_35     g  41  gap frames  41  slivers>=100 100 %  px med  1563  blackout   0  head free 100 %  head blackout   0  depth excl 0/11 true-excl False
+MOT20-05_156_354    g  91  gap frames  91  slivers>=100  26 %  px med     0  blackout  67  head free   8 %  head blackout  84  depth excl 0/153 true-excl False
+MOT20-05_157_489    g  26  gap frames  26  slivers>=100 100 %  px med   918  blackout   0  head free 100 %  head blackout   0  depth excl 0/29 true-excl False
+MOT20-05_172_107    g  70  gap frames  70  slivers>=100  97 %  px med   382  blackout   2  head free 100 %  head blackout   0  depth excl 0/149 true-excl False
+MOT20-05_229_324    g  33  gap frames  33  slivers>=100 100 %  px med   300  blackout   0  head free 100 %  head blackout   0  depth excl 0/75 true-excl False
+MOT20-05_245_308    g  34  gap frames  34  slivers>=100 100 %  px med   240  blackout   0  head free 100 %  head blackout   0  depth excl 0/75 true-excl False
+MOT20-05_403_2132   g  29  gap frames  29  slivers>=100 100 %  px med   670  blackout   0  head free 100 %  head blackout   0  depth excl 0/35 true-excl False
+MOT20-05_425_225    g  21  gap frames  21  slivers>=100 100 %  px med  1871  blackout   0  head free 100 %  head blackout   0  depth excl 0/26 true-excl False
+MOT20-05_426_1423   g  31  gap frames  31  slivers>=100 100 %  px med  2547  blackout   0  head free 100 %  head blackout   0  depth excl 0/33 true-excl False
+MOT20-05_426_1723   g  26  gap frames  26  slivers>=100 100 %  px med   918  blackout   0  head free 100 %  head blackout   0  depth excl 0/51 true-excl False
+MOT20-05_427_1388   g  33  gap frames  33  slivers>=100 100 %  px med   476  blackout   0  head free 100 %  head blackout   0  depth excl 0/88 true-excl False
+MOT20-05_439_2193   g  25  gap frames  25  slivers>=100 100 %  px med  1535  blackout   0  head free 100 %  head blackout   0  depth excl 0/40 true-excl False
+MOT20-05_444_2375   g  28  gap frames  28  slivers>=100 100 %  px med   456  blackout   0  head free 100 %  head blackout   0  depth excl 0/57 true-excl False
+MOT20-05_448_2351   g  22  gap frames  22  slivers>=100 100 %  px med   748  blackout   0  head free 100 %  head blackout   0  depth excl 0/30 true-excl False
+MOT20-05_480_2174   g  38  gap frames  38  slivers>=100  42 %  px med    64  blackout  22  head free  26 %  head blackout  28  depth excl 0/35 true-excl False
+MOT20-05_506_2197   g  62  gap frames  62  slivers>=100  42 %  px med    32  blackout  24  head free   3 %  head blackout  59  depth excl 0/83 true-excl False
+MOT20-05_523_1920   g  91  gap frames  91  slivers>=100 100 %  px med   999  blackout   0  head free 100 %  head blackout   0  depth excl 0/127 true-excl False
+MOT20-05_534_2021   g  23  gap frames  23  slivers>=100 100 %  px med  6902  blackout   0  head free 100 %  head blackout   0  depth excl 0/48 true-excl False
+MOT20-05_544_2030   g  48  gap frames  48  slivers>=100 100 %  px med   403  blackout   0  head free  71 %  head blackout  14  depth excl 0/90 true-excl False
+MOT20-05_556_2061   g  28  gap frames  28  slivers>=100 100 %  px med   826  blackout   0  head free 100 %  head blackout   0  depth excl 0/52 true-excl False
+MOT20-05_571_2840   g  34  gap frames  34  slivers>=100  97 %  px med  1474  blackout   1  head free 100 %  head blackout   0  depth excl 0/21 true-excl False
+MOT20-05_572_951    g  22  gap frames  22  slivers>=100 100 %  px med   444  blackout   0  head free 100 %  head blackout   0  depth excl 0/39 true-excl False
+MOT20-05_572_2146   g  39  gap frames  39  slivers>=100 100 %  px med   453  blackout   0  head free 100 %  head blackout   0  depth excl 0/64 true-excl False
+MOT20-05_611_2418   g  51  gap frames  51  slivers>=100  61 %  px med   240  blackout  20  head free   8 %  head blackout  47  depth excl 0/88 true-excl False
+MOT20-05_641_2759   g  33  gap frames  33  slivers>=100  94 %  px med   380  blackout   2  head free  21 %  head blackout  26  depth excl 0/49 true-excl False
+MOT20-05_642_1318   g  29  gap frames  29  slivers>=100 100 %  px med   763  blackout   0  head free  66 %  head blackout  10  depth excl 0/35 true-excl False
+MOT20-05_642_1914   g  38  gap frames  38  slivers>=100 100 %  px med   494  blackout   0  head free  55 %  head blackout  17  depth excl 0/60 true-excl False
+MOT20-05_652_3136   g  37  gap frames  37  slivers>=100  84 %  px med   512  blackout   6  head free  35 %  head blackout  24  depth excl 0/67 true-excl False
+MOT20-05_682_3203   g  25  gap frames  25  slivers>=100  80 %  px med   196  blackout   5  head free  64 %  head blackout   9  depth excl 0/38 true-excl False
+MOT20-05_700_3195   g  24  gap frames  24  slivers>=100 100 %  px med   479  blackout   0  head free 100 %  head blackout   0  depth excl 0/50 true-excl False
+MOT20-05_731_2017   g  48  gap frames  48  slivers>=100 100 %  px med  1894  blackout   0  head free 100 %  head blackout   0  depth excl 0/5 true-excl False
+MOT20-05_731_2577   g 112  gap frames 112  slivers>=100 100 %  px med  4200  blackout   0  head free 100 %  head blackout   0  depth excl 0/70 true-excl False
+MOT20-05_732_2194   g  21  gap frames  21  slivers>=100  71 %  px med   460  blackout   6  head free   0 %  head blackout  21  depth excl 0/13 true-excl False
+MOT20-05_736_3101   g 129  gap frames 129  slivers>=100 100 %  px med  2419  blackout   0  head free 100 %  head blackout   0  depth excl 0/96 true-excl False
+MOT20-05_758_2910   g  86  gap frames  86  slivers>=100 100 %  px med  1629  blackout   0  head free 100 %  head blackout   0  depth excl 0/202 true-excl False
+MOT20-05_762_2946   g  98  gap frames  98  slivers>=100 100 %  px med  1784  blackout   0  head free 100 %  head blackout   0  depth excl 0/323 true-excl False
+MOT20-05_767_2476   g  22  gap frames  22  slivers>=100 100 %  px med  1909  blackout   0  head free 100 %  head blackout   0  depth excl 0/25 true-excl False
+MOT20-05_793_1132   g  22  gap frames  22  slivers>=100 100 %  px med   496  blackout   0  head free 100 %  head blackout   0  depth excl 0/14 true-excl False
+MOT20-05_806_3198   g  21  gap frames  21  slivers>=100 100 %  px med  3752  blackout   0  head free 100 %  head blackout   0  depth excl 0/21 true-excl False
+MOT20-05_836_36     g  28  gap frames  28  slivers>=100 100 %  px med  1718  blackout   0  head free 100 %  head blackout   0  depth excl 0/50 true-excl False
+MOT20-05_849_3187   g  25  gap frames  25  slivers>=100 100 %  px med   772  blackout   0  head free 100 %  head blackout   0  depth excl 0/40 true-excl False
+MOT20-05_885_2119   g  57  gap frames  57  slivers>=100   0 %  px med     0  blackout  57  head free  77 %  head blackout   8  depth excl 0/75 true-excl False
+MOT20-05_898_2769   g  37  gap frames  37  slivers>=100 100 %  px med  1986  blackout   0  head free 100 %  head blackout   0  depth excl 0/92 true-excl False
+MOT20-05_901_1217   g  20  gap frames  20  slivers>=100 100 %  px med  1048  blackout   0  head free 100 %  head blackout   0  depth excl 0/37 true-excl False
+MOT20-05_920_2898   g 102  gap frames 102  slivers>=100  94 %  px med   334  blackout   5  head free 100 %  head blackout   0  depth excl 0/245 true-excl False
+MOT20-05_931_1845   g  22  gap frames  22  slivers>=100  73 %  px med   438  blackout   6  head free  23 %  head blackout  17  depth excl 0/14 true-excl False
+MOT20-05_933_1461   g  21  gap frames  21  slivers>=100  33 %  px med    26  blackout  13  head free  76 %  head blackout   5  depth excl 0/26 true-excl False
+MOT20-05_934_820    g  22  gap frames  22  slivers>=100 100 %  px med   320  blackout   0  head free  41 %  head blackout  13  depth excl 0/10 true-excl False
+MOT20-05_934_1025   g  55  gap frames  55  slivers>=100  64 %  px med   195  blackout  12  head free  22 %  head blackout  29  depth excl 0/30 true-excl False
+MOT20-05_954_1768   g  36  gap frames  36  slivers>=100  67 %  px med   284  blackout  12  head free   0 %  head blackout  36  depth excl 0/38 true-excl False
+MOT20-05_965_1890   g  52  gap frames  52  slivers>=100  38 %  px med    18  blackout  32  head free   8 %  head blackout  48  depth excl 0/43 true-excl False
+MOT20-05_973_1204   g  21  gap frames  21  slivers>=100 100 %  px med  2032  blackout   0  head free 100 %  head blackout   0  depth excl 0/21 true-excl False
+MOT20-05_981_899    g  61  gap frames  61  slivers>=100 100 %  px med  2231  blackout   0  head free 100 %  head blackout   0  depth excl 0/57 true-excl False
+MOT20-05_989_1723   g  25  gap frames  25  slivers>=100 100 %  px med  4056  blackout   0  head free 100 %  head blackout   0  depth excl 0/34 true-excl False
+MOT20-05_1010_1743   g  44  gap frames  44  slivers>=100  80 %  px med   492  blackout   9  head free  82 %  head blackout   8  depth excl 0/108 true-excl False
+MOT20-05_1018_1924   g  22  gap frames  22  slivers>=100  95 %  px med   468  blackout   1  head free 100 %  head blackout   0  depth excl 0/30 true-excl False
+MOT20-05_1036_1379   g  59  gap frames  59  slivers>=100  97 %  px med  4888  blackout   2  head free  85 %  head blackout   8  depth excl 0/135 true-excl False
+MOT20-05_1039_1227   g 137  gap frames 137  slivers>=100 100 %  px med  2179  blackout   0  head free  98 %  head blackout   3  depth excl 0/380 true-excl False
+MOT20-05_1076_1382   g  21  gap frames  21  slivers>=100 100 %  px med   935  blackout   0  head free 100 %  head blackout   0  depth excl 0/22 true-excl False
+MOT20-05_1123_169    g  39  gap frames  39  slivers>=100 100 %  px med   317  blackout   0  head free 100 %  head blackout   0  depth excl 0/78 true-excl False
+MOT20-05_1128_1114   g  39  gap frames  39  slivers>=100 100 %  px med   523  blackout   0  head free 100 %  head blackout   0  depth excl 0/53 true-excl False
+MOT20-05_1155_1025   g  94  gap frames  94  slivers>=100  76 %  px med   401  blackout  23  head free  21 %  head blackout  71  depth excl 0/27 true-excl False
+MOT20-05_1157_716    g  30  gap frames  30  slivers>=100 100 %  px med  2218  blackout   0  head free 100 %  head blackout   0  depth excl 0/66 true-excl False
+MOT20-05_1206_2654   g  31  gap frames  31  slivers>=100  19 %  px med    48  blackout  25  head free  77 %  head blackout   7  depth excl 0/25 true-excl False
