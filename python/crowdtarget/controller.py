@@ -35,6 +35,15 @@ detector confidence >= 0.25 and a track at least 3 frames old; a track whose pro
 provisional commit was revoked is not re-prompted for 10 frames (it stays a hypothesis).  This is the
 plan's second tier of hypotheses, carried by detections instead of SAM 2 forks.
 
+Certified sliver chains (`use_chain`, RESULTS Part VI): templates of the person's own texture are mined on
+every accepted mask; on the next frame their certified positions (box test, exact offset, 0 false steps on
+neighbours in 1,288 census trials) say where the person is regardless of how little of them shows.  A
+small mask that contains the certified positions is accepted (the area gate is waived); a mask that
+misses them while they exist makes SAM 2 re-prompt on this frame with positive points at the certified
+positions and negative points on nearby known others ("that is him, that is not"); the result is kept
+if it contains the positions, passes the budget and is not a known other.  A blackout widens the
+chain's search at walking speed; the tube and detections remain the fallback.
+
 Not in this cut (plan P2 full): forks per hypothesis, checkpoints further back than the last commit,
 confirmation by rare colours or anchors, companions.  Thresholds come from the census (tau = 0.2, the
 larger of its two cross-fold values; q = 1.1) and are stated, not tuned on outcomes.
@@ -46,6 +55,7 @@ import numpy as np
 from . import neighbours as NB
 from . import palette as P
 from . import sam2io
+from . import sliver as SL
 from . import tube as TB
 from .fixes import Fix, box_iou, mask_box
 
@@ -69,13 +79,18 @@ class Sound(Fix):
 
     def __init__(self, pred, W, H, start_box, *, bg, dets, v_max, frames, t_start, tau=0.2, q_cons=1.1, area_gate=0.5,
                  cont_frac=0.6, conf=0.1, n_mem=6, firm_after=5, other_iou=0.3, other_iou_veto=0.5, reacq_score=2.0, reacq_cons=0.4,
-                 cand_conf=0.25, min_track_age=3, cooldown_frames=10):
+                 cand_conf=0.25, min_track_age=3, cooldown_frames=10, use_chain=False, chain_max_n=8, chain_search_r=10, jump_iou=0.4):
         super().__init__(pred, W, H)
         self.bg, self.dets, self.v_max, self.frames, self.t_start = bg, dets, v_max, frames, t_start
         self.tau, self.q_cons, self.area_gate, self.cont_frac, self.conf, self.n_mem = tau, q_cons, area_gate, cont_frac, conf, n_mem
         self.firm_after, self.other_iou, self.other_iou_veto = firm_after, other_iou, other_iou_veto
         self.reacq_score, self.reacq_cons = reacq_score, reacq_cons
         self.cand_conf, self.min_track_age, self.cooldown_frames = cand_conf, min_track_age, cooldown_frames
+        self.use_chain = use_chain
+        self.jump_iou = jump_iou
+        self.last_bb = None
+        self.chain = SL.Chain(max_n=chain_max_n, search_r=chain_search_r) if use_chain else None
+        self.name = "sliver" if use_chain else "sound"
         self.tracker = NB.IouTracker(max_miss=2)
         self.budget = P.Budget()
         self.state = TRACKING
@@ -121,7 +136,9 @@ class Sound(Fix):
         tr = self.tracker.tracks.get(tid)
         if tr is None:
             return False
-        since = self.absent_since if self.absent_since is not None else self.cur
+        if self.absent_since is None:
+            return True                                   # while tracking, a known other is simply a known other
+        since = self.absent_since
         return NB.certain_frac(tr, since, self.cur) >= self.cont_frac or self.cur - since < 2
 
     def _relink_others(self, i, boxes):
@@ -166,6 +183,7 @@ class Sound(Fix):
         self._relink_others(i, boxes)
         f = self.frames[i]
         self._g, self._d = P.gains(f, self.bg, P.boxes_mask(boxes, self.H, self.W))
+        self._lum = SL.luminance(f, self._g) if self.use_chain else None
         d = state["output_dict_per_obj"][0]["non_cond_frame_outputs"]
         if self.bank:
             d.clear()
@@ -213,9 +231,12 @@ class Sound(Fix):
             self.provisional = None
             self.absent_since = None
             self.tube_live = False
+        self.last_bb = bb if bb is not None else getattr(self, "last_bb", None)
         if self.firm and bb is not None:
-            self.areas.append(float(mask.sum()))
-            self.heights.append(float(bb[3] - bb[1]))
+            a = float(mask.sum())
+            if not self.areas or a >= self.area_gate * float(np.median(self.areas[-30:])):
+                self.areas.append(a)
+                self.heights.append(float(bb[3] - bb[1]))
             self.last_foot = np.array([(bb[0] + bb[2]) / 2, bb[3]], float)
             self.last_box_h = float(bb[3] - bb[1])
             tid = self._track_of_box(bb, boxes)
@@ -223,13 +244,20 @@ class Sound(Fix):
                 self.own_track = tid
             elif tid is not None and tid != self.own_track:
                 self.own_track = tid              # the person's own track was re-linked by the detector
-            # everyone standing beside the person now is a known other
+            # every other simultaneous detection is another person, companions included; a duplicate detection of
+            # the person (IoU >= 0.6 with the person's own detection) is not
+            own_box = None
+            if tid is not None:
+                for j, b in enumerate(boxes):
+                    if self.tracker.last_assignment.get(j) == tid:
+                        own_box = b
+            ref = own_box if own_box is not None else bb
             for j, b in enumerate(boxes):
                 tj = self.tracker.last_assignment.get(j)
-                if tj is not None and tj != self.own_track and box_iou(b, bb) < self.other_iou:
+                if tj is not None and tj != self.own_track and box_iou(b, ref) < 0.6:
                     self.others.add(tj)
                     self.other_last[tj] = (i, b)
-            if tid is not None and tid == self.own_track and score > 2:
+            if score > 2 and (not self.areas or a >= self.area_gate * float(np.median(self.areas[-30:]))):
                 self.budget.add(P.histogram(self.frames[i][mask].astype(np.float32) / self._g, bb[3] - bb[1]))
 
     def after_step(self, state, i, mask, score):
@@ -239,25 +267,82 @@ class Sound(Fix):
         area = float(mask.sum())
         rec = {"state": self.state, "score": float(score), "area": area, "firm": self.firm}
         reacq = not (self.state == TRACKING and self.firm)       # re-acquisition: a return needs a confident, substantial mask
-        own_ok = bb is not None and score > (self.reacq_score if reacq else 0.0) and (not self.areas or area >= self.area_gate * float(np.median(self.areas[-30:])))
-        other_boxes = self._other_boxes(boxes) if (self.state != TRACKING or not self.firm) else []
+        # certified sliver chain: where the person's visible texture from the last accepted frame is now
+        found = self.chain.probe(self._lum) if (self.use_chain and self.chain.templates) else []
+        chained = bool(found) and bb is not None and self.chain.inside(found, mask)
+        rec["chain_found"] = len(found)
+        rec["chained"] = bool(chained)
+        big_enough = (not self.areas) or area >= self.area_gate * float(np.median(self.areas[-30:]))
+        # without a certified texture step, the mask must at least overlap the last accepted one (a jump to a
+        # neighbour does not); with one, the chain decides
+        prev_bb = getattr(self, "last_bb", None)
+        continuous = chained or prev_bb is None or (bb is not None and box_iou(bb, prev_bb) >= self.jump_iou) or self.state != TRACKING
+        rec["continuous"] = bool(continuous)
+        own_ok = bb is not None and score > 0 and (big_enough or chained) and (chained or not reacq or score > self.reacq_score) and continuous
+        other_boxes = self._other_boxes(boxes)        # also while firmly tracking: a slide onto a neighbour happens there
         # the mask IS a known other when their boxes coincide; a fragment of the person seen behind that
         # other sits inside the other's box but has a small IoU with it, and must not be vetoed
-        veto = bb is not None and any(box_iou(bb, ob) >= self.other_iou_veto for ob in other_boxes)
+        # ... or the mask sits almost entirely in a known other's box and not where the person last was
+        prev_bb0 = getattr(self, "last_bb", None)
+        veto = bb is not None and any(box_iou(bb, ob) >= self.other_iou_veto or
+                                      (containment(mask, ob) >= 0.8 and (prev_bb0 is None or containment(mask, prev_bb0) < 0.5))
+                                      for ob in other_boxes)
         e = cons = float("nan")
         bud_ok = False
         if own_ok and not veto:
             h = (bb[3] - bb[1]) if (self.state == TRACKING and self.firm) else max(bb[3] - bb[1], self._h_ref())
             bud_ok, e, cons = self._budget_ok(self.frames[i][mask].astype(np.float32), h)
-            if reacq and cons == cons and cons < self.reacq_cons:
+            if reacq and cons == cons and cons < self.reacq_cons and not chained:
                 bud_ok = False
         in_reach = (not self.tube_live) or (bb is not None and self.tube.admits(((bb[0] + bb[2]) / 2, bb[3])))
         mask_ok = own_ok and bud_ok and not veto and in_reach
-        rec.update({"E": e, "cons": cons, "veto": bool(veto), "own_ok": bool(own_ok), "in_reach": bool(in_reach), "n_others": len(other_boxes)})
+        rec.update({"E": e, "cons": cons, "veto": bool(veto), "own_ok": bool(own_ok), "in_reach": bool(in_reach), "n_others": len(other_boxes),
+                    "max_other_contain": float(max([containment(mask, ob) for ob in other_boxes], default=0.0)) if bb is not None else 0.0,
+                    "max_other_iou": float(max([box_iou(bb, ob) for ob in other_boxes], default=0.0)) if bb is not None else 0.0,
+                    "prev_contain": float(containment(mask, prev_bb0)) if (bb is not None and prev_bb0 is not None) else float("nan")})
+        if not mask_ok and found and self.use_chain:
+            # SAM 2 missed or misplaced the person, the certified sliver did not: point it there, and away from known others
+            cy, cx = SL.centre(found)
+            pos = [[f["x"], f["y"]] for f in sorted(found, key=lambda f: f["score"])[:3]]
+            neg = []
+            for ob in self._other_boxes(boxes) if other_boxes else []:
+                ocx, ocy = (ob[0] + ob[2]) / 2, ob[1] + 0.35 * (ob[3] - ob[1])
+                if np.hypot(ocx - cx, ocy - cy) <= 1.5 * self._h_ref() and not any(ob[0] <= p[0] <= ob[2] and ob[1] <= p[1] <= ob[3] for p in pos):
+                    neg.append([ocx, ocy])
+            od = state["output_dict_per_obj"][0]
+            od["non_cond_frame_outputs"].pop(i, None)
+            sam2io.prompt_points(self.pred, state, i, 1, pos + neg[:3], [1] * len(pos) + [0] * len(neg[:3]))
+            self.pred.propagate_in_video_preflight(state)
+            out = od["cond_frame_outputs"].get(i) or od["non_cond_frame_outputs"].get(i)
+            if out is not None:
+                import torch
+                with torch.inference_mode():
+                    m = torch.nn.functional.interpolate(out["pred_masks"].to(self.pred.device).float(), size=(self.H, self.W), mode="bilinear", align_corners=False)
+                m2 = (m[0, 0] > 0).cpu().numpy()
+                bb2 = mask_box(m2)
+                score2 = float(out["object_score_logits"].reshape(-1)[0])
+                ok2, e2, c2 = self._budget_ok(self.frames[i][m2].astype(np.float32), max(bb2[3] - bb2[1], self._h_ref()) if bb2 is not None else 1.0) if bb2 is not None else (False, float("nan"), float("nan"))
+                veto2 = bb2 is not None and any(box_iou(bb2, ob) >= self.other_iou_veto for ob in other_boxes)
+                if bb2 is not None and score2 > 0 and ok2 and not veto2 and self.chain.inside(found, m2):
+                    mask, bb, score = m2, bb2, score2
+                    mask_ok = True
+                    rec["chain_prompt"] = {"pos": len(pos), "neg": len(neg[:3]), "score": score2, "E": e2}
+                else:
+                    od["cond_frame_outputs"].pop(i, None)
+                    od["non_cond_frame_outputs"].pop(i, None)
+                    state["point_inputs_per_obj"][0].pop(i, None)
+                    rec["chain_prompt_refused"] = {"score": score2, "E": e2, "inside": bool(bb2 is not None and self.chain.inside(found, m2))}
         if mask_ok:
-            self._accept(state, i, mask, bb, score, boxes, "mask")
-            rec["commit"] = "mask" if rec["state"] != TRACKING else None
+            self._accept(state, i, mask, bb, score, boxes, "chain" if (chained and rec["state"] != TRACKING) else "mask")
+            rec["commit"] = ("chain" if chained else "mask") if rec["state"] != TRACKING else None
+            if self.use_chain:
+                if found:
+                    self.chain.commit(found, self._lum, mask)
+                elif continuous:
+                    self.chain.commit([], self._lum, mask)        # (re)seed from the accepted mask
         else:
+            if self.use_chain:
+                self.chain.miss()
             self._reject(state, i)
             # candidates while absent: detections in the reach, not known others, passing the budget
             cands = []

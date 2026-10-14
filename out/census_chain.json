@@ -1,0 +1,2292 @@
+{
+ "machine": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "torch": "2.14.1",
+  "mps": true,
+  "sam2_commit": "sam2 HEAD 2b90b9f5ceec907a1c18123530e92e794ad901a4"
+ },
+ "records": [
+  {
+   "seq": "MOT20-01",
+   "id": 42,
+   "gap_start": 256,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 4,
+   "off": 4,
+   "covered_frac": 0.2727272727272727,
+   "longest_chain": 3,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-01",
+   "id": 43,
+   "gap_start": 199,
+   "g": 33,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 32,
+   "usable": 32,
+   "on": 15,
+   "off": 0,
+   "covered_frac": 0.21212121212121213,
+   "longest_chain": 5,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-01",
+   "id": 45,
+   "gap_start": 235,
+   "g": 24,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 23,
+   "usable": 23,
+   "on": 60,
+   "off": 1,
+   "covered_frac": 0.875,
+   "longest_chain": 15,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 4,
+   "gap_start": 1283,
+   "g": 51,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 50,
+   "usable": 50,
+   "on": 254,
+   "off": 0,
+   "covered_frac": 0.9803921568627451,
+   "longest_chain": 50,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 18,
+   "gap_start": 1404,
+   "g": 31,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 30,
+   "usable": 30,
+   "on": 105,
+   "off": 0,
+   "covered_frac": 0.967741935483871,
+   "longest_chain": 30,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 30,
+   "gap_start": 1630,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 20,
+   "on": 32,
+   "off": 1,
+   "covered_frac": 0.5238095238095238,
+   "longest_chain": 9,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 32,
+   "gap_start": 1402,
+   "g": 24,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 23,
+   "usable": 23,
+   "on": 52,
+   "off": 0,
+   "covered_frac": 0.625,
+   "longest_chain": 13,
+   "bridged": {
+    "4": [
+     1,
+     0
+    ],
+    "5": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 46,
+   "gap_start": 1809,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 20,
+   "on": 17,
+   "off": 0,
+   "covered_frac": 0.2857142857142857,
+   "longest_chain": 6,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 60,
+   "gap_start": 1777,
+   "g": 23,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 22,
+   "usable": 20,
+   "on": 30,
+   "off": 0,
+   "covered_frac": 0.43478260869565216,
+   "longest_chain": 5,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 69,
+   "gap_start": 2136,
+   "g": 43,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 42,
+   "usable": 42,
+   "on": 148,
+   "off": 25,
+   "covered_frac": 0.9767441860465116,
+   "longest_chain": 42,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 78,
+   "gap_start": 2057,
+   "g": 62,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 61,
+   "usable": 61,
+   "on": 66,
+   "off": 0,
+   "covered_frac": 0.4032258064516129,
+   "longest_chain": 7,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 82,
+   "gap_start": 1026,
+   "g": 38,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 37,
+   "usable": 37,
+   "on": 269,
+   "off": 0,
+   "covered_frac": 0.9736842105263158,
+   "longest_chain": 37,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 126,
+   "gap_start": 2273,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 27,
+   "usable": 27,
+   "on": 123,
+   "off": 0,
+   "covered_frac": 0.9642857142857143,
+   "longest_chain": 27,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 129,
+   "gap_start": 2453,
+   "g": 46,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 45,
+   "usable": 45,
+   "on": 80,
+   "off": 113,
+   "covered_frac": 0.8043478260869565,
+   "longest_chain": 35,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 134,
+   "gap_start": 2620,
+   "g": 27,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 26,
+   "usable": 26,
+   "on": 107,
+   "off": 0,
+   "covered_frac": 0.9629629629629629,
+   "longest_chain": 26,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 205,
+   "gap_start": 32,
+   "g": 32,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 31,
+   "usable": 31,
+   "on": 74,
+   "off": 18,
+   "covered_frac": 0.96875,
+   "longest_chain": 31,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 208,
+   "gap_start": 31,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 81,
+   "off": 0,
+   "covered_frac": 0.9545454545454546,
+   "longest_chain": 21,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 226,
+   "gap_start": 241,
+   "g": 33,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 32,
+   "usable": 32,
+   "on": 71,
+   "off": 0,
+   "covered_frac": 0.6666666666666666,
+   "longest_chain": 11,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 235,
+   "gap_start": 426,
+   "g": 102,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 101,
+   "usable": 101,
+   "on": 205,
+   "off": 123,
+   "covered_frac": 0.6666666666666666,
+   "longest_chain": 44,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 246,
+   "gap_start": 245,
+   "g": 65,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 64,
+   "usable": 60,
+   "on": 88,
+   "off": 0,
+   "covered_frac": 0.5846153846153846,
+   "longest_chain": 20,
+   "bridged": {
+    "19": [
+     6,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 247,
+   "gap_start": 440,
+   "g": 163,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 161,
+   "usable": 155,
+   "on": 19,
+   "off": 1,
+   "covered_frac": 0.05521472392638037,
+   "longest_chain": 7,
+   "bridged": {
+    "80": [
+     1,
+     1
+    ],
+    "61": [
+     2,
+     0
+    ],
+    "65": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 257,
+   "gap_start": 835,
+   "g": 144,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 143,
+   "usable": 94,
+   "on": 162,
+   "off": 6,
+   "covered_frac": 0.3819444444444444,
+   "longest_chain": 37,
+   "bridged": {
+    "2": [
+     1,
+     1
+    ],
+    "14": [
+     1,
+     1
+    ],
+    "11": [
+     1,
+     1
+    ],
+    "4": [
+     8,
+     0
+    ],
+    "38": [
+     14,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 258,
+   "gap_start": 698,
+   "g": 25,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 24,
+   "on": 51,
+   "off": 1,
+   "covered_frac": 0.76,
+   "longest_chain": 15,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 265,
+   "gap_start": 556,
+   "g": 70,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 69,
+   "usable": 69,
+   "on": 122,
+   "off": 198,
+   "covered_frac": 0.7285714285714285,
+   "longest_chain": 47,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-02",
+   "id": 291,
+   "gap_start": 964,
+   "g": 59,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 58,
+   "usable": 58,
+   "on": 50,
+   "off": 0,
+   "covered_frac": 0.4406779661016949,
+   "longest_chain": 13,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 6,
+   "gap_start": 764,
+   "g": 81,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 80,
+   "usable": 50,
+   "on": 57,
+   "off": 34,
+   "covered_frac": 0.41975308641975306,
+   "longest_chain": 31,
+   "bridged": {
+    "6": [
+     33,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 28,
+   "gap_start": 704,
+   "g": 44,
+   "bin": "40-80",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 46,
+   "gap_start": 712,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 24,
+   "off": 1,
+   "covered_frac": 0.6363636363636364,
+   "longest_chain": 13,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 49,
+   "gap_start": 374,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 27,
+   "usable": 27,
+   "on": 99,
+   "off": 5,
+   "covered_frac": 0.9642857142857143,
+   "longest_chain": 27,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 58,
+   "gap_start": 700,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 27,
+   "usable": 16,
+   "on": 17,
+   "off": 0,
+   "covered_frac": 0.2857142857142857,
+   "longest_chain": 8,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 85,
+   "gap_start": 171,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 97,
+   "gap_start": 250,
+   "g": 56,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 55,
+   "usable": 55,
+   "on": 249,
+   "off": 0,
+   "covered_frac": 0.9821428571428571,
+   "longest_chain": 55,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 169,
+   "gap_start": 136,
+   "g": 43,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 12,
+   "usable": 12,
+   "on": 22,
+   "off": 4,
+   "covered_frac": 0.27906976744186046,
+   "longest_chain": 12,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 237,
+   "gap_start": 1363,
+   "g": 48,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 25,
+   "usable": 25,
+   "on": 123,
+   "off": 57,
+   "covered_frac": 0.5208333333333334,
+   "longest_chain": 25,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 268,
+   "gap_start": 1231,
+   "g": 26,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 16,
+   "on": 8,
+   "off": 0,
+   "covered_frac": 0.3076923076923077,
+   "longest_chain": 6,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 282,
+   "gap_start": 724,
+   "g": 36,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 35,
+   "usable": 35,
+   "on": 183,
+   "off": 0,
+   "covered_frac": 0.9722222222222222,
+   "longest_chain": 35,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 316,
+   "gap_start": 1078,
+   "g": 30,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 19,
+   "on": 3,
+   "off": 0,
+   "covered_frac": 0.1,
+   "longest_chain": 3,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 326,
+   "gap_start": 946,
+   "g": 175,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 174,
+   "usable": 174,
+   "on": 434,
+   "off": 187,
+   "covered_frac": 0.9828571428571429,
+   "longest_chain": 114,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 348,
+   "gap_start": 1556,
+   "g": 57,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 56,
+   "usable": 56,
+   "on": 82,
+   "off": 0,
+   "covered_frac": 0.5087719298245614,
+   "longest_chain": 18,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 379,
+   "gap_start": 1727,
+   "g": 20,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 382,
+   "gap_start": 1490,
+   "g": 26,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 25,
+   "usable": 25,
+   "on": 71,
+   "off": 0,
+   "covered_frac": 0.9615384615384616,
+   "longest_chain": 25,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 414,
+   "gap_start": 1237,
+   "g": 30,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 428,
+   "gap_start": 440,
+   "g": 32,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 31,
+   "usable": 31,
+   "on": 162,
+   "off": 12,
+   "covered_frac": 0.96875,
+   "longest_chain": 31,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 457,
+   "gap_start": 1225,
+   "g": 32,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 505,
+   "gap_start": 2119,
+   "g": 58,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 1,
+   "usable": 1,
+   "on": 1,
+   "off": 0,
+   "covered_frac": 0.017241379310344827,
+   "longest_chain": 1,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 549,
+   "gap_start": 1826,
+   "g": 32,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 31,
+   "usable": 31,
+   "on": 62,
+   "off": 0,
+   "covered_frac": 0.65625,
+   "longest_chain": 10,
+   "bridged": {
+    "6": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 598,
+   "gap_start": 1514,
+   "g": 36,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 35,
+   "usable": 35,
+   "on": 78,
+   "off": 0,
+   "covered_frac": 0.75,
+   "longest_chain": 24,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 609,
+   "gap_start": 1802,
+   "g": 38,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 37,
+   "usable": 37,
+   "on": 47,
+   "off": 0,
+   "covered_frac": 0.34210526315789475,
+   "longest_chain": 5,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 610,
+   "gap_start": 2082,
+   "g": 44,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 43,
+   "usable": 43,
+   "on": 33,
+   "off": 0,
+   "covered_frac": 0.7272727272727273,
+   "longest_chain": 14,
+   "bridged": {
+    "2": [
+     6,
+     2
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-03",
+   "id": 614,
+   "gap_start": 1894,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 16,
+   "off": 38,
+   "covered_frac": 0.9545454545454546,
+   "longest_chain": 21,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 16,
+   "gap_start": 1042,
+   "g": 24,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 23,
+   "usable": 12,
+   "on": 7,
+   "off": 0,
+   "covered_frac": 0.16666666666666666,
+   "longest_chain": 4,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 21,
+   "gap_start": 848,
+   "g": 51,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 48,
+   "usable": 48,
+   "on": 32,
+   "off": 0,
+   "covered_frac": 0.5098039215686274,
+   "longest_chain": 12,
+   "bridged": {
+    "2": [
+     1,
+     1
+    ],
+    "1": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 23,
+   "gap_start": 771,
+   "g": 38,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 24,
+   "gap_start": 1012,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 27,
+   "usable": 17,
+   "on": 8,
+   "off": 0,
+   "covered_frac": 0.25,
+   "longest_chain": 6,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 58,
+   "gap_start": 703,
+   "g": 44,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 43,
+   "usable": 33,
+   "on": 21,
+   "off": 0,
+   "covered_frac": 0.3181818181818182,
+   "longest_chain": 4,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 68,
+   "gap_start": 669,
+   "g": 53,
+   "bin": "40-80",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 140,
+   "gap_start": 35,
+   "g": 41,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 40,
+   "usable": 40,
+   "on": 56,
+   "off": 0,
+   "covered_frac": 0.5853658536585366,
+   "longest_chain": 17,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 156,
+   "gap_start": 354,
+   "g": 91,
+   "bin": "80+",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 157,
+   "gap_start": 489,
+   "g": 26,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 25,
+   "usable": 25,
+   "on": 87,
+   "off": 1,
+   "covered_frac": 0.9230769230769231,
+   "longest_chain": 19,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 172,
+   "gap_start": 107,
+   "g": 70,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 51,
+   "usable": 34,
+   "on": 21,
+   "off": 0,
+   "covered_frac": 0.2571428571428571,
+   "longest_chain": 12,
+   "bridged": {
+    "2": [
+     20,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 229,
+   "gap_start": 324,
+   "g": 33,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 32,
+   "usable": 30,
+   "on": 32,
+   "off": 0,
+   "covered_frac": 0.5757575757575758,
+   "longest_chain": 14,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 245,
+   "gap_start": 308,
+   "g": 34,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 403,
+   "gap_start": 2132,
+   "g": 29,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 28,
+   "usable": 28,
+   "on": 39,
+   "off": 31,
+   "covered_frac": 0.7241379310344828,
+   "longest_chain": 19,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 425,
+   "gap_start": 225,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 20,
+   "on": 148,
+   "off": 0,
+   "covered_frac": 0.9523809523809523,
+   "longest_chain": 20,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 426,
+   "gap_start": 1423,
+   "g": 31,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 30,
+   "usable": 30,
+   "on": 132,
+   "off": 10,
+   "covered_frac": 0.967741935483871,
+   "longest_chain": 30,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 426,
+   "gap_start": 1723,
+   "g": 26,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 25,
+   "usable": 25,
+   "on": 129,
+   "off": 0,
+   "covered_frac": 0.9615384615384616,
+   "longest_chain": 25,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 427,
+   "gap_start": 1388,
+   "g": 33,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 32,
+   "usable": 32,
+   "on": 73,
+   "off": 0,
+   "covered_frac": 0.9393939393939394,
+   "longest_chain": 25,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 439,
+   "gap_start": 2193,
+   "g": 25,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 20,
+   "on": 5,
+   "off": 0,
+   "covered_frac": 0.16,
+   "longest_chain": 2,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 444,
+   "gap_start": 2375,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 26,
+   "usable": 26,
+   "on": 21,
+   "off": 0,
+   "covered_frac": 0.39285714285714285,
+   "longest_chain": 4,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 448,
+   "gap_start": 2351,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 10,
+   "usable": 10,
+   "on": 4,
+   "off": 0,
+   "covered_frac": 0.13636363636363635,
+   "longest_chain": 3,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 480,
+   "gap_start": 2174,
+   "g": 38,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 506,
+   "gap_start": 2197,
+   "g": 62,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 61,
+   "usable": 30,
+   "on": 26,
+   "off": 0,
+   "covered_frac": 0.22580645161290322,
+   "longest_chain": 14,
+   "bridged": {
+    "12": [
+     7,
+     0
+    ],
+    "36": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 523,
+   "gap_start": 1920,
+   "g": 91,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 90,
+   "usable": 87,
+   "on": 347,
+   "off": 0,
+   "covered_frac": 0.8571428571428571,
+   "longest_chain": 74,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 534,
+   "gap_start": 2021,
+   "g": 23,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 22,
+   "usable": 22,
+   "on": 91,
+   "off": 2,
+   "covered_frac": 0.9130434782608695,
+   "longest_chain": 20,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 544,
+   "gap_start": 2030,
+   "g": 48,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 47,
+   "usable": 26,
+   "on": 21,
+   "off": 0,
+   "covered_frac": 0.20833333333333334,
+   "longest_chain": 8,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 556,
+   "gap_start": 2061,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 26,
+   "usable": 21,
+   "on": 7,
+   "off": 0,
+   "covered_frac": 0.17857142857142858,
+   "longest_chain": 2,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 571,
+   "gap_start": 2840,
+   "g": 34,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 33,
+   "usable": 33,
+   "on": 127,
+   "off": 25,
+   "covered_frac": 0.9705882352941176,
+   "longest_chain": 33,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 572,
+   "gap_start": 951,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 31,
+   "off": 0,
+   "covered_frac": 0.9545454545454546,
+   "longest_chain": 21,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 572,
+   "gap_start": 2146,
+   "g": 39,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 38,
+   "usable": 38,
+   "on": 92,
+   "off": 0,
+   "covered_frac": 0.9743589743589743,
+   "longest_chain": 38,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 611,
+   "gap_start": 2418,
+   "g": 51,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 50,
+   "usable": 47,
+   "on": 64,
+   "off": 3,
+   "covered_frac": 0.4117647058823529,
+   "longest_chain": 10,
+   "bridged": {
+    "1": [
+     1,
+     1
+    ],
+    "14": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 641,
+   "gap_start": 2759,
+   "g": 33,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 32,
+   "usable": 32,
+   "on": 83,
+   "off": 0,
+   "covered_frac": 0.7272727272727273,
+   "longest_chain": 17,
+   "bridged": {
+    "2": [
+     5,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 642,
+   "gap_start": 1318,
+   "g": 29,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 28,
+   "usable": 28,
+   "on": 102,
+   "off": 0,
+   "covered_frac": 0.9655172413793104,
+   "longest_chain": 28,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 642,
+   "gap_start": 1914,
+   "g": 38,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 37,
+   "usable": 37,
+   "on": 124,
+   "off": 0,
+   "covered_frac": 0.9736842105263158,
+   "longest_chain": 37,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 652,
+   "gap_start": 3136,
+   "g": 37,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 8,
+   "usable": 8,
+   "on": 8,
+   "off": 0,
+   "covered_frac": 0.21621621621621623,
+   "longest_chain": 8,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 682,
+   "gap_start": 3203,
+   "g": 25,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 24,
+   "on": 9,
+   "off": 0,
+   "covered_frac": 0.36,
+   "longest_chain": 5,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 700,
+   "gap_start": 3195,
+   "g": 24,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 2,
+   "usable": 2,
+   "on": 2,
+   "off": 0,
+   "covered_frac": 0.08333333333333333,
+   "longest_chain": 2,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 731,
+   "gap_start": 2017,
+   "g": 48,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 47,
+   "usable": 47,
+   "on": 105,
+   "off": 0,
+   "covered_frac": 0.9791666666666666,
+   "longest_chain": 47,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 731,
+   "gap_start": 2577,
+   "g": 112,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 111,
+   "usable": 111,
+   "on": 660,
+   "off": 1,
+   "covered_frac": 0.9196428571428571,
+   "longest_chain": 82,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 732,
+   "gap_start": 2194,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 13,
+   "on": 5,
+   "off": 0,
+   "covered_frac": 0.23809523809523808,
+   "longest_chain": 4,
+   "bridged": {
+    "6": [
+     10,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 736,
+   "gap_start": 3101,
+   "g": 129,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 10,
+   "usable": 10,
+   "on": 4,
+   "off": 0,
+   "covered_frac": 0.031007751937984496,
+   "longest_chain": 4,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 758,
+   "gap_start": 2910,
+   "g": 86,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 85,
+   "usable": 85,
+   "on": 235,
+   "off": 18,
+   "covered_frac": 0.7790697674418605,
+   "longest_chain": 49,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 762,
+   "gap_start": 2946,
+   "g": 98,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 97,
+   "usable": 97,
+   "on": 541,
+   "off": 7,
+   "covered_frac": 0.9795918367346939,
+   "longest_chain": 93,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 767,
+   "gap_start": 2476,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 112,
+   "off": 0,
+   "covered_frac": 0.9545454545454546,
+   "longest_chain": 21,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 793,
+   "gap_start": 1132,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 28,
+   "off": 1,
+   "covered_frac": 0.5909090909090909,
+   "longest_chain": 10,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 806,
+   "gap_start": 3198,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 20,
+   "on": 105,
+   "off": 0,
+   "covered_frac": 0.9523809523809523,
+   "longest_chain": 20,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 836,
+   "gap_start": 36,
+   "g": 28,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 27,
+   "usable": 27,
+   "on": 129,
+   "off": 0,
+   "covered_frac": 0.9642857142857143,
+   "longest_chain": 27,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 849,
+   "gap_start": 3187,
+   "g": 25,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 24,
+   "on": 93,
+   "off": 0,
+   "covered_frac": 0.8,
+   "longest_chain": 20,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 885,
+   "gap_start": 2119,
+   "g": 57,
+   "bin": "40-80",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 898,
+   "gap_start": 2769,
+   "g": 37,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 36,
+   "usable": 36,
+   "on": 242,
+   "off": 0,
+   "covered_frac": 0.972972972972973,
+   "longest_chain": 36,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 901,
+   "gap_start": 1217,
+   "g": 20,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 19,
+   "usable": 19,
+   "on": 61,
+   "off": 1,
+   "covered_frac": 0.85,
+   "longest_chain": 17,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 920,
+   "gap_start": 2898,
+   "g": 102,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 101,
+   "usable": 91,
+   "on": 173,
+   "off": 7,
+   "covered_frac": 0.7745098039215687,
+   "longest_chain": 50,
+   "bridged": {
+    "1": [
+     3,
+     0
+    ],
+    "6": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 931,
+   "gap_start": 1845,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 21,
+   "usable": 21,
+   "on": 45,
+   "off": 1,
+   "covered_frac": 0.7727272727272727,
+   "longest_chain": 10,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 933,
+   "gap_start": 1461,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 19,
+   "usable": 19,
+   "on": 3,
+   "off": 0,
+   "covered_frac": 0.14285714285714285,
+   "longest_chain": 3,
+   "bridged": {
+    "1": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 934,
+   "gap_start": 820,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 934,
+   "gap_start": 1025,
+   "g": 55,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 18,
+   "on": 7,
+   "off": 0,
+   "covered_frac": 0.10909090909090909,
+   "longest_chain": 6,
+   "bridged": {
+    "8": [
+     3,
+     0
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 954,
+   "gap_start": 1768,
+   "g": 36,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 965,
+   "gap_start": 1890,
+   "g": 52,
+   "bin": "40-80",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 973,
+   "gap_start": 1204,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 20,
+   "usable": 20,
+   "on": 101,
+   "off": 0,
+   "covered_frac": 0.9523809523809523,
+   "longest_chain": 20,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 981,
+   "gap_start": 899,
+   "g": 61,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 60,
+   "usable": 60,
+   "on": 319,
+   "off": 0,
+   "covered_frac": 0.9836065573770492,
+   "longest_chain": 60,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 989,
+   "gap_start": 1723,
+   "g": 25,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 24,
+   "usable": 24,
+   "on": 42,
+   "off": 20,
+   "covered_frac": 0.92,
+   "longest_chain": 23,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1010,
+   "gap_start": 1743,
+   "g": 44,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 43,
+   "usable": 43,
+   "on": 48,
+   "off": 103,
+   "covered_frac": 0.9772727272727273,
+   "longest_chain": 43,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1018,
+   "gap_start": 1924,
+   "g": 22,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 17,
+   "usable": 16,
+   "on": 2,
+   "off": 0,
+   "covered_frac": 0.09090909090909091,
+   "longest_chain": 1,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1036,
+   "gap_start": 1379,
+   "g": 59,
+   "bin": "40-80",
+   "seeded": true,
+   "pairs": 58,
+   "usable": 58,
+   "on": 123,
+   "off": 1,
+   "covered_frac": 0.5932203389830508,
+   "longest_chain": 16,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1039,
+   "gap_start": 1227,
+   "g": 137,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 136,
+   "usable": 125,
+   "on": 422,
+   "off": 87,
+   "covered_frac": 0.7956204379562044,
+   "longest_chain": 78,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1076,
+   "gap_start": 1382,
+   "g": 21,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 19,
+   "usable": 14,
+   "on": 6,
+   "off": 0,
+   "covered_frac": 0.2857142857142857,
+   "longest_chain": 5,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1123,
+   "gap_start": 169,
+   "g": 39,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 38,
+   "usable": 38,
+   "on": 63,
+   "off": 0,
+   "covered_frac": 0.6923076923076923,
+   "longest_chain": 12,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1128,
+   "gap_start": 1114,
+   "g": 39,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 25,
+   "usable": 16,
+   "on": 5,
+   "off": 0,
+   "covered_frac": 0.1282051282051282,
+   "longest_chain": 2,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1155,
+   "gap_start": 1025,
+   "g": 94,
+   "bin": "80+",
+   "seeded": true,
+   "pairs": 93,
+   "usable": 90,
+   "on": 187,
+   "off": 2,
+   "covered_frac": 0.6702127659574468,
+   "longest_chain": 58,
+   "bridged": {
+    "12": [
+     4,
+     1
+    ]
+   }
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1157,
+   "gap_start": 716,
+   "g": 30,
+   "bin": "20-40",
+   "seeded": true,
+   "pairs": 3,
+   "usable": 3,
+   "on": 1,
+   "off": 0,
+   "covered_frac": 0.03333333333333333,
+   "longest_chain": 1,
+   "bridged": {}
+  },
+  {
+   "seq": "MOT20-05",
+   "id": 1206,
+   "gap_start": 2654,
+   "g": 31,
+   "bin": "20-40",
+   "seeded": false,
+   "pairs": 0,
+   "usable": 0,
+   "on": 0,
+   "off": 0,
+   "covered_frac": 0.0,
+   "longest_chain": 0,
+   "bridged": {}
+  }
+ ],
+ "summary": {
+  "all": {
+   "n": 120,
+   "seeded": 0.8833333333333333,
+   "pairs": 4202,
+   "usable_frac": 0.9340790099952404,
+   "positions_on_target": 9872,
+   "positions_off_target": 1150,
+   "false_frac": 0.10433678098348757,
+   "covered_median": 0.5920647149460709,
+   "covered_mean": 0.5465152250948194,
+   "longest_chain_median": 14.0,
+   "longest_over_gap_median": 0.3986750978620897,
+   "bridged": {
+    "1": {
+     "attempts": 6,
+     "bridged": 2
+    },
+    "2": {
+     "attempts": 33,
+     "bridged": 6
+    },
+    "4": {
+     "attempts": 9,
+     "bridged": 0
+    },
+    "5": {
+     "attempts": 3,
+     "bridged": 1
+    },
+    "6": {
+     "attempts": 50,
+     "bridged": 4
+    },
+    "8": {
+     "attempts": 3,
+     "bridged": 0
+    },
+    "11": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "12": {
+     "attempts": 11,
+     "bridged": 1
+    },
+    "14": {
+     "attempts": 6,
+     "bridged": 2
+    },
+    "19": {
+     "attempts": 6,
+     "bridged": 1
+    },
+    "36": {
+     "attempts": 1,
+     "bridged": 0
+    },
+    "38": {
+     "attempts": 14,
+     "bridged": 1
+    },
+    "61": {
+     "attempts": 2,
+     "bridged": 0
+    },
+    "65": {
+     "attempts": 2,
+     "bridged": 1
+    },
+    "80": {
+     "attempts": 1,
+     "bridged": 1
+    }
+   }
+  },
+  "20-40": {
+   "n": 77,
+   "seeded": 0.8831168831168831,
+   "pairs": 1671,
+   "usable_frac": 0.9539198084979055,
+   "positions_on_target": 4265,
+   "positions_off_target": 173,
+   "false_frac": 0.038981523208652544,
+   "covered_median": 0.65625,
+   "covered_mean": 0.5604666231038393,
+   "longest_chain_median": 12.0,
+   "longest_over_gap_median": 0.45454545454545453,
+   "bridged": {
+    "1": {
+     "attempts": 1,
+     "bridged": 0
+    },
+    "2": {
+     "attempts": 5,
+     "bridged": 1
+    },
+    "4": {
+     "attempts": 1,
+     "bridged": 0
+    },
+    "5": {
+     "attempts": 3,
+     "bridged": 1
+    },
+    "6": {
+     "attempts": 13,
+     "bridged": 2
+    }
+   }
+  },
+  "40-80": {
+   "n": 29,
+   "seeded": 0.8620689655172413,
+   "pairs": 1149,
+   "usable_frac": 0.9234116623150566,
+   "positions_on_target": 2161,
+   "positions_off_target": 504,
+   "false_frac": 0.18911819887429643,
+   "covered_median": 0.5087719298245614,
+   "covered_mean": 0.48664354792527065,
+   "longest_chain_median": 14.0,
+   "longest_over_gap_median": 0.2711864406779661,
+   "bridged": {
+    "1": {
+     "attempts": 2,
+     "bridged": 2
+    },
+    "2": {
+     "attempts": 27,
+     "bridged": 4
+    },
+    "8": {
+     "attempts": 3,
+     "bridged": 0
+    },
+    "12": {
+     "attempts": 7,
+     "bridged": 0
+    },
+    "14": {
+     "attempts": 5,
+     "bridged": 1
+    },
+    "19": {
+     "attempts": 6,
+     "bridged": 1
+    },
+    "36": {
+     "attempts": 1,
+     "bridged": 0
+    }
+   }
+  },
+  "80+": {
+   "n": 14,
+   "seeded": 0.9285714285714286,
+   "pairs": 1382,
+   "usable_frac": 0.918958031837916,
+   "positions_on_target": 3446,
+   "positions_off_target": 473,
+   "false_frac": 0.12069405460576678,
+   "covered_median": 0.7223612849395078,
+   "covered_mean": 0.5938024387535614,
+   "longest_chain_median": 49.5,
+   "longest_over_gap_median": 0.5297695720624016,
+   "bridged": {
+    "1": {
+     "attempts": 3,
+     "bridged": 0
+    },
+    "2": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "4": {
+     "attempts": 8,
+     "bridged": 0
+    },
+    "6": {
+     "attempts": 37,
+     "bridged": 2
+    },
+    "11": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "12": {
+     "attempts": 4,
+     "bridged": 1
+    },
+    "14": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "38": {
+     "attempts": 14,
+     "bridged": 1
+    },
+    "61": {
+     "attempts": 2,
+     "bridged": 0
+    },
+    "65": {
+     "attempts": 2,
+     "bridged": 1
+    },
+    "80": {
+     "attempts": 1,
+     "bridged": 1
+    }
+   }
+  },
+  "MOT20-01": {
+   "n": 3,
+   "seeded": 1.0,
+   "pairs": 76,
+   "usable_frac": 1.0,
+   "positions_on_target": 79,
+   "positions_off_target": 5,
+   "false_frac": 0.05952380952380952,
+   "covered_median": 0.2727272727272727,
+   "covered_mean": 0.4532828282828283,
+   "longest_chain_median": 5.0,
+   "longest_over_gap_median": 0.15151515151515152,
+   "bridged": {}
+  },
+  "MOT20-02": {
+   "n": 22,
+   "seeded": 1.0,
+   "pairs": 1107,
+   "usable_frac": 0.9448961156278229,
+   "positions_on_target": 2206,
+   "positions_off_target": 486,
+   "false_frac": 0.18053491827637444,
+   "covered_median": 0.6976190476190476,
+   "covered_mean": 0.6868338160211033,
+   "longest_chain_median": 23.5,
+   "longest_over_gap_median": 0.5708333333333333,
+   "bridged": {
+    "2": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "4": {
+     "attempts": 9,
+     "bridged": 0
+    },
+    "5": {
+     "attempts": 3,
+     "bridged": 1
+    },
+    "11": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "14": {
+     "attempts": 1,
+     "bridged": 1
+    },
+    "19": {
+     "attempts": 6,
+     "bridged": 1
+    },
+    "38": {
+     "attempts": 14,
+     "bridged": 1
+    },
+    "61": {
+     "attempts": 2,
+     "bridged": 0
+    },
+    "65": {
+     "attempts": 2,
+     "bridged": 1
+    },
+    "80": {
+     "attempts": 1,
+     "bridged": 1
+    }
+   }
+  },
+  "MOT20-03": {
+   "n": 25,
+   "seeded": 0.8,
+   "pairs": 781,
+   "usable_frac": 0.9346991037131882,
+   "positions_on_target": 1771,
+   "positions_off_target": 338,
+   "false_frac": 0.1602655286865813,
+   "covered_median": 0.5087719298245614,
+   "covered_mean": 0.4934963827649023,
+   "longest_chain_median": 13.0,
+   "longest_over_gap_median": 0.3157894736842105,
+   "bridged": {
+    "2": {
+     "attempts": 6,
+     "bridged": 2
+    },
+    "6": {
+     "attempts": 36,
+     "bridged": 2
+    }
+   }
+  },
+  "MOT20-05": {
+   "n": 70,
+   "seeded": 0.8714285714285714,
+   "pairs": 2238,
+   "usable_frac": 0.9262734584450402,
+   "positions_on_target": 5816,
+   "positions_off_target": 321,
+   "false_frac": 0.05230568681766335,
+   "covered_median": 0.5881374722838137,
+   "covered_mean": 0.525346071499186,
+   "longest_chain_median": 13.0,
+   "longest_over_gap_median": 0.3611632270168855,
+   "bridged": {
+    "1": {
+     "attempts": 6,
+     "bridged": 2
+    },
+    "2": {
+     "attempts": 26,
+     "bridged": 3
+    },
+    "6": {
+     "attempts": 14,
+     "bridged": 2
+    },
+    "8": {
+     "attempts": 3,
+     "bridged": 0
+    },
+    "12": {
+     "attempts": 11,
+     "bridged": 1
+    },
+    "14": {
+     "attempts": 5,
+     "bridged": 1
+    },
+    "36": {
+     "attempts": 1,
+     "bridged": 0
+    }
+   }
+  }
+ },
+ "min_sliver": 100,
+ "delta0": 80.0,
+ "seconds": 1209.7
+}

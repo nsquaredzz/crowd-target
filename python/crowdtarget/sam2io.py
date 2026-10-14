@@ -85,6 +85,12 @@ def prompt_box(pred, state, t: int, obj_id: int, box_xyxy) -> None:
                                box=np.asarray(box_xyxy, np.float32))
 
 
+def prompt_points(pred, state, t: int, obj_id: int, points_xy, labels) -> None:
+    """Positive (1) and negative (0) clicks on frame t, in video pixel coordinates."""
+    pred.add_new_points_or_box(state, frame_idx=int(t), obj_id=int(obj_id),
+                               points=np.asarray(points_xy, np.float32).reshape(-1, 2), labels=np.asarray(labels, np.int32).reshape(-1))
+
+
 def prompt_mask(pred, state, t: int, obj_id: int, mask: np.ndarray) -> None:
     pred.add_new_mask(state, frame_idx=int(t), obj_id=int(obj_id), mask=np.asarray(mask, bool))
 

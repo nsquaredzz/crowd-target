@@ -258,4 +258,7 @@ def make_fix(kind: str, pred, W: int, H: int, start_box, **ctx) -> Fix | None:
     if kind == "sound":
         from .controller import Sound
         return Sound(pred, W, H, start_box, **ctx)
+    if kind == "sliver":
+        from .controller import Sound
+        return Sound(pred, W, H, start_box, use_chain=True, **ctx)
     raise ValueError(kind)

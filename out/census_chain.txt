@@ -1,0 +1,17 @@
+Census 4: multi-template certified sliver chains through the gaps, 120 episodes, min sliver 100 px, Delta_0 80, 2026-10-15
+
+group       n seeded  pairs usable  on tgt off tgt  false covered med  mean chain med chain/gap
+all       120   0.88   4202   0.93    9872    1150  0.104        0.59  0.55        14      0.40
+20-40      77   0.88   1671   0.95    4265     173  0.039        0.66  0.56        12      0.45
+40-80      29   0.86   1149   0.92    2161     504  0.189        0.51  0.49        14      0.27
+80+        14   0.93   1382   0.92    3446     473  0.121        0.72  0.59        50      0.53
+MOT20-01    3   1.00     76   1.00      79       5  0.060        0.27  0.45         5      0.15
+MOT20-02   22   1.00   1107   0.94    2206     486  0.181        0.70  0.69        24      0.57
+MOT20-03   25   0.80    781   0.93    1771     338  0.160        0.51  0.49        13      0.32
+MOT20-05   70   0.87   2238   0.93    5816     321  0.052        0.59  0.53        13      0.36
+
+Blackouts bridged (a certified return after k frames without a sliver): k=1: 2/6, k=2: 6/33, k=4: 0/9, k=5: 1/3, k=6: 4/50, k=8: 0/3, k=11: 1/1, k=12: 1/11, k=14: 2/6, k=19: 1/6, k=36: 0/1, k=38: 1/14, k=61: 0/2, k=65: 1/2, k=80: 1/1
+
+usable: a template set existed at the previous frame; on/off tgt: certified template positions inside / outside the target's
+box on the new frame (off = false identity step); covered: share of gap frames joined to the previous by a certified step;
+chain: longest run of consecutive certified steps, absolute and over the gap length.
