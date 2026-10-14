@@ -1,0 +1,25 @@
+Census of occlusion gaps in MOT20 train, 2026-10-15, before any tracker ran.
+
+Per sequence: frames, pedestrian identities, box visibility quantiles (10 %, 25 %, 50 %), median box height.
+Then, for two definitions of "not visible" (visibility < 0.2 and < 0.3), the number of maximal
+runs of at least 20 frames that survive each rule of the episode miner in turn.
+
+MOT20-01: 429 frames, 74 ids, visibility quantiles 0.04 / 0.16 / 0.44, median height 175 px
+  vis<0.2: raw 76 | g<=200 73 | window inside 41 | pre 20/30 at >=0.5, start >=0.7: 9 | post 50/60: 1 | h>=48: 1 | v2 rules: 1
+  vis<0.3: raw 92 | 87 | 44 | 14 | 3 | 3 | v2: 3
+MOT20-02: 2782 frames, 270 ids, 0.01 / 0.12 / 0.35, 175 px
+  vis<0.2: raw 566 | 528 | 409 | 33 | 3 | 3 | v2: 6
+  vis<0.3: raw 659 | 584 | 451 | 62 | 8 | 8 | v2: 22
+MOT20-03: 2405 frames, 702 ids, 0.23 / 0.42 / 0.69, 97 px
+  vis<0.2: raw 374 | 366 | 299 | 24 | 2 | 2 | v2: 9
+  vis<0.3: raw 568 | 542 | 447 | 56 | 9 | 9 | v2: 25
+MOT20-05: 3315 frames, 1169 ids, 0.16 / 0.31 / 0.52, 149 px
+  vis<0.2: raw 1048 | 995 | 889 | 44 | 3 | 3 | v2: 9
+  vis<0.3: raw 1761 | 1639 | 1443 | 145 | 19 | 19 | v2: 73
+
+v1 rules (vis<0.2, pre 20 of 30 at >=0.5 and start >=0.7, post 50 of 60, height >=48): 8 episodes in all.
+v2 rules (vis<0.3, pre 15 of 30 at >=0.5 and start >=0.5, post 40 of 60, height >=40): 123 before the
+per-identity cap.  The filter that removes almost everything is the clean run before and after the
+gap: in these crowds a person is partly occluded most of the time, so a full occlusion is rarely
+bracketed by half-visible frames.  Noted in python/crowdtarget/episodes.py; the rules were changed
+before any tracker ran on the episodes.

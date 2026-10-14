@@ -1,7 +1,7 @@
 """Single-target episodes mined from MOTChallenge ground truth: a long occlusion gap with a clean
 run before and after, so that a tracker started before the gap can be scored after it.
 
-Rules (fixed 2026-10-15, before any run):
+Rules:
   gap          maximal run of frames where the identity has visibility < vis_gap or no row
   g            gap length, g_min <= g <= g_max
   pre window   the `pre` frames before the gap: at least `pre_ok` of them at visibility >= vis_ok,
@@ -12,6 +12,14 @@ Rules (fixed 2026-10-15, before any run):
   bins         20-40, 40-80, 80+ by g
   dev split    sort by (seq, id, gap_start); within each bin take every k-th with
                k = floor(n / per_bin); the rest is held out
+
+History.  v1 (2026-10-15, before any run): vis_gap 0.2, pre_ok 20, vis_start 0.7, post_ok 50,
+min_h 48.  A census of MOT20 train (out/census_mot20.txt) found 2,064 raw gaps of 20 frames or
+more and 8 episodes: the median box visibility in these crowds is 0.35-0.52, so a person is
+rarely half visible for 20 of the 30 frames before a full occlusion and for 50 of the 60 after.
+v2 (same day, before any tracker ran on them): vis_gap 0.3, pre_ok 15, vis_start 0.5,
+post_ok 40, min_h 40.  Scoring uses only post frames with visibility >= 0.5, so a looser post
+rule changes the number of scored frames, not the metric.
 """
 from __future__ import annotations
 
@@ -72,8 +80,8 @@ def _box_at(gt: np.ndarray, id_: int, t: int):
 
 def mine(gt: np.ndarray, seq: str, n_frames: int, W: int, H: int, fps: float,
          g_min: int = 20, g_max: int = 200, pre: int = 30, post: int = 60,
-         vis_gap: float = 0.2, vis_ok: float = 0.5, vis_start: float = 0.7,
-         pre_ok: int = 20, post_ok: int = 50, min_h: float = 48.0, max_per_id: int = 2) -> list[Episode]:
+         vis_gap: float = 0.3, vis_ok: float = 0.5, vis_start: float = 0.5,
+         pre_ok: int = 15, post_ok: int = 40, min_h: float = 40.0, max_per_id: int = 2) -> list[Episode]:
     eps: list[Episode] = []
     ids = np.unique(targets(gt)[:, 1]).astype(int)
     for id_ in ids:

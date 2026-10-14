@@ -20,7 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 FILES = [
-    ("mot20/MOT20.zip", "https://motchallenge.net/data/MOT20.zip", 5028926248, None),
+    ("mot20/MOT20.zip", "https://motchallenge.net/data/MOT20.zip", 5028926248,
+     "ebcf0e3d44e4f50b5357d24817e5db485d777633d1b8ca9e8380d1c8437dbdd7"),
 ]
 
 
