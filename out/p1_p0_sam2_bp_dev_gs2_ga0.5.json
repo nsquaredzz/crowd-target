@@ -3,7 +3,8 @@
  "args": {
   "run": "p0_sam2_bp_dev",
   "k": [
-   4
+   4,
+   12
   ],
   "score": [
    "centroid"
@@ -18,11 +19,11 @@
     {
      "thr": 0.2,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -30,11 +31,11 @@
     {
      "thr": 0.1,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -42,11 +43,11 @@
     {
      "thr": 0.05,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -54,11 +55,11 @@
     {
      "thr": 0.02,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -66,11 +67,11 @@
     {
      "thr": 0.01,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -79,74 +80,74 @@
    "jumper": [
     {
      "thr": 0.2,
-     "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 13,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
-     "median_delay": NaN,
-     "detected_10": 0,
-     "detected_60": 0
+     "n_lost": 1,
+     "median_delay": 7.0,
+     "detected_10": 1,
+     "detected_60": 1
     },
     {
      "thr": 0.1,
-     "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 13,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
-     "median_delay": NaN,
+     "n_lost": 1,
+     "median_delay": 15.0,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     },
     {
      "thr": 0.05,
-     "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 13,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
-     "median_delay": NaN,
+     "n_lost": 1,
+     "median_delay": 27.0,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     },
     {
      "thr": 0.02,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 10,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     },
     {
      "thr": 0.01,
      "detected": 0,
-     "n_switched": 0,
-     "false": 0,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 8,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     }
    ],
    "cusum": [
     {
      "thr": 2,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -154,11 +155,11 @@
     {
      "thr": 4,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -166,11 +167,11 @@
     {
      "thr": 6,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -178,11 +179,11 @@
     {
      "thr": 8,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -190,11 +191,11 @@
     {
      "thr": 12,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -202,11 +203,11 @@
     {
      "thr": 16,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -216,35 +217,35 @@
     {
      "thr": -2,
      "detected": 0,
-     "n_switched": 0,
-     "false": 0,
-     "n_recovered": 1,
-     "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_switched": 2,
+     "false": 1,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     },
     {
      "thr": 0,
-     "detected": 0,
-     "n_switched": 0,
-     "false": 0,
-     "n_recovered": 1,
-     "lost_alarmed": 0,
-     "n_lost": 0,
-     "median_delay": NaN,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 2,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": 28.0,
      "detected_10": 0,
-     "detected_60": 0
+     "detected_60": 1
     },
     {
      "thr": 2,
      "detected": 0,
-     "n_switched": 0,
-     "false": 0,
-     "n_recovered": 1,
-     "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_switched": 2,
+     "false": 3,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -252,11 +253,11 @@
     {
      "thr": 4,
      "detected": 0,
-     "n_switched": 0,
-     "false": 0,
-     "n_recovered": 1,
-     "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_switched": 2,
+     "false": 7,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -264,11 +265,11 @@
     {
      "thr": 6,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
-     "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_switched": 2,
+     "false": 11,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -276,11 +277,285 @@
     {
      "thr": 8,
      "detected": 0,
-     "n_switched": 0,
-     "false": 1,
-     "n_recovered": 1,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ]
+  },
+  "centroid_k12_gs2_ga0.5": {
+   "mixture": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
      "lost_alarmed": 0,
-     "n_lost": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 12,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 12,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 11,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "jumper": [
+    {
+     "thr": 0.2,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 4,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 1
+    },
+    {
+     "thr": 0.1,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 1,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.05,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 0,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.02,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 0,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 0.01,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 0,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    }
+   ],
+   "cusum": [
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 12,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 14,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 16,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 12,
+     "n_recovered": 13,
+     "lost_alarmed": 0,
+     "n_lost": 1,
+     "median_delay": 23.0,
+     "detected_10": 0,
+     "detected_60": 1
+    }
+   ],
+   "objscore": [
+    {
+     "thr": -2,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 1,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 1
+    },
+    {
+     "thr": 0,
+     "detected": 1,
+     "n_switched": 2,
+     "false": 2,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": 28.0,
+     "detected_10": 0,
+     "detected_60": 1
+    },
+    {
+     "thr": 2,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 3,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 4,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 7,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 6,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 11,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
+     "median_delay": NaN,
+     "detected_10": 0,
+     "detected_60": 0
+    },
+    {
+     "thr": 8,
+     "detected": 0,
+     "n_switched": 2,
+     "false": 15,
+     "n_recovered": 13,
+     "lost_alarmed": 1,
+     "n_lost": 1,
      "median_delay": NaN,
      "detected_10": 0,
      "detected_60": 0
@@ -288,5 +563,5 @@
    ]
   }
  },
- "seconds": 0.0345921516418457
+ "seconds": 0.2690761089324951
 }

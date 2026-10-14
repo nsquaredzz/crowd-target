@@ -57,7 +57,36 @@ What survives: the census (the clean-occlusion regime is rare in MOT20), the acr
 separability tables (a number people who build ReID-based re-association on crowds may want),
 and a validated implementation of conformal test martingales (`python/crowdtarget/martingale.py`).
 
-## Part III — SAM 2.1 base+ alone on the dev episodes (in progress)
+## Part III — SAM 2.1 base+ alone, and the martingale on its stream (16 of 24 dev episodes)
 
-`scripts/run_episodes.py --set dev`, 1.6-2.6 s per frame at 1080p on MPS; results appended
-when the run finishes (`out/p0_sam2_bp_dev.txt`).
+The run was stopped by decision after the 20-40 and 40-80 bins, once Part II had settled the
+question; the 80+ bin did not run. `scripts/run_episodes.py --set dev`, 1.5-2.6 s per frame at
+1080p on MPS, prompted with the ground-truth box 30 frames before the gap, memory as shipped.
+
+| bin | n | recovered | switched (in gap / after) | lost |
+|---|---|---|---|---|
+| 20-40 | 8 | 7 | 1 (0 / 1) | 0 |
+| 40-80 | 8 | 6 | 1 (1 / 0) | 1 |
+| all | 16 | 13 | 2 | 1 |
+
+`out/p0_sam2_bp_dev.txt`. SAM 2.1 alone recovers 13 of 16: the failure the project set out to
+attack is rare on these episodes (the plan's own P0 threshold was switched + lost below 15 %,
+here 19 % on a small sample). One switch began inside the gap, a drift onto the occluder.
+
+The martingale on the tracked stream, gated to frames where SAM 2 claims a whole person
+(object score > 2, mask area >= half the pre-gap median), `out/p1_p0_sam2_bp_dev_gs2_ga0.5.txt`:
+
+| detector, alpha 0.05 | stream | switches detected within 30 frames | recovered episodes alarmed |
+|---|---|---|---|
+| mixture martingale | every 4th frame | 0 of 2 | 13 of 13 (one more alarmed before its switch) |
+| simple jumper | every 4th frame | 1 of 2 | 13 of 13 |
+| learned-null CUSUM, h = 6 | every 4th frame | 0 of 2 | 13 of 13 |
+| mixture martingale | every 12th frame | 0 of 2 | 12 of 13 |
+| simple jumper | every 12th frame | 0 of 2 | 0 of 13 |
+| SAM 2 object score < 2 | every frame | 0 of 2 | 3 of 13 |
+
+As Part II predicted from the crops: on the tracked stream the martingales alarm on every
+recovered episode at every alpha, and the one setting that does not alarm (the jumper at every
+twelfth frame) detects nothing. Proof videos: `out/proof_recovered_MOT20-01_42.mp4` (recovered,
+wealth rising through the gap and after it) and `out/proof_switch_MOT20-05_611.mp4` (the switch
+inside the gap).
