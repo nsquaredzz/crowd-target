@@ -257,8 +257,11 @@ def make_fix(kind: str, pred, W: int, H: int, start_box, **ctx) -> Fix | None:
         return DamAnchors(pred, W, H, start_box)
     if kind == "sound":
         from .controller import Sound
-        return Sound(pred, W, H, start_box, **ctx)
+        return Sound(pred, W, H, start_box, variant="v1", **ctx)
+    if kind == "sound2":
+        from .controller import Sound
+        return Sound(pred, W, H, start_box, variant="v2", **ctx)
     if kind == "sliver":
         from .controller import Sound
-        return Sound(pred, W, H, start_box, use_chain=True, **ctx)
+        return Sound(pred, W, H, start_box, variant="v2", use_chain=True, **ctx)
     raise ValueError(kind)

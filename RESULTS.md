@@ -252,3 +252,42 @@ Two ways to use that, measured:
   per frame is sparse, not because it is wrong.
 
 Depth-order exclusion at exit was measured vacuous with the speed-bound margin used (0 % excluded).
+
+### Part VI, continued — certified sliver chains, built and measured (2026-10-15, 01:00–03:30)
+
+`python/crowdtarget/sliver.py`, `scripts/census_chain.py`, `out/census_chain.txt` (templates fully
+inside the sliver), `out/census_chain_d128.txt`; tracker integration `controller.py` with
+`use_chain` (`run_episodes.py --fix sliver`).
+
+Several 21 px templates per sliver instead of one, carried frame to frame by the certified step.
+Two mining rules were measured on all 120 episodes, consecutive gap frames with >= 100 sliver px:
+
+| mining rule | episodes seeded | pairs with templates | certified positions on / off the target's box | off-box share | gap frames joined by a certified step (median) | longest chain / gap |
+|---|---|---|---|---|---|---|
+| template centre on the sliver, 2 px erosion | 88 % | 93 % | 9,872 / 1,150 | 10.4 % (10 episodes hold 721 of the 1,150) | 59 % | 0.40 |
+| whole 21 px patch inside the sliver, templates that leave the mask dropped | 46 % | 69 % | 2,065 / 35 | 1.7 % | 0 % (mean 16 %) | 0.00 |
+
+The first rule's false steps are templates cut at the sliver's edge that take occluder pixels with
+them and then certify on the occluder for the rest of the gap. The second rule removes them and with
+them most of the chain: a sliver thinner than 21 px holds no template. Blackouts were almost never
+bridged by searching the old templates (k = 6: 4 of 50, then 0 of 45). The certificate is
+identity-safe and far too sparse to carry identity through a gap. Plan criteria (templates on
+>= 70 % of pairs, false < 1 %, chains covering the gap): failed on coverage either way.
+
+In the tracker the chain made things worse. On id 611 the first version certified one or two
+templates inside a mask that had slid onto id 631 and, because a chained mask waived the area gate
+and the neighbour veto, accepted it: recovered became switched. Requiring three certified
+positions did not restore it; the rule changes made alongside (every simultaneous detection a
+known other; veto active while tracking; a containment veto; a continuity gate) moved other
+episodes too (505 ambiguous became switched). All of that is kept behind `variant="v2"` and
+`use_chain`; `--fix sound` is again exactly the rule set of the 16-episode table above
+(`variant="v1"`), verified by re-running id 611 (recovered, 1 commit, 0 vetoes, as before).
+
+Also found while tracing id 480: ids 480 and 482 stand at the top edge of MOT20-05, 57 to 75 px
+tall, truncated by the frame; YOLO11x has no detection within 120 px of either. No bookkeeping, no
+budget and no 21 px template can act there. That episode is outside what these tools can reach.
+
+**Kept from the sliver work:** the measurement that "hidden" people show a sixth of their body on
+88 % of their occluded frames; the certified step's 0.0 % false rate against neighbours (census 3)
+and 1.7 % off-box rate when templates lie wholly on the person (census 4); `sliver.py` and its
+tests. **Not kept:** any claim that chains carry identity through a gap in this footage.

@@ -64,11 +64,11 @@ def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4,
     sam2io.prompt_box(pred, state, 0, 1, ep.start_box)
     T = len(src)
     H, W = src.H, src.W
-    ctx = sound_ctx(ep, gt, seq_dir, src, det_mode) if fix_kind in ("sound", "sliver") else {}
+    ctx = sound_ctx(ep, gt, seq_dir, src, det_mode) if fix_kind in ("sound", "sound2", "sliver") else {}
     fix = fixes.make_fix(fix_kind, pred, W, H, ep.start_box, **ctx)
     if fix:
         fix.install()
-    every = fix_kind in ("sound", "sliver")
+    every = fix_kind in ("sound", "sound2", "sliver")
     diag = []
     masks_small = np.zeros((T, H // down, W // down), bool)
     scores = np.full(T, np.nan, np.float32)
@@ -142,7 +142,7 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--device", default=None)
     ap.add_argument("--out", default=None)
-    ap.add_argument("--fix", default=None, choices=[None, "samurai", "dam", "sound", "sliver"], help="fix to apply (crowdtarget/fixes.py, controller.py)")
+    ap.add_argument("--fix", default=None, choices=[None, "samurai", "dam", "sound", "sound2", "sliver"], help="fix to apply (crowdtarget/fixes.py, controller.py)")
     ap.add_argument("--det", default="yolo", choices=["yolo", "public"], help="detections for the sound tracker's bookkeeping")
     ap.add_argument("--first", default=None, help="comma list of <seq>_<id> to run before the rest")
     a = ap.parse_args()
@@ -152,7 +152,7 @@ def main():
         eps = sorted(eps, key=lambda e: (f"{e.seq}_{e.id}" not in first, first.index(f"{e.seq}_{e.id}") if f"{e.seq}_{e.id}" in first else 0))
     if a.limit:
         eps = eps[: a.limit]
-    stem = a.out or ((f"fix_{a.fix}_{a.det}_{a.set}" if a.fix in ("sound", "sliver") else f"fix_{a.fix}_{a.set}") if a.fix else f"p0_sam2_{a.model.replace('+', 'p')}_{a.set}")
+    stem = a.out or ((f"fix_{a.fix}_{a.det}_{a.set}" if a.fix in ("sound", "sound2", "sliver") else f"fix_{a.fix}_{a.set}") if a.fix else f"p0_sam2_{a.model.replace('+', 'p')}_{a.set}")
     runs = ROOT / "data" / "runs" / stem
     runs.mkdir(parents=True, exist_ok=True)
     pred = sam2io.build(a.model, a.device)
