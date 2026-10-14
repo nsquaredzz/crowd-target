@@ -1,0 +1,15 @@
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.egg-info/
+
+# datasets, checkpoints, cached runs: fetched by scripts/, never committed
+data/
+
+# rendered videos
+out/*.mp4
+out/_*
+
+.DS_Store
