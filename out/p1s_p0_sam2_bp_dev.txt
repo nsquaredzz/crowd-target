@@ -1,0 +1,57 @@
+P1 with the colour budget's certified excess as the score, run p0_sam2_bp_dev, 2026-10-14
+gate: object score > 2.0, mask area >= 0.5 x pre-gap median; pool = leave-one-out E of confident pre-gap frames
+
+  MOT20-01_42    recovered pool E med 0.000 max 0.002 | tested  17 frames, E med 0.002 max 0.055 | mixture wealth max 2.54e+06
+  MOT20-02_126   recovered pool E med 0.000 max 0.021 | tested  20 frames, E med 0.000 max 0.000 | mixture wealth max 1.06
+  MOT20-03_85    recovered pool E med 0.000 max 0.034 | tested  18 frames, E med 0.000 max 0.000 | mixture wealth max 1.53
+  MOT20-03_549   recovered pool E med 0.000 max 0.000 | tested  23 frames, E med 0.077 max 0.372 | mixture wealth max 8.53e+12
+  MOT20-05_245   recovered pool E med 0.000 max 0.018 | tested  20 frames, E med 0.000 max 0.000 | mixture wealth max 1.53
+  MOT20-05_480   switched  pool E med 0.000 max 0.000 | tested   6 frames, E med 0.000 max 0.000 | mixture wealth max 3.2
+  MOT20-05_652   recovered pool E med 0.000 max 0.005 | tested  19 frames, E med 0.035 max 0.362 | mixture wealth max 1.64e+08
+  MOT20-05_898   recovered pool E med 0.000 max 0.000 | tested  18 frames, E med 0.000 max 0.001 | mixture wealth max 8.67
+  MOT20-02_4     recovered pool E med 0.000 max 0.016 | tested  28 frames, E med 0.000 max 0.067 | mixture wealth max 180
+  MOT20-02_129   recovered pool E med 0.000 max 0.002 | tested  25 frames, E med 0.000 max 0.032 | mixture wealth max 13.7
+  MOT20-02_291   recovered pool E med 0.000 max 0.002 | tested  24 frames, E med 0.000 max 0.000 | mixture wealth max 1.53
+  MOT20-03_169   recovered pool E med 0.000 max 0.000 | tested  16 frames, E med 0.000 max 0.124 | mixture wealth max 4.31
+  MOT20-03_505   lost      pool E med 0.000 max 0.093 | tested   1 frames, E med 0.000 max 0.000 | mixture wealth max 0.577
+  MOT20-05_58    recovered pool E med 0.000 max 0.000 | tested  17 frames, E med 0.000 max 0.202 | mixture wealth max 11.9
+  MOT20-05_172   recovered pool E med 0.000 max 0.002 | tested  30 frames, E med 0.009 max 0.164 | mixture wealth max 374
+  MOT20-05_611   switched  pool E med 0.000 max 0.018 | tested  25 frames, E med 0.000 max 0.092 | mixture wealth max 82.6
+
+k = 4: detector                alpha  detected  false alarms  lost alarmed  delay
+       mixture                   0.2    0 / 2        8 / 13         0 / 1        nan
+       mixture                   0.1    0 / 2        7 / 13         0 / 1        nan
+       mixture                  0.05    0 / 2        5 / 13         0 / 1        nan
+       mixture                  0.02    0 / 2        5 / 13         0 / 1        nan
+       mixture                  0.01    0 / 2        5 / 13         0 / 1        nan
+       jumper                    0.2    0 / 2        4 / 13         0 / 1        nan
+       jumper                    0.1    0 / 2        3 / 13         0 / 1        nan
+       jumper                   0.05    0 / 2        3 / 13         0 / 1        nan
+       jumper                   0.02    0 / 2        2 / 13         0 / 1        nan
+       jumper                   0.01    0 / 2        1 / 13         0 / 1        nan
+       cusum                       2    0 / 2        9 / 13         0 / 1        nan
+       cusum                       4    0 / 2        9 / 13         0 / 1        nan
+       cusum                       6    0 / 2        9 / 13         0 / 1        nan
+       objscore                    0    1 / 2        2 / 13         1 / 1       28.0
+       objscore                    1    1 / 2        2 / 13         1 / 1       26.0
+       objscore                    2    0 / 2        3 / 13         1 / 1        nan
+
+
+k = 12: detector                alpha  detected  false alarms  lost alarmed  delay
+       mixture                   0.2    0 / 2        6 / 13         0 / 1        nan
+       mixture                   0.1    0 / 2        6 / 13         0 / 1        nan
+       mixture                  0.05    0 / 2        5 / 13         0 / 1        nan
+       mixture                  0.02    0 / 2        3 / 13         0 / 1        nan
+       mixture                  0.01    0 / 2        3 / 13         0 / 1        nan
+       jumper                    0.2    0 / 2        0 / 13         0 / 1        nan
+       jumper                    0.1    0 / 2        0 / 13         0 / 1        nan
+       jumper                   0.05    0 / 2        0 / 13         0 / 1        nan
+       jumper                   0.02    0 / 2        0 / 13         0 / 1        nan
+       jumper                   0.01    0 / 2        0 / 13         0 / 1        nan
+       cusum                       2    0 / 2        7 / 13         0 / 1        nan
+       cusum                       4    0 / 2        7 / 13         0 / 1        nan
+       cusum                       6    0 / 2        7 / 13         0 / 1        nan
+       objscore                    0    1 / 2        2 / 13         1 / 1       28.0
+       objscore                    1    1 / 2        2 / 13         1 / 1       26.0
+       objscore                    2    0 / 2        3 / 13         1 / 1        nan
+

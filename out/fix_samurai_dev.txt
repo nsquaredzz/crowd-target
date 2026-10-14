@@ -1,0 +1,6 @@
+SAM 2.1 b+ + samurai on MOT20 episodes (dev), 2026-10-14
+
+bin         n  recov  switch  (gap  post)  lost  delay
+20-40       2      1       1     0      1     0    7.0
+40-80       2      0       2     1      1     0    nan
+all         4      1       3     1      2     0    7.0

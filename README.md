@@ -75,6 +75,46 @@ appearance does not move at a switch (the martingale is silent; MOT20 has few); 
 number on LaSOT, VOT-LT, LVOS or MOSE (not run); a learned ReID embedding (not used);
 everything that would follow the alarm (re-detection, identity sets) is planned, not built.
 
+## Part IV (2026-10-14, evening): the sound tracker, census first
+
+Status: **census done, tracker not built.** The ground-truth census (RESULTS.md Part IV) killed
+the plan on its tube criterion and left resolution at 21 % against a 60 % pass line: on MOT20,
+neighbour bookkeeping excludes 61 % of impostors, the colour budget 36 %, height 11 %, the tube
+10 %; certified anchors confirm with 13 right / 1 wrong but the surrounding crowd is too small to
+bound their false rate. After Piece 1 closed, two published fixes were re-implemented on top of
+frozen SAM 2.1 for comparison (`python/crowdtarget/fixes.py`: SAMURAI's motion-aware memory, and
+a DAM4SAM-style distractor-anchor rule, deviations listed in the docstring; `run_episodes.py
+--fix`). SAMURAI still switches on MOT20-05 id 611: the impostor walks where the Kalman filter
+predicts and is accepted into memory. A point prediction is the wrong object for a hidden person.
+
+The new design outputs a **set** of identity hypotheses and commits only when certificates leave
+one, or confirm one. Every layer is one-sided with a stated hypothesis: the colour budget
+(bin-wise maximum over views of an illumination-corrected, height-normalised chromaticity
+histogram; excess mass certifies "not a sub-view of anything seen", worst case over the gains
+estimated from the static background), conservation, the tube (reachable set through the other
+people's boxes, with a failure signal), neighbour continuity on the public detections, metric
+height from the ground plane, and two crowd-relative confirmations (rare colours, distinctive
+certified texture anchors) whose false rate is the share of the surrounding crowd that passes
+them. Commits are revocable (backtracking from a checkpoint). Theorems 1–8 in THEORY.md Part IV.
+
+**Not new.** Chromaticity and the diagonal illumination model; histogram intersection (Swain,
+Ballard 1991, the opposite containment direction); colour-constant indexing (Funt, Finlayson
+1995); background medians; occlusion geodesics (Possegger et al. 2014); reachable sets; multiple
+hypothesis tracking; network-flow association; height as a soft biometric; SAM2Long's memory
+branching; SAM2MOT; split conformal; the certified patch test of certified-track.
+
+**New, to my knowledge.** Identity after occlusion as a sound set-valued estimate with a coverage
+theorem in which every layer is a one-sided certificate with its hypothesis stated and its
+violation rate measured; the height-normalised bin-wise-maximum budget and its certified excess;
+the tube as a theorem with a failure signal; certificate-pruned SAM 2 memory forks; crowd-relative
+confirmation; and the identifiability census of MOT20 occlusion episodes layer by layer
+(`scripts/census.py`, `out/census.txt`), which bounds what any method built from colour, motion,
+height and bookkeeping can do on this data.
+
+**Missing.** The tracker itself (P2 of the plan) is built only if the census passes its kill
+criteria; shadows and mixed colour temperature; night footage; detector recall in dense crowds;
+anything learned.
+
 ## Licence
 
 MIT for this code. MOT20 and the SAM 2.1 weights stay under their own terms and are fetched

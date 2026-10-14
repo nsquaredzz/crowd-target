@@ -1,0 +1,153 @@
+Identifiability census of MOT20 occlusion episodes, ground truth only, 2026-10-14
+
+120 episodes; thresholds two-fold cross-conformal at alpha 0.05 per layer (tau on E_min, q on conservation, kappa on |d rho|).
+
+Per sequence: speed bound v_max (heights/frame), height-model residual, detector recall at vis >= 0.5, continuity-rule violation rate
+  MOT20-01: v_max 0.042  height rel-resid 0.121  det recall 0.955  rule violated 7 of 191 certain runs (3.7 %)
+  MOT20-02: v_max 0.049  height rel-resid 0.132  det recall 0.956  rule violated 42 of 1288 certain runs (3.3 %)
+  MOT20-03: v_max 0.043  height rel-resid 0.114  det recall 0.672  rule violated 110 of 2421 certain runs (4.5 %)
+  MOT20-05: v_max 0.041  height rel-resid 0.150  det recall 0.765  rule violated 192 of 5034 certain runs (3.8 %)
+
+group       n  cover |S| med  single conf+ conf- resolved |  disc  tube neigh height budget |   E50   E90  E>.3 |   inX leftX empty  hand  occl |  rare shows fRare  anch aTrue fAnch
+all       120   0.82     3.0    0.21     0     0     0.21 |    12    11     4      4      3 |  0.00  0.06  0.00 |  0.88  0.17  0.07  20.7  36.8 |  0.11  0.77  0.02   5.6  0.32  0.09
+20-40      77   0.92     2.0    0.30     0     0     0.30 |     9     9     3      3      2 |  0.00  0.04  0.00 |  0.92  0.14  0.05  14.0  25.0 |  0.12  0.89  0.00   5.9  0.40  0.06
+40-80      29   0.72     4.0    0.07     0     0     0.07 |    18    17     8      7      4 |  0.00  0.06  0.00 |  0.81  0.21  0.07  27.3  48.4 |  0.07  0.50  0.07   4.6  0.18  0.10
+80+        14   0.50     4.5    0.00     0     0     0.00 |    31    24    14     10      4 |  0.01  0.16  0.00 |  0.80  0.29  0.14  44.0  77.2 |  0.14  0.50  0.00   6.4  0.14  0.21
+MOT20-01    3   1.00     3.0    0.33     0     0     0.33 |     9     9     4      3      3 |  0.00  0.01  0.00 |  1.00  0.00  0.00  14.3  21.7 |  0.00   nan  0.00  11.0  0.00  0.00
+MOT20-02   22   0.77     4.0    0.05     0     0     0.05 |    14    12     5      5      4 |  0.00  0.02  0.00 |  0.89  0.27  0.00  19.6  33.8 |  0.14  0.33  0.09  13.0  0.29  0.09
+MOT20-03   25   0.80     1.0    0.32     0     0     0.32 |    12     8     2      2      1 |  0.00  0.06  0.00 |  0.68  0.36  0.16  13.9  23.4 |  0.12  1.00  0.00   4.3  0.38  0.00
+MOT20-05   70   0.84     2.5    0.21     0     0     0.21 |    13    12     4      4      2 |  0.00  0.06  0.00 |  0.94  0.09  0.06  23.7  43.1 |  0.10  0.86  0.00   3.6  0.35  0.13
+
+Columns: cover = true person in the final set; |S| med = median set size; single = singleton and correct; conf+/- = commits by
+confirmation (anchor, then 2 rare colours, then 1) right/wrong; resolved = single + conf+; disc..budget = median candidates left
+after each layer; E50/E90 = quantiles of the true person's certified excess at exit; E>.3 = share above 0.3; inX = share of gap
+frames with the true foot inside the tube; leftX = share of episodes outside it at the gap's end; empty = tube emptied at least
+once; hand = hand-overs; occl = occluders involved; rare = episodes with >= 1 rare colour; shows = true person shows one at
+exit; fRare = surviving impostors showing one; anch = distinctive anchors kept; aTrue = true person certified by one; fAnch =
+surviving impostors certified.
+
+True person dropped by layer: budget: 8, tube: 7, height: 5, disc: 1
+
+Verdict against the plan's kill criteria: KILL: true person outside X_t at the end of the gap on 18 % of episodes (> 10 %)
+
+episode                    g disc tube neigh  hgt  bud                outcome E_true rare anch  inX occl
+MOT20-01_43_199           33   14   14     7    6    6              ambiguous   0.00    0    0 1.00   32
+MOT20-01_45_235           24    9    9     4    3    3              ambiguous   0.00    0    0 1.00   29
+MOT20-01_42_256           22    4    4     1    1    1              singleton   0.02    0    0 1.00    4
+MOT20-02_208_31           22    6    6     3    3    3              ambiguous   0.00    0    4 0.95   15
+MOT20-02_205_32           32   14   14     7    6    6              ambiguous   0.00    0    2 1.00   26
+MOT20-02_226_241          33   12   12     4    4    3        excluded@budget   0.01    0    0 0.88   21
+MOT20-02_246_245          65   16   16     8    8    2              ambiguous   0.00    0    0 1.00   33
+MOT20-02_235_426         102   18   17     9    8    6              ambiguous   0.01    0    0 0.77   37
+MOT20-02_247_440         163   21   16     4    4    4              ambiguous   0.02    0    0 1.00   36
+MOT20-02_265_556          70   14   10     4    3    3          excluded@tube   0.02    0    0 0.04   21
+MOT20-02_258_698          25   15   15     7    7    4              ambiguous   0.00    0    0 1.00   39
+MOT20-02_257_835         144   22   22    18   14    4        excluded@budget   0.19    0    0 1.00   58
+MOT20-02_291_964          59   13   11     5    5    4              ambiguous   0.00    0    0 1.00   22
+MOT20-02_82_1026          38    8    8     2    2    1        excluded@budget   0.00    7    2 0.97    7
+MOT20-02_4_1283           51   18   15     5    5    5              ambiguous   0.00    0    0 0.92   40
+MOT20-02_32_1402          24    5    4     1    1    1              singleton   0.00    0    1 1.00   27
+MOT20-02_18_1404          31   13   13     3    3    2              ambiguous   0.00    0    0 1.00    9
+MOT20-02_30_1630          21    9    9     4    4    3              ambiguous   0.00    0    1 1.00   54
+MOT20-02_60_1777          23    8    8     4    4    4              ambiguous   0.00    0    2 1.00   43
+MOT20-02_46_1809          21    9    9     6    6    6              ambiguous   0.00    0    0 1.00   39
+MOT20-02_78_2057          62   26   26    17   17   16              ambiguous   0.00    0    0 0.76   88
+MOT20-02_69_2136          43   19   18    10    7    2        excluded@height   0.00    0    0 1.00   50
+MOT20-02_126_2273         28    7    7     6    6    6              ambiguous   0.00    0    0 1.00   32
+MOT20-02_129_2453         46   19   18    11    8    8              ambiguous   0.00    0    0 0.33   32
+MOT20-02_134_2620         27    8    6     4    4    4              ambiguous   0.00    0    0 0.85   15
+MOT20-03_169_136          43    8    3     0    0    0          excluded@tube   0.00    0    0 0.23    2
+MOT20-03_85_171           21   10   10     1    1    1              singleton   0.00    0    0 1.00   28
+MOT20-03_97_250           56   38   38    11   11   11              ambiguous   0.00    0    1 1.00   51
+MOT20-03_49_374           28   10    9     4    3    3              ambiguous   0.00    0    1 0.04    7
+MOT20-03_428_440          32   14    8     1    1    1              singleton   0.00    0    0 0.00    8
+MOT20-03_58_700           28    7    7     2    2    2              ambiguous   0.00    0    0 1.00   17
+MOT20-03_28_704           44    6    6     3    3    3              ambiguous   0.00    0    0 1.00   11
+MOT20-03_46_712           22    2    2     1    1    1              singleton   0.00    0    1 0.05    1
+MOT20-03_282_724          36   18   13     3    2    2              ambiguous   0.05   11    1 0.47   10
+MOT20-03_6_764            81   34    7     0    0    0          excluded@tube   0.00    6    0 0.09   10
+MOT20-03_326_946         175   60    1     0    0    0          excluded@tube   0.07    0    0 0.21    7
+MOT20-03_316_1078         30    5    5     2    1    1          excluded@disc   0.00    0    0 1.00   18
+MOT20-03_457_1225         32   16   15     4    3    1              singleton   0.02    0    0 1.00   22
+MOT20-03_268_1231         26   12   12     2    2    2              ambiguous   0.00    0    0 1.00   26
+MOT20-03_414_1237         30    5    4     1    1    1              singleton   0.00    0    0 1.00    8
+MOT20-03_237_1363         48    8    7     1    1    0          excluded@tube   0.00    0    0 0.00   29
+MOT20-03_382_1490         26    9    9     3    3    1              singleton   0.01    0    0 1.00   37
+MOT20-03_598_1514         36   15   15     4    4    4              ambiguous   0.00    0    0 1.00   46
+MOT20-03_348_1556         57   29   29     8    7    6              ambiguous   0.06    0    0 1.00   81
+MOT20-03_379_1727         20   12   12     5    5    5              ambiguous   0.00    0    0 1.00   34
+MOT20-03_609_1802         38   14    7     2    2    1              singleton   0.00    9    1 0.00   12
+MOT20-03_549_1826         32    3    3     2    2    2              ambiguous   0.07    0    0 1.00    1
+MOT20-03_614_1894         22    6    6     2    2    1              singleton   0.00    0    0 1.00   17
+MOT20-03_610_2082         44   14   12     4    4    4              ambiguous   0.00    0    0 1.00   52
+MOT20-03_505_2119         58   12   12     8    5    3              ambiguous   0.01    0    0 1.00   49
+MOT20-05_140_35           41    9    9     7    7    6              ambiguous   0.00    0    0 1.00   27
+MOT20-05_836_36           28   11   11     3    3    1              singleton   0.00    0    0 1.00   33
+MOT20-05_172_107          70   32   32    14   14    9              ambiguous   0.00    0    0 1.00   95
+MOT20-05_1123_169         39   17   15     3    3    1              singleton   0.02    0    0 1.00   35
+MOT20-05_425_225          21    7    7     3    2    2              ambiguous   0.00    0    0 1.00    7
+MOT20-05_245_308          34   17   17     6    6    3              ambiguous   0.00    0    0 1.00   61
+MOT20-05_229_324          33   16   16     8    8    5              ambiguous   0.05    0    5 1.00   64
+MOT20-05_156_354          91   42   42    19   13    6              ambiguous   0.00    0    0 1.00   81
+MOT20-05_157_489          26    8    8     3    3    3              ambiguous   0.00    1    0 1.00   38
+MOT20-05_68_669           53   23   21     6    6    1              singleton   0.00    0    0 1.00   91
+MOT20-05_58_703           44   19   18    11   11   11              ambiguous   0.00    0    3 1.00   83
+MOT20-05_1157_716         30   17   17     8    8    6              ambiguous   0.00    0    0 1.00   33
+MOT20-05_23_771           38   24   24     8    8    7              ambiguous   0.00    0    0 1.00   46
+MOT20-05_934_820          22    3    3     1    1    1              singleton   0.00    0    0 1.00    9
+MOT20-05_21_848           51   27   27    10    9    8              ambiguous   0.00    0    0 1.00   80
+MOT20-05_981_899          61   18   17     4    2    2              ambiguous   0.00    0    0 1.00   29
+MOT20-05_572_951          22    9    9     4    4    4              ambiguous   0.01    0    4 0.95   20
+MOT20-05_24_1012          28   15   13     2    2    2              ambiguous   0.00    0    0 1.00   13
+MOT20-05_934_1025         55    7    7     4    2    1              singleton   0.00    0    0 0.96   17
+MOT20-05_1155_1025        94   28   28    16   11    7        excluded@budget   0.14    0    0 0.83   81
+MOT20-05_16_1042          24    5    5     2    2    2              ambiguous   0.00    0    0 1.00   13
+MOT20-05_1128_1114        39   13   13     7    7    2        excluded@budget   0.15    0    0 1.00   40
+MOT20-05_793_1132         22    8    8     2    2    1              singleton   0.00    0    0 1.00   30
+MOT20-05_973_1204         21    8    8     2    2    2              ambiguous   0.00    0    0 1.00   15
+MOT20-05_901_1217         20    9    9     3    3    3              ambiguous   0.01    0    3 1.00   15
+MOT20-05_1039_1227       137   86   86    48   45   34              ambiguous   0.00    0    3 1.00  184
+MOT20-05_642_1318         29    8    7     2    2    2              ambiguous   0.00    0    0 1.00   17
+MOT20-05_1036_1379        59   30   26    11   11    8              ambiguous   0.06    0    1 0.19   58
+MOT20-05_1076_1382        21    6    6     3    3    2              ambiguous   0.00    0    1 1.00   28
+MOT20-05_427_1388         33   21   20     8    8    4              ambiguous   0.00    0    0 1.00   49
+MOT20-05_426_1423         31   18   17     6    6    6              ambiguous   0.00    0    0 1.00   22
+MOT20-05_933_1461         21    7    7     3    3    2              ambiguous   0.00    0    0 1.00   21
+MOT20-05_426_1723         26   13   13     4    4    4              ambiguous   0.00    0    2 1.00   35
+MOT20-05_989_1723         25    8    7     2    1    1              singleton   0.03    0    0 0.80   16
+MOT20-05_1010_1743        44   24   24    14   11    8              ambiguous   0.00    0    0 1.00   79
+MOT20-05_954_1768         36    9    9     4    2    0        excluded@height   0.00    6    0 1.00   40
+MOT20-05_931_1845         22    4    4     1    1    1              singleton   0.04    0    0 1.00   15
+MOT20-05_965_1890         52   11   11     3    1    1        excluded@height   0.20    0    0 1.00   56
+MOT20-05_642_1914         38   13   13     6    6    4              ambiguous   0.00    0    6 1.00   41
+MOT20-05_523_1920         91   27   27     8    7    2        excluded@budget   0.16    0    0 1.00   69
+MOT20-05_1018_1924        22    7    7     1    1    1              singleton   0.00   13    0 1.00   10
+MOT20-05_731_2017         48    2    1     1    0    0          excluded@tube   0.00    0    0 0.08   27
+MOT20-05_534_2021         23   11   11     2    2    2              ambiguous   0.01    0    1 1.00   20
+MOT20-05_544_2030         48   19   19     5    5    5              ambiguous   0.00    7    0 1.00   47
+MOT20-05_556_2061         28   12   12     5    5    5              ambiguous   0.00    0    0 1.00   20
+MOT20-05_885_2119         57   16   16     8    8    0        excluded@budget   0.25    0    0 1.00   38
+MOT20-05_403_2132         29   13   13     5    5    5              ambiguous   0.00    0    0 1.00   21
+MOT20-05_572_2146         39   14   14     5    5    4              ambiguous   0.00    0    1 1.00   36
+MOT20-05_480_2174         38    9    9     2    1    1        excluded@height   0.15    0    0 1.00   32
+MOT20-05_439_2193         25   11   11     2    2    1              singleton   0.00    0    0 1.00   17
+MOT20-05_732_2194         21    5    5     3    2    2              ambiguous   0.00    0    0 1.00    7
+MOT20-05_506_2197         62   19   19     8    7    6        excluded@height   0.00    0    0 1.00   78
+MOT20-05_448_2351         22    8    8     4    4    4              ambiguous   0.02    0    0 1.00   22
+MOT20-05_444_2375         28   13   13     6    6    3              ambiguous   0.05    0    0 1.00   22
+MOT20-05_611_2418         51   19   19    10   10    7              ambiguous   0.00    0    0 1.00   38
+MOT20-05_767_2476         22    6    6     1    1    1              singleton   0.00    7    0 1.00   16
+MOT20-05_731_2577        112   16    3     2    0    0          excluded@tube   0.00    0    0 0.29    6
+MOT20-05_1206_2654        31    6    6     1    1    1              singleton   0.00    0    0 1.00    8
+MOT20-05_641_2759         33   12   12     6    6    4              ambiguous   0.00    0    0 1.00   59
+MOT20-05_898_2769         37   21   21     7    7    5              ambiguous   0.04    4    0 1.00   59
+MOT20-05_571_2840         34    6    3     1    1    1              singleton   0.00    0    0 0.74    4
+MOT20-05_920_2898        102   64   58    34   29   17              ambiguous   0.00    0    0 1.00  115
+MOT20-05_758_2910         86   46   42    22   19   17              ambiguous   0.00    0    0 1.00  118
+MOT20-05_762_2946         98   68   65    41   30    5              ambiguous   0.00    0    0 1.00  153
+MOT20-05_736_3101        129   21   21    11    4    2        excluded@budget   0.07    0    0 1.00  126
+MOT20-05_652_3136         37   15   13     5    5    3              ambiguous   0.06    0    0 1.00   34
+MOT20-05_849_3187         25    9    9     3    3    2              ambiguous   0.00    0    2 1.00   36
+MOT20-05_700_3195         24   11   11     5    5    1              singleton   0.00    0    0 1.00   16
+MOT20-05_806_3198         21    6    6     3    3    3              ambiguous   0.00    0    0 0.05   14
+MOT20-05_682_3203         25    9    9     3    3    1              singleton   0.00    0    1 1.00   35

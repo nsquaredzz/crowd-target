@@ -90,3 +90,69 @@ recovered episode at every alpha, and the one setting that does not alarm (the j
 twelfth frame) detects nothing. Proof videos: `out/proof_recovered_MOT20-01_42.mp4` (recovered,
 wealth rising through the gap and after it) and `out/proof_switch_MOT20-05_611.mp4` (the switch
 inside the gap).
+
+## Part IV — the sound tracker: census first (2026-10-14, evening)
+
+Plan `~/.claude/plans/streamed-mixing-shell.md`, theorems in THEORY.md Part IV. The design outputs
+a set of identity hypotheses and commits only when one-sided certificates leave one or confirm
+one. Before building the tracker, a ground-truth-only census measured what each certificate buys
+on all 120 MOT20 episodes (`scripts/census.py`, `out/census.{json,txt}`, 5 s per episode, two-fold
+cross-conformal thresholds at alpha 0.05 per layer).
+
+**Verdict: killed on the plan's tube criterion, and far from the pass line.** The true person's
+foot point is outside the tube at the end of the gap on 18 % of episodes (criterion: 10 %); the
+set is resolved to the right singleton on 21 % (pass: 60 %); median set size 3 (pass: 1).
+
+| | n | coverage | set median | singleton correct | disc → tube → neighbour → height → budget (median candidates) | E(true) q90 | true left tube | hand-overs | occluders |
+|---|---|---|---|---|---|---|---|---|---|
+| all | 120 | 0.82 | 3 | 21 % | 12 → 11 → 4 → 4 → 3 | 0.06 | 17 % | 20.7 | 36.8 |
+| gap 20-40 | 77 | 0.92 | 2 | 30 % | 9 → 9 → 3 → 3 → 2 | 0.04 | 14 % | 14.0 | 25.0 |
+| gap 40-80 | 29 | 0.72 | 4 | 7 % | 18 → 17 → 8 → 7 → 4 | 0.06 | 21 % | 27.3 | 48.4 |
+| gap 80+ | 14 | 0.50 | 4.5 | 0 % | 31 → 24 → 14 → 10 → 4 | 0.16 | 29 % | 44.0 | 77.2 |
+
+Coverage: the true person was dropped by the budget on 8 episodes, the tube on 7, height on 5,
+the disc on 1 (21 of 120; the three conformal layers at alpha 0.05 each account for about 15 of
+those, as the theorem allows; the tube's 7 are hypothesis failures).
+
+**What each layer buys, measured on the 1,746 impostors inside the reach disc, each layer alone:**
+
+| layer | impostors excluded | hypothesis violation (true person wrongly excluded) |
+|---|---|---|
+| neighbour continuity (visible >= 80 % of the gap) | 61 % | 0 of 120 (ground-truth oracle); detector rule violated on 3.3-4.5 % of certain runs |
+| colour budget + conservation | 36 % | 8 of 120 (6.7 %, alpha 0.05 x 2 layers) |
+| metric height | 11 % | 5 of 120 |
+| tube (reachable set through the other people's boxes) | 10 % | 21 of 120 outside at gap end; 7 excluded at exit |
+
+Bookkeeping does the work. Colour is second and is sound (median certified excess of the true
+person 0.00, 90th percentile 0.06) but weak: MOT20 is dark coats, and the two cross-fold
+thresholds differ by a factor of three (0.19 / 0.07) because seven outdoor episodes in MOT20-05
+show excess 0.14-0.25 on the true person: shadows and colour temperature, outside the diagonal
+model, exactly where THEORY.md said it would fail. Height removes one impostor in nine: people
+are the same height. The tube, in a crowd this dense, covers the disc: it touched a median of 37
+other people over a gap and removes one impostor in ten; its hypotheses fail most in MOT20-03
+(9 of 25 episodes, mean time inside 0.12: the person is hidden by something that is not a person).
+
+**Confirmation (the human "red hat").** Rare colours exist on 11 % of episodes; where they exist
+the true person still shows one at exit on 77 %. Distinctive anchors: 5.6 kept per episode, the
+true person certified at exit on 32 %, a surviving impostor certified on 0.09 per episode. The
+commit rule with the crowd-measured bound (`|S| p̄ <= 0.1`) never fired: the reference crowd is
+25-50 people, so the Clopper-Pearson bound on a 0-count is 0.06-0.11 and no set of two or more
+qualifies. Without the bound, "exactly one survivor passes" gives anchors 13 right / 1 wrong,
+rare colours 4 / 0: a useful cue with 93 % measured precision that this crowd is too small to
+certify.
+
+**Detector recall** of the public detections at visibility >= 0.5: 0.96 (MOT20-01, 02), 0.67
+(03), 0.77 (05). In a tracker the candidate set would miss the true person on up to a third of
+exits in MOT20-03; Theorem 6's `P(D)` term is the largest in the bound there.
+
+**P1 redone with the budget score** (`scripts/p1_sound_alarm.py`, `out/p1s_p0_sam2_bp_dev.txt`):
+the embedding distance alarmed on 13 of 13 recovered episodes; the certified excess alarms on
+5 of 13 (mixture, alpha 0.05, k = 4) and 3 of 13 (jumper), and detects 0 of 2 switches, because
+both impostors wear the target's palette. The jumper at k = 12 alarms on none and detects none.
+Kill criterion (false alarms > 2 alpha) still failed; the score is sound but has no power here.
+
+**What is kept.** Theorems 1-8 with their hypotheses; the layer-by-layer identifiability of
+MOT20 (bookkeeping 61 %, colour 36 %, height 11 %, reach 10 %); the confirmation precision of
+certified anchors (13/1) and rare colours (4/0); the per-sequence hypothesis checks (tube
+containment, detector recall, continuity-rule violation 3-5 %). What is not built: the tracker
+(P2), by the plan's own rule.

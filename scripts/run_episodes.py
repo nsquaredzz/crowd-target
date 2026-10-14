@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "python"))
 
 from crowdtarget import episodes as E  # noqa: E402
+from crowdtarget import fixes  # noqa: E402
 from crowdtarget import metrics as M  # noqa: E402
 from crowdtarget import sam2io  # noqa: E402
 from crowdtarget.data.frames import FrameSource, LazyFrames  # noqa: E402
@@ -33,7 +34,7 @@ def machine_info(pred):
     return _machine_info({"device": pred.crowdtarget_device, "model": pred.crowdtarget_model})
 
 
-def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4):
+def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4, fix_kind: str | None = None):
     paths = [frame_path(seq_dir, t, info) for t in range(ep.t_start, ep.t_end + 1)]
     src = FrameSource(paths)
     lazy = LazyFrames(src)
@@ -41,6 +42,10 @@ def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4)
     sam2io.prompt_box(pred, state, 0, 1, ep.start_box)
     T = len(src)
     H, W = src.H, src.W
+    fix = fixes.make_fix(fix_kind, pred, W, H, ep.start_box)
+    if fix:
+        fix.install()
+    diag = []
     masks_small = np.zeros((T, H // down, W // down), bool)
     scores = np.full(T, np.nan, np.float32)
     boxes = np.full((T, 4), np.nan, np.float32)
@@ -50,9 +55,13 @@ def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4)
     tg = targets(gt)
     for i in range(T):
         t = ep.t_start + i
+        if fix and i > 0:
+            fix.before_step(state, i)
         out, dt = sam2io.timed_step(pred, state, i)
         secs.append(dt)
         mask, score = out[1]
+        if fix and i > 0:
+            diag.append(fix.after_step(state, i, mask, score))
         scores[i] = score
         masks_small[i] = mask[::down, ::down][: H // down, : W // down]
         bb = mask_bbox(mask)
@@ -69,7 +78,9 @@ def run_episode(ep: E.Episode, pred, embedder, gt, info, seq_dir, down: int = 4)
                 "first_absent_frame": next((ep.t_start + i for i in range(T) if scores[i] <= 0), None)})
     arrays = {"masks_small": np.packbits(masks_small, axis=-1), "mask_shape": np.array(masks_small.shape), "scores": scores,
               "boxes": boxes, "embs": embs, "outcomes": np.array(outcomes), "frames": np.arange(ep.t_start, ep.t_end + 1),
-              "secs": np.array(secs)}
+              "secs": np.array(secs), "diag": np.array(json.dumps(diag))}
+    if fix:
+        fix.uninstall()
     del state
     return res, arrays
 
@@ -81,11 +92,16 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--device", default=None)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--fix", default=None, choices=[None, "samurai", "dam"], help="published fix to apply (crowdtarget/fixes.py)")
+    ap.add_argument("--first", default=None, help="comma list of <seq>_<id> to run before the rest")
     a = ap.parse_args()
     eps = E.read(ROOT / "data" / "episodes" / f"mot20_{a.set}.json")
+    if a.first:
+        first = a.first.split(",")
+        eps = sorted(eps, key=lambda e: (f"{e.seq}_{e.id}" not in first, first.index(f"{e.seq}_{e.id}") if f"{e.seq}_{e.id}" in first else 0))
     if a.limit:
         eps = eps[: a.limit]
-    stem = a.out or f"p0_sam2_{a.model.replace('+', 'p')}_{a.set}"
+    stem = a.out or (f"fix_{a.fix}_{a.set}" if a.fix else f"p0_sam2_{a.model.replace('+', 'p')}_{a.set}")
     runs = ROOT / "data" / "runs" / stem
     runs.mkdir(parents=True, exist_ok=True)
     pred = sam2io.build(a.model, a.device)
@@ -106,16 +122,16 @@ def main():
             print(f"[{k + 1}/{len(eps)}] {ep.seq} id {ep.id}: kept from the earlier run ({old[key]['outcome']})", flush=True)
             continue
         t0 = time.time()
-        res, arrays = run_episode(ep, pred, embedder, gt_cache[ep.seq], info_cache[ep.seq], seq_dir)
+        res, arrays = run_episode(ep, pred, embedder, gt_cache[ep.seq], info_cache[ep.seq], seq_dir, fix_kind=a.fix)
         np.savez_compressed(runs / f"{ep.seq}_{ep.id}_{ep.gap_start}.npz", **arrays)
         res["seconds"] = round(time.time() - t0, 1)
         records.append(res)
         print(f"[{k + 1}/{len(eps)}] {ep.seq} id {ep.id} g {ep.g:3d} {ep.bin:>6s}: {res['outcome']:9s} "
               f"{('-> ' + str(res['switch_id']) + ' at ' + str(res['switch_frame']) + ' (' + str(res['switch_phase']) + ')') if res['outcome'] == 'switched' else ''} "
               f"post-correct {100 * res['post_correct_frac']:.0f} %  {res['s_per_frame']:.2f} s/frame  {res['seconds']} s", flush=True)
-        payload = {"machine": machine_info(pred), "set": a.set, "records": records, "summary": M.summarise(records),
+        payload = {"machine": machine_info(pred), "set": a.set, "fix": a.fix, "records": records, "summary": M.summarise(records),
                    "seconds": round(time.time() - t_all, 1)}
-        write_out(stem, payload, M.format_summary(payload["summary"], f"SAM 2.1 {a.model} alone on MOT20 episodes ({a.set}), {time.strftime('%Y-%m-%d')}"))
+        write_out(stem, payload, M.format_summary(payload["summary"], f"SAM 2.1 {a.model} {('+ ' + a.fix) if a.fix else 'alone'} on MOT20 episodes ({a.set}), {time.strftime('%Y-%m-%d')}"))
     print(M.format_summary(M.summarise(records), stem))
 
 
