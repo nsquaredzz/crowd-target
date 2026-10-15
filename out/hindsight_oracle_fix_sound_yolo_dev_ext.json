@@ -1,0 +1,80 @@
+{
+ "records": [
+  {
+   "seq": "MOT20-03",
+   "id": 169,
+   "gap_start": 136,
+   "gap_end": 178,
+   "g": 43,
+   "bin": "40-80",
+   "forward_outcome": "lost",
+   "triggered": true,
+   "t_a": 140,
+   "t_b": 193,
+   "reach_px": 253.48936170212767,
+   "n_cands": 8,
+   "cand_gt_ids": [
+    169,
+    496,
+    495,
+    501,
+    106,
+    95,
+    498,
+    88
+   ],
+   "true_in_cands": true,
+   "meet": [
+    0.94,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "decision": "commit",
+   "set_gt_ids": [
+    169
+   ],
+   "backward_seconds": 508.6,
+   "backward_frames": 65,
+   "meet_true": 0.9402985074626866,
+   "meet_best_other": 0.0,
+   "rank_true": 1,
+   "committed_gt_id": 169,
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 4,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 55,
+   "seconds": 511.1,
+   "extended_from": 193
+  }
+ ],
+ "summary": {
+  "40-80": {
+   "n": 1,
+   "recovered": 1,
+   "switched": 0,
+   "lost": 0,
+   "ambiguous": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 4.0
+  },
+  "all": {
+   "n": 1,
+   "recovered": 1,
+   "switched": 0,
+   "lost": 0,
+   "ambiguous": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 4.0
+  }
+ }
+}

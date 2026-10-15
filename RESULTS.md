@@ -312,3 +312,16 @@ the matching step alone: decision 15 frames after the ground-truth re-emergence,
 target and the 7 people nearest it (ground-truth boxes), same meet rule. Kill: the true person
 committed on fewer than 10 of the 13 triggered episodes, or any wrong commit. Only if it passes is
 candidate generation worth building.
+
+## Part VIII — held-out benchmark (launched 2026-10-15, written before any held-out result)
+
+The 96 held-out MOT20 episodes (69 / 21 / 6 by gap bin; MOT20-05 60, -03 19, -02 15, -01 2;
+12,313 frames), never looked at while any rule in this repository was written. Runs, all on the M4:
+SAM 2.1 base+ alone (`p0_sam2_bp_held`); our tracker exactly as in Part V (`--fix sound`, variant v1,
+YOLO11x detections at 1920, `fix_sound_yolo_held`); SAM 2.1 + SAMURAI (`fix_samurai_held`), last,
+if time allows. Hindsight is not part of this benchmark: its candidate generation is not built.
+
+Primary metric: episodes ending on the wrong person (switched). Secondary: recovered; lost; ambiguous
+with the true person in the set. Predictions written now: our tracker has at most half of SAM 2.1's
+switched episodes, and recovers within 3 episodes of SAM 2.1. If switched is not halved, the claim
+"it stops identity switches" is dropped from the write-up.

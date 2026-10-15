@@ -131,7 +131,7 @@ def main():
                              f"{(time.time() - t0) / max(len(frames), 1):.2f} s/frame")
                 print(lines[-1], flush=True)
     text = "\n".join(lines) + "\n"
-    write_out("detector_recall", {"results": results, "conf": a.conf, "weights_sha256": (ROOT / "data" / "detector" / "yolo11x.sha256").read_text().split()[0]
+    write_out("detector_recall" + (f"_{a.set}" if a.set else ""), {"results": results, "conf": a.conf, "weights_sha256": (ROOT / "data" / "detector" / "yolo11x.sha256").read_text().split()[0]
                                    if (ROOT / "data" / "detector" / "yolo11x.sha256").exists() else None}, text)
     print(text)
 

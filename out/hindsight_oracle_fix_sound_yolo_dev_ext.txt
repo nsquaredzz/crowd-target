@@ -1,0 +1,5 @@
+hindsight_oracle_fix_sound_yolo_dev_ext
+
+bin         n  recov  switch  (gap  post)  lost  ambig  delay
+40-80       1      1       0     0      0     0      0    4.0
+all         1      1       0     0      0     0      0    4.0
