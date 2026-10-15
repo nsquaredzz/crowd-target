@@ -291,3 +291,24 @@ budget and no 21 px template can act there. That episode is outside what these t
 88 % of their occluded frames; the certified step's 0.0 % false rate against neighbours (census 3)
 and 1.7 % off-box rate when templates lie wholly on the person (census 4); `sliver.py` and its
 tests. **Not kept:** any claim that chains carry identity through a gap in this footage.
+
+## Part VII — hindsight tracking (2026-10-15)
+
+Written before the first run. Protocol in `python/crowdtarget/hindsight.py`: the sound tracker (v1)
+runs forward; at its first loss of firmness (5 non-firm frames) the anchor t_a is its last firm frame;
+at the end of the clip t_b every detection within reach becomes a candidate and is tracked backward
+by SAM 2.1, jointly, to t_a - 10; the identity is the candidate whose backward track meets the
+forward track (median IoU >= 0.5 over the last 11 firm frames, second best < 0.25), otherwise the
+set or absent. Kill criteria: any switched episode, or fewer than 13 recovered of the 16 dev
+episodes; pass: 0 switched and >= 14 recovered. The decision frame is the clip end, which the
+episode rules place 60 frames after re-emergence: the one dependence on the episode definition.
+
+*Amendment, before any result, after measuring cost.* A reverse SAM 2.1 step costs about 0.45 s per
+object per frame on the M4 (1, 4, 16 objects: 1.4, 3.5, 10.4 s per frame), and at the clip end the
+reach holds 12-47 detections with the true person ranked 17th-28th by distance on half the episodes,
+or missing (3 of 13: not detected at that frame). The deployment protocol would cost 30-40 minutes per
+episode and is mostly a candidate-generation problem. The first test is therefore an oracle census of
+the matching step alone: decision 15 frames after the ground-truth re-emergence, candidates = the
+target and the 7 people nearest it (ground-truth boxes), same meet rule. Kill: the true person
+committed on fewer than 10 of the 13 triggered episodes, or any wrong commit. Only if it passes is
+candidate generation worth building.
