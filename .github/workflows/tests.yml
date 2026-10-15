@@ -18,12 +18,25 @@ jobs:
           - { os: macos-latest, python: "3.12" }
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: crowd-target
+      - uses: actions/checkout@v4
+        with:
+          repository: nsquaredzz/certified-track
+          path: certified-track
+      - uses: actions/checkout@v4
+        with:
+          repository: nsquaredzz/certified-skip
+          path: certified-skip
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
       - name: Install
         run: |
           python -m pip install numpy pillow scipy pytest
-          python -m pip install -e .
-      - name: Run the tests (martingale validity, episode miner, metrics; no data, no torch)
+          python -m pip install --no-deps -e certified-track -e crowd-target
+      - name: Run the tests (no data, no torch)
+        working-directory: crowd-target
+        env:
+          PYTHONPATH: ${{ github.workspace }}/certified-skip/python
         run: python -m pytest tests -q
