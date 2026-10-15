@@ -1,0 +1,79 @@
+{
+ "records": [
+  {
+   "seq": "MOT20-05",
+   "id": 480,
+   "gap_start": 2174,
+   "gap_end": 2211,
+   "g": 38,
+   "bin": "20-40",
+   "forward_outcome": "lost",
+   "triggered": true,
+   "t_a": 2168,
+   "t_b": 2226,
+   "reach_px": 309.67346938775506,
+   "n_cands": 8,
+   "cand_gt_ids": [
+    480,
+    511,
+    507,
+    508,
+    513,
+    512,
+    517,
+    430
+   ],
+   "true_in_cands": true,
+   "meet": [
+    0.328,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "decision": "ambiguous",
+   "set_gt_ids": [
+    480
+   ],
+   "backward_seconds": 536.9,
+   "backward_frames": 70,
+   "meet_true": 0.32791327913279134,
+   "meet_best_other": 0.0,
+   "rank_true": 1,
+   "outcome": "recovered",
+   "switch_id": null,
+   "switch_frame": null,
+   "switch_phase": null,
+   "delay": 6,
+   "post_correct_frac": 1.0,
+   "n_post_visible": 40,
+   "seconds": 539.1,
+   "extended_from": 2226
+  }
+ ],
+ "summary": {
+  "20-40": {
+   "n": 1,
+   "recovered": 1,
+   "switched": 0,
+   "lost": 0,
+   "ambiguous": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 6.0
+  },
+  "all": {
+   "n": 1,
+   "recovered": 1,
+   "switched": 0,
+   "lost": 0,
+   "ambiguous": 0,
+   "switched_gap": 0,
+   "switched_post": 0,
+   "median_delay": 6.0
+  }
+ }
+}

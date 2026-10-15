@@ -1,0 +1,5 @@
+SAM 2.1 b+ alone on MOT20 episodes (held), 2026-10-15
+
+bin         n  recov  switch  (gap  post)  lost  ambig  delay
+20-40       8      6       2     2      0     0      0    6.0
+all         8      6       2     2      0     0      0    6.0

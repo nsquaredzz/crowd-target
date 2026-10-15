@@ -30,14 +30,34 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default="hindsight_oracle_fix_sound_yolo_dev")
     ap.add_argument("--episode", required=True)
+    ap.add_argument("--rule", default="pre", choices=["pre", "rank"],
+                    help="rank: the rule written after the first episode (best >= 0.1 and >= 3x runner-up); output goes to <run>_ext_rank")
+    ap.add_argument("--min-score", type=float, default=0.0,
+                    help="show the backward track only on frames where its object score exceeds this (2 = confident); elsewhere the person is reported hidden")
     a = ap.parse_args()
     seq, id_, gs = a.episode.rsplit("_", 2)
     id_, gs = int(id_), int(gs)
     rec = next(r for r in json.loads((ROOT / "out" / f"{a.run}.json").read_text())["records"] if r["seq"] == seq and r["id"] == id_ and r["gap_start"] == gs)
-    if rec.get("decision") != "commit":
-        sys.exit(f"{a.episode}: decision was {rec.get('decision')}, nothing to continue")
     z = np.load(ROOT / "data" / "runs" / a.run / f"{a.episode}.npz")
     c = np.load(ROOT / "data" / "runs" / a.run / f"{a.episode}_cands.npz")
+    if a.rule == "pre" and rec.get("decision") != "commit":
+        sys.exit(f"{a.episode}: decision was {rec.get('decision')}, nothing to continue")
+    if a.rule == "rank":
+        m = np.sort(c["meet"])[::-1]
+        if not (m[0] >= 0.1 and m[0] >= 3 * (m[1] if m.size > 1 else 0.0)):
+            sys.exit(f"{a.episode}: the rank rule makes no choice either")
+        t_a_i = int(np.nonzero(z["frames"] == rec["t_a"])[0][0])
+        k0 = int(np.argmax(c["meet"]))
+        bm = np.unpackbits(c["masks"], axis=-1)[..., : int(c["shape"][3])].astype(bool)
+        t0c = int(c["t0"])
+        o = np.unpackbits(z["masks_small"], axis=-1)[:, :, : z["mask_shape"][2]].astype(bool)
+        for i in range(t_a_i + 1, len(z["frames"])):
+            j = int(z["frames"][i]) - t0c
+            o[i] = False
+            if 0 <= j < bm.shape[1] and c["scores"][k0, j] > a.min_score:
+                o[i] = bm[k0, j][: o.shape[1], : o.shape[2]]
+        z = {k: z[k] for k in z.files}
+        z["masks_small"] = np.packbits(o, axis=-1)
     frames = z["frames"]
     out = np.unpackbits(z["masks_small"], axis=-1)[:, :, : z["mask_shape"][2]].astype(bool)
     k = int(np.argmax(c["meet"]))
@@ -68,7 +88,7 @@ def main():
     new = dict(rec)
     new.update(res)
     new["extended_from"] = t_b
-    stem = f"{a.run}_ext"
+    stem = f"{a.run}_ext" + ("_rank" if a.rule == "rank" else "")
     runs = ROOT / "data" / "runs" / stem
     runs.mkdir(parents=True, exist_ok=True)
     diag = [{"state_after": "forward" if int(f) <= rec["t_a"] else ("hindsight (backward)" if int(f) <= t_b else "after commit")} for f in frames]

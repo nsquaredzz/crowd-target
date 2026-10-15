@@ -89,6 +89,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--fps", type=float, default=12)
     ap.add_argument("--down", type=float, default=3)
+    ap.add_argument("--crop", default=None, help="x1,y1,x2,y2 in frame pixels: show only this region (zoom)")
     a = ap.parse_args()
     seq, id_, gap_start = a.episode.rsplit("_", 2)
     id_, gap_start = int(id_), int(gap_start)
@@ -107,6 +108,13 @@ def main():
         img = img.resize((int(W * s), int(H * s)))
         rows = gt[gt[:, 0] == t]
         panels = [panel(img, rows, id_, run, i, lab, s) for run, lab in data]
+        if a.crop:
+            cx1, cy1, cx2, cy2 = [int(round(float(v) * s)) for v in a.crop.split(",")]
+            panels = [p_[cy1:cy2, cx1:cx2] for p_ in panels]
+            # put the label back on top of the crop
+            for j, (run, lab) in enumerate(data):
+                full = panel(img, rows, id_, run, i, lab, s)
+                panels[j] = np.concatenate([full[:24, cx1:cx2] * 0 + full[:24, :cx2 - cx1], panels[j][24:]], 0) if cx2 - cx1 <= full.shape[1] else panels[j]
         row = np.concatenate([np.pad(p, ((0, 0), (0, 4), (0, 0)), constant_values=18) for p in panels], 1)
         phase = "gap" if rec["gap_start"] <= t <= rec["gap_end"] else ("before" if t < rec["gap_start"] else "after")
         summary = "   ".join(f"{lab}: {run['rec']['outcome']}" for run, lab in data)
