@@ -2,5 +2,5 @@ Hindsight on fix_sound_yolo_dev (dev), 2026-10-15
 
 bin         n  recov  switch  (gap  post)  lost  ambig  delay
 20-40       8      2       0     0      0     5      1   11.0
-40-80       2      0       0     0      0     2      0    4.0
-all        10      2       0     0      0     7      1   10.0
+40-80       8      1       0     0      0     7      0    6.0
+all        16      3       0     0      0    12      1    7.0

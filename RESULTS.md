@@ -325,3 +325,23 @@ Primary metric: episodes ending on the wrong person (switched). Secondary: recov
 with the true person in the set. Predictions written now: our tracker has at most half of SAM 2.1's
 switched episodes, and recovers within 3 episodes of SAM 2.1. If switched is not halved, the claim
 "it stops identity switches" is dropped from the write-up.
+
+### Part VII result — oracle census of the matching step (13 triggered dev episodes)
+
+`out/hindsight_oracle_fix_sound_yolo_dev.{json,txt}`, `out/hindsight_oracle_fix_sound_yolo_dev_rules.txt`.
+Eight candidates per episode (the person and the 7 nearest, ground-truth boxes at 15 frames after
+re-emergence), every one tracked backward jointly by SAM 2.1; 5-10 minutes per episode on the M4.
+
+| rule | right person chosen | wrong person chosen | no choice |
+|---|---|---|---|
+| pre-registered (median IoU >= 0.5, runner-up < 0.25) | 9 of 13 | 0 | 4 (505, 480, 611, 652) |
+| written after the first episode (best >= 0.1 and >= 3x runner-up) | 11 of 13 | 0 | 2 (505, 652) |
+
+**Verdict: killed by one episode on the pre-registered bar** (10 of 13 needed). No wrong choice under
+either rule: on every episode where the true person scored above zero, no other candidate scored
+higher; impostors scored 0.00 to 0.07 except on 652 (true 0.23, best other 0.19). Where it matters:
+on 169 hindsight recovers the person our forward tracker lost; on 480, the one where SAM 2.1 ends on
+the wrong person and our tracker loses, the true person is the only candidate whose backward track
+meets (0.33 against 0.00); on 505 (night) no backward track meets at all. The remaining gap to a
+tracker is candidate generation (12-47 detections within reach at the clip end, the true person
+often not among the nearest) and the cost of reverse passes (about 0.45 s per object per frame).

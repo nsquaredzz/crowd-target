@@ -1,0 +1,19 @@
+Hindsight decisions under two meet rules, run hindsight_oracle_fix_sound_yolo_dev
+
+episode                 true best other  pre-registered  rank (post hoc)
+MOT20-01_42_256         0.97       0.00    commit RIGHT     commit RIGHT
+MOT20-02_126_2273       0.93       0.04    commit RIGHT     commit RIGHT
+MOT20-02_129_2453       0.92       0.00    commit RIGHT     commit RIGHT
+MOT20-02_291_964        0.93       0.04    commit RIGHT     commit RIGHT
+MOT20-02_4_1283         0.95       0.00    commit RIGHT     commit RIGHT
+MOT20-03_169_136        0.94       0.00    commit RIGHT     commit RIGHT
+MOT20-03_505_2119       0.00       0.00          absent           absent
+MOT20-03_85_171         0.92       0.07    commit RIGHT     commit RIGHT
+MOT20-05_245_308        0.80       0.03    commit RIGHT     commit RIGHT
+MOT20-05_480_2174       0.33       0.00       ambiguous     commit RIGHT
+MOT20-05_58_703         0.83       0.01    commit RIGHT     commit RIGHT
+MOT20-05_611_2418       0.14       0.00          absent     commit RIGHT
+MOT20-05_652_3136       0.23       0.19          absent        ambiguous
+
+pre-registered: {'right': 9, 'wrong': 0, 'none': 4}
+rank (post hoc): {'right': 11, 'wrong': 0, 'none': 2}
