@@ -45,7 +45,8 @@ gap or after) / lost, by mask-in-box containment.
 python3.12 -m venv .venv
 .venv/bin/pip install torch torchvision numpy pillow scipy pytest hydra-core iopath tqdm
 SAM2_BUILD_CUDA=0 .venv/bin/pip install --no-build-isolation "git+https://github.com/facebookresearch/sam2@$(cat sam2_commit.txt | cut -d' ' -f3)"
-.venv/bin/pip install -e ../certified-skip -e ../certified-track -e .
+.venv/bin/pip install --no-deps -e ../certified-track -e .   # certified-skip is used from its checkout:
+export PYTHONPATH=../certified-skip/python
 .venv/bin/python scripts/fetch_data.py                 # MOT20.zip, 5.03 GB, SHA-256 checked
 .venv/bin/python scripts/mine_episodes.py
 .venv/bin/python -m pytest -q
